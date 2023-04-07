@@ -26,16 +26,16 @@ public class PlayerMovement : MonoBehaviour
     {
         // Get the input from the player and save it in variables
         // horizontal and vertical 
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float dirX = Input.GetAxis("Horizontal");
+        float dirY = Input.GetAxis("Vertical");
 
-        // Make a new vector called movement that tells the player 
+        // Make a new vector called direction that tells the player 
         // where to move 
-        Vector2 movement = new Vector2(horizontal, vertical);
+        Vector2 direction = new Vector2(dirX, dirY);
 
         // Change the velocity of the player to move in the direction
-        // specified by `movement` with the `moveSpeed`
-        rb.velocity = movement * moveSpeed;
+        // specified by `direction` with the `moveSpeed`
+        rb.velocity = direction * moveSpeed;
     }
 
     
