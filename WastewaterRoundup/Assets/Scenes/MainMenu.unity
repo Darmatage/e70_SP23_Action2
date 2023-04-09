@@ -275,7 +275,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1742305824394640008, guid: 9265185e92e07df4c9ee918db30bea25, type: 3}
       propertyPath: m_Text
-      value: GERROFEM
+      value: QUIT
       objectReference: {fileID: 0}
     - target: {fileID: 1742305824394640008, guid: 9265185e92e07df4c9ee918db30bea25, type: 3}
       propertyPath: m_FontData.m_MinSize
@@ -389,7 +389,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1742305824394640008, guid: 9265185e92e07df4c9ee918db30bea25, type: 3}
       propertyPath: m_Text
-      value: WHODUNNIT
+      value: CREDITS
       objectReference: {fileID: 0}
     - target: {fileID: 1742305824394640008, guid: 9265185e92e07df4c9ee918db30bea25, type: 3}
       propertyPath: m_FontData.m_MinSize
@@ -609,6 +609,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 935031505}
     m_Modifications:
     - target: {fileID: 1742305824394640008, guid: 9265185e92e07df4c9ee918db30bea25, type: 3}
+      propertyPath: m_Text
+      value: PLAY
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742305824394640008, guid: 9265185e92e07df4c9ee918db30bea25, type: 3}
       propertyPath: m_FontData.m_MinSize
       value: 4
       objectReference: {fileID: 0}
@@ -771,7 +775,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 123
+    m_FontSize: 105
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -782,7 +786,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'OY LADS
+  m_Text: 'Wastewater
+
+    Roundup
 
 '
 --- !u!222 &1499303667
