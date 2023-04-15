@@ -14,9 +14,17 @@ public class GameHandler : MonoBehaviour {
       public static int gotRedTokens = 0;
 	  public static int gotBlueTokens = 0;
 	  public static int gotGreenTokens = 0;
+	  public static int gotWhiteTokens = 0;
+	  public static int gotAbility1 = 0;
+	  public static int gotAbility2 = 0;
+	  public static int gotAbility3 = 0;
+	  public static int gotAbility4 = 0;
+	  public static int gotAbility5 = 0;
+	  public static int gotAbility6 = 0;
       public GameObject tokensRedText;
 	  public GameObject tokensBlueText;
 	  public GameObject tokensGreenText;
+	  public GameObject tokensWhiteText;
 
       public bool isDefending = false;
 
@@ -40,10 +48,14 @@ public class GameHandler : MonoBehaviour {
       }
 	  public void playerGetBlueTokens(int newBlueTokens){
             gotBlueTokens += newBlueTokens;
-            updateStatsDisplay();
+           updateStatsDisplay();
       }
 	  public void playerGetGreenTokens(int newGreenTokens){
             gotGreenTokens += newGreenTokens;
+            updateStatsDisplay();
+      }
+	  public void playerGetWhiteTokens(int newWhiteTokens){
+            gotWhiteTokens += newWhiteTokens;
             updateStatsDisplay();
       }
 
@@ -82,6 +94,9 @@ public class GameHandler : MonoBehaviour {
 			
 			Text tokensBlueTextTemp = tokensBlueText.GetComponent<Text>();
             tokensBlueTextTemp.text = "BLUE POOP: " + gotBlueTokens;
+			
+			Text tokensWhiteTextTemp = tokensWhiteText.GetComponent<Text>();
+            tokensWhiteTextTemp.text = "WHITE POOP: " + gotWhiteTokens;
       }
 
       public void playerDies(){

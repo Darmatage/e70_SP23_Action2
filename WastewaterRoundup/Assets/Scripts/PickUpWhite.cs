@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
-public class PickUpRed : MonoBehaviour{
+public class PickUpWhite : MonoBehaviour{
 
       public GameHandler gameHandler;
       //public playerVFX playerPowerupVFX;
-      public bool isHealthPickUp = true;
+      public bool isHealthPickUp = false;
       public bool isSpeedBoostPickUp = false;
 
       public int healthBoost = 50;
@@ -23,12 +23,12 @@ public class PickUpRed : MonoBehaviour{
                   GetComponent<Collider2D>().enabled = false;
                   GetComponent<AudioSource>().Play();
                   StartCoroutine(DestroyThis());
-				  GameHandler.gotRedTokens = GameHandler.gotRedTokens + 1;
+				  GameHandler.gotWhiteTokens = GameHandler.gotWhiteTokens + 1;
 
                   if (isHealthPickUp == true) {
-                       gameHandler.playerGetHit(healthBoost * -1);
+                        gameHandler.playerGetHit(healthBoost * -1);
                         //playerPowerupVFX.powerup();
-					}
+                  }
 
                   //if (isSpeedBoostPickUp == true) {
                        // other.gameObject.GetComponent<PlayerMove>().speedBoost(speedBoost, speedTime);

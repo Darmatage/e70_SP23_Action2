@@ -258,9 +258,9 @@ MonoBehaviour:
   gameHandler: {fileID: 0}
   isHealthPickUp: 1
   isSpeedBoostPickUp: 0
-  healthBoost: 50
-  speedBoost: 2
-  speedTime: 2
+  healthBoost: 0
+  speedBoost: 0
+  speedTime: 0
 --- !u!114 &5316580165054077578
 MonoBehaviour:
   m_ObjectHideFlags: 0
