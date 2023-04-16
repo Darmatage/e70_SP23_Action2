@@ -43,7 +43,7 @@ public class EnemyMoveShoot : MonoBehaviour {
        }
 
        void Update () {
-              float DistToPlayer = Vector3.Distance(transform.position, player.position);
+              float DistToPlayer = Vector2.Distance(transform.position, player.position);
               if ((player != null) && (DistToPlayer <= attackRange)) {
                      // approach player
                      if (Vector2.Distance (transform.position, player.position) > stoppingDistance) {
