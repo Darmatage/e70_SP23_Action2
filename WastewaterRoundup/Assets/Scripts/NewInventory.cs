@@ -8,6 +8,14 @@ public class NewInventory : MonoBehaviour {
     //public GameObject CraftMenu;
     public bool InvIsOpen = false;
 	
+	public Text Ability1_count;
+	public Text Ability2_count;
+	public Text Ability3_count;
+	public Text Ability4_count;
+	public Text Ability5_count;
+	public Text Ability6_count;
+	
+	
 	
 	// Assign by dragging the GameObject with ScriptA into the inspector before running the game.
     public GameHandler m_GameHandler; 
@@ -24,7 +32,13 @@ public class NewInventory : MonoBehaviour {
 	
     // Start is called before the first frame update
     void Start(){
-    InventoryMenu.SetActive(false);	
+    InventoryMenu.SetActive(false);
+	Ability1_count.text = GameHandler.gotAbility1.ToString();
+	Ability2_count.text = GameHandler.gotAbility2.ToString();
+	Ability3_count.text = GameHandler.gotAbility3.ToString();
+	Ability4_count.text = GameHandler.gotAbility4.ToString();
+	Ability5_count.text = GameHandler.gotAbility5.ToString();
+	Ability6_count.text = GameHandler.gotAbility6.ToString();
     }
 
     // Update is called once per frame
@@ -77,16 +91,18 @@ public class NewInventory : MonoBehaviour {
         InvIsOpen = !InvIsOpen;
     }
 	public void CraftObject1(){
-        GameHandler.gotRedTokens = GameHandler.gotRedTokens - 1;
-		GameHandler.gotBlueTokens = GameHandler.gotBlueTokens - 1;
-		GameHandler.gotAbility1 = GameHandler.gotAbility1 + 1;
-		m_GameHandler.updateStatsDisplay();
+        GameHandler.gotRedTokens = GameHandler.gotRedTokens - 1;       //decreases required resource 1
+		GameHandler.gotBlueTokens = GameHandler.gotBlueTokens - 1;     //decreases required resource 2
+		GameHandler.gotAbility1 = GameHandler.gotAbility1 + 1;			//adds 1 use of ability to ability count
+		Ability1_count.text = GameHandler.gotAbility1.ToString();		// updates ability display with new ability count
+		m_GameHandler.updateStatsDisplay();								//update the rest of the stat display
 		Debug.Log("A1 Created!");
     }
 	public void CraftObject2(){
         GameHandler.gotGreenTokens = GameHandler.gotGreenTokens - 1;
 		GameHandler.gotWhiteTokens = GameHandler.gotWhiteTokens - 1;
 		GameHandler.gotAbility2 = GameHandler.gotAbility2 + 1;
+		Ability2_count.text = GameHandler.gotAbility2.ToString();
 		m_GameHandler.updateStatsDisplay();
 		Debug.Log("A2 Created!");
     }
@@ -94,6 +110,7 @@ public class NewInventory : MonoBehaviour {
         GameHandler.gotRedTokens = GameHandler.gotRedTokens - 1;
 		GameHandler.gotGreenTokens = GameHandler.gotGreenTokens - 1;
 		GameHandler.gotAbility3 = GameHandler.gotAbility3 + 1;
+		Ability3_count.text = GameHandler.gotAbility3.ToString();
 		m_GameHandler.updateStatsDisplay();
 		Debug.Log("A3 Created!");
     }
@@ -101,6 +118,7 @@ public class NewInventory : MonoBehaviour {
         GameHandler.gotRedTokens = GameHandler.gotRedTokens - 1;
 		GameHandler.gotWhiteTokens = GameHandler.gotWhiteTokens - 1;
 		GameHandler.gotAbility4 = GameHandler.gotAbility4 + 1;
+		Ability4_count.text = GameHandler.gotAbility4.ToString();
 		m_GameHandler.updateStatsDisplay();
 		Debug.Log("A4 Created!");
     }
@@ -108,6 +126,7 @@ public class NewInventory : MonoBehaviour {
         GameHandler.gotGreenTokens = GameHandler.gotGreenTokens - 1;
 		GameHandler.gotBlueTokens = GameHandler.gotBlueTokens - 1;
 		GameHandler.gotAbility5 = GameHandler.gotAbility5 + 1;
+		Ability5_count.text = GameHandler.gotAbility5.ToString();
 		m_GameHandler.updateStatsDisplay();
 		Debug.Log("A5 Created!");
     }
@@ -115,6 +134,7 @@ public class NewInventory : MonoBehaviour {
         GameHandler.gotWhiteTokens = GameHandler.gotWhiteTokens - 1;
 		GameHandler.gotBlueTokens = GameHandler.gotBlueTokens - 1;
 		GameHandler.gotAbility6 = GameHandler.gotAbility6 + 1;
+		Ability6_count.text = GameHandler.gotAbility6.ToString();
 		m_GameHandler.updateStatsDisplay();
 		Debug.Log("A6 Created!");
     }
