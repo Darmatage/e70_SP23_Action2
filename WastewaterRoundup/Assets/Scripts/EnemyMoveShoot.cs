@@ -90,16 +90,16 @@ public class EnemyMoveShoot : MonoBehaviour {
        }
 
        void OnCollisionEnter2D(Collision2D collision){
-              //if (collision.gameObject.tag == "bullet") {
-              // EnemyLives -= 1;
-              // StopCoroutine("HitEnemy");
-              // StartCoroutine("HitEnemy");
-              //}
-              if (collision.gameObject.tag == "Player") {
-                     EnemyLives -= 2;
-                     StopCoroutine("HitEnemy");
-                     StartCoroutine("HitEnemy");
+              if (collision.gameObject.tag == "bullet") {
+               EnemyLives -= 5;
+               StopCoroutine("HitEnemy");
+               StartCoroutine("HitEnemy");
               }
+              //if (collision.gameObject.tag == "Player") {
+                     //EnemyLives -= 2;
+                    // StopCoroutine("HitEnemy");
+                     //StartCoroutine("HitEnemy");
+              //}
        }
 
        IEnumerator HitEnemy(){
