@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 22c624725ba3e0845ba3b318b742956e
+  - enabled: 1
+    path: Assets/Scenes/PickupScene.unity
+    guid: f85d38b5757e4b34ab15ce5654a3de58
+  - enabled: 1
     path: Assets/Scenes/Rishabh - Playground.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 4ac3da70d723a8243845b3574be0c235
   m_configObjects: {}
