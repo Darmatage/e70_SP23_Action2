@@ -16,6 +16,8 @@ public class EnemyMoveHit : MonoBehaviour {
        public float attackRange = 10;
        public bool isAttacking = false;
        private float scaleX;
+	   
+	   public float knockBackForce = 20f; 
 
        void Start () {
               anim = GetComponentInChildren<Animator> ();
@@ -52,8 +54,16 @@ public class EnemyMoveHit : MonoBehaviour {
                      isAttacking = true;
                      //anim.SetBool("Attack", true);
                      gameHandler.playerGetHit(damage);
+                     //rend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
+                     //StartCoroutine(HitEnemy());
+
+			//This method adds force to the player, pushing them back without teleporting (choose above or below).
+                    Rigidbody2D pushRB = other.gameObject.GetComponent<Rigidbody2D>();
+                    Vector2 moveDirectionPush = rb2D.transform.position - other.transform.position;
+                    pushRB.AddForce(moveDirectionPush.normalized * knockBackForce * - 1f, ForceMode2D.Impulse);
+                    StartCoroutine(EndKnockBack(pushRB));
               }
-       }
+       } 
 
        public void OnCollisionExit2D(Collision2D other){
               if (other.gameObject.tag == "Player") {
@@ -61,6 +71,11 @@ public class EnemyMoveHit : MonoBehaviour {
                      //anim.SetBool("Attack", false);
               }
        }
+	   
+	   IEnumerator EndKnockBack(Rigidbody2D otherRB){
+              yield return new WaitForSeconds(0.2f);
+              otherRB.velocity= new Vector3(0,0,0);
+       } 
 
        //DISPLAY the range of enemy's attack when selected in the Editor
        void OnDrawGizmosSelected(){
