@@ -15,6 +15,8 @@ public class PlayerMove_Rotate :  MonoBehaviour {
             moveDirection.Normalize();
 
             transform.Translate(moveDirection * moveSpeed * inputMagnitude * Time.deltaTime, Space.World);
+			
+
 
             if (moveDirection != Vector2.zero) {
                   Quaternion toRotation = Quaternion.LookRotation (Vector3.forward, moveDirection);

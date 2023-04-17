@@ -28,7 +28,7 @@ public class PlayerAttackShoot : MonoBehaviour{
       void playerFire(){
             //animator.SetTrigger ("Fire");
             Vector2 fwd = (firePoint.position - this.transform.position).normalized;
-            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+            GameObject projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity);
             projectile.GetComponent<Rigidbody2D>().AddForce(fwd * projectileSpeed, ForceMode2D.Impulse);
       }
 }
