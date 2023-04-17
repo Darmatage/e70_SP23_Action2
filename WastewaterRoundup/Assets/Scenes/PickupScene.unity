@@ -7134,13 +7134,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 451924502, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795863105, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3359882440274233050, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
       propertyPath: m_Name
       value: GAMEHANDLER_CANVAS
-      objectReference: {fileID: 0}
-    - target: {fileID: 6111995084070540686, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
-      propertyPath: m_InputActionsPerSecond
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7734741775869917973, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
       propertyPath: m_RootOrder

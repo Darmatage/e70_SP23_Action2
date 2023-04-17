@@ -8,6 +8,7 @@ TagManager:
   - enemyShooter
   - bullet
   - Bullet
+  - PauseMenuSlider
   layers:
   - Default
   - TransparentFX
