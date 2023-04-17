@@ -6475,3 +6475,17 @@ MonoBehaviour:
   tokensGreenText: {fileID: 8687915425065385856}
   tokensWhiteText: {fileID: 1555142386}
   isDefending: 0
+--- !u!114 &8965479217831143099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3281069877890292318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff792cb7ea9a0641b0befa6b6758f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerFollow: {fileID: 2053441110326156218, guid: c14e6f12562d50649b7e2379b9944973, type: 3}
+  playerFollowerList: []
