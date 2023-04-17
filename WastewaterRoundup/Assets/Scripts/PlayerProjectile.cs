@@ -19,7 +19,7 @@ public class PlayerProjectile : MonoBehaviour{
       //void OnTriggerEnter2D(Collider2D other){
             //if (other.gameObject.layer == LayerMask.NameToLayer("Enemies")) {
                   //gameHandlerObj.playerGetHit(damage);
-                 // other.gameObject.GetComponent<EnemyLives>().TakeDamage(damage);
+                  //other.gameObject.GetComponent<EnemyLives>().TakeDamage(damage);
             //}
            //if (other.gameObject.tag != "Player") {
                   //GameObject animEffect = Instantiate (hitEffectAnim, transform.position, Quaternion.identity);
@@ -27,7 +27,7 @@ public class PlayerProjectile : MonoBehaviour{
                   //Destroy (animEffect, 0.5);
                   //StartCoroutine(selfDestructHit(animEffect));
             //}
-      
+      //}
 
       IEnumerator selfDestructHit(GameObject VFX){
             yield return new WaitForSeconds(SelfDestructVFX);
