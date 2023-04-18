@@ -31,4 +31,5 @@ public class PlayerAttackShoot : MonoBehaviour{
             GameObject projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity);
             projectile.GetComponent<Rigidbody2D>().AddForce(fwd * projectileSpeed, ForceMode2D.Impulse);
       }
+	  
 } 
