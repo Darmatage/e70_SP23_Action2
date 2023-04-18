@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  hitEffectAnim: {fileID: 0}
+  hitEffectAnim: {fileID: 952791140953102993, guid: ed22306a6c61ee540b610c06b93d2aa7, type: 3}
   SelfDestructTime: 4
   SelfDestructVFX: 0.5
   projectileArt: {fileID: 0}
