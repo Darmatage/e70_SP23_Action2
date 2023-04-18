@@ -32,6 +32,16 @@ public class GameHandler : MonoBehaviour {
 	  public GameObject tokensBlueText;
 	  public GameObject tokensGreenText;
 	  public GameObject tokensWhiteText;
+	  
+	  private string Ability1Number;
+	  private string Ability2Number;
+	  
+	  public GameObject Ability1Count;
+	  public GameObject Ability2Count;
+	  public GameObject Ability3Count;
+	  public GameObject Ability4Count;
+	  public GameObject Ability5Count;
+	  public GameObject Ability6Count;
 
       public bool isDefending = false;
 
@@ -148,6 +158,14 @@ public class GameHandler : MonoBehaviour {
 			
 			Text tokensWhiteTextTemp = tokensWhiteText.GetComponent<Text>();
             tokensWhiteTextTemp.text = "WHITE POOP: " + gotWhiteTokens;
+			
+			Text Ability1CountTemp = Ability1Count.GetComponent<Text>();
+			Ability1Number = gotAbility1.ToString();
+            Ability1CountTemp.text = Ability1Number;
+			
+			Text Ability2CountTemp = Ability2Count.GetComponent<Text>();
+            Ability2Number = gotAbility2.ToString();
+            Ability2CountTemp.text = Ability2Number;
       }
 
       public void playerDies(){

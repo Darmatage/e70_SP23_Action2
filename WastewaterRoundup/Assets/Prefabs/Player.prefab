@@ -237,6 +237,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2708981259541150515, guid: f7895288089db3d43ae68ca4a336d45d, type: 3}
   projectileSpeed: 10
   attackRate: 2
+  m_GameHandler: {fileID: 0}
 --- !u!114 &3230530203349255969
 MonoBehaviour:
   m_ObjectHideFlags: 0
