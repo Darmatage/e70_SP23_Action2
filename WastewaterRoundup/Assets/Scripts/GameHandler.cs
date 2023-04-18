@@ -163,9 +163,9 @@ public class GameHandler : MonoBehaviour {
 			Text tokensWhiteTextTemp = tokensWhiteText.GetComponent<Text>();
             tokensWhiteTextTemp.text = "WHITE POOP: " + gotWhiteTokens;
 			
-			Text Ability1CountTemp = Ability1Count.GetComponent<Text>();
-			Ability1Number = gotAbility1.ToString();
-            Ability1CountTemp.text = Ability1Number;
+			Text Ability1CountTemp = Ability1Count.GetComponent<Text>();  //declare some temp text, set it to the text component of the proper object
+			Ability1Number = gotAbility1.ToString();						//we take the AbilityXNumber string, and use the ToString function to turn the interger that tracks ability count into this string
+            Ability1CountTemp.text = Ability1Number;						// now we set the actual text to be equal to this string, which was just updated to match the number of remaining ability uses
 			
 			Text Ability2CountTemp = Ability2Count.GetComponent<Text>();
             Ability2Number = gotAbility2.ToString();
