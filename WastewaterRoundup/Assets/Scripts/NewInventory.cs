@@ -90,7 +90,7 @@ public class NewInventory : MonoBehaviour {
         else { InventoryMenu.SetActive(true); }
         InvIsOpen = !InvIsOpen;
     }
-	public void CraftObject1(){
+	public void CraftObject1(){   // Dash
         GameHandler.gotRedTokens = GameHandler.gotRedTokens - 1;       //decreases required resource 1
 		GameHandler.gotBlueTokens = GameHandler.gotBlueTokens - 1;     //decreases required resource 2
 		GameHandler.gotAbility1 = GameHandler.gotAbility1 + 1;			//adds 1 use of ability to ability count
@@ -98,10 +98,10 @@ public class NewInventory : MonoBehaviour {
 		m_GameHandler.updateStatsDisplay();								//update the rest of the stat display
 		Debug.Log("A1 Created!");
     }
-	public void CraftObject2(){
+	public void CraftObject2(){     // Zap
         GameHandler.gotGreenTokens = GameHandler.gotGreenTokens - 1;
 		GameHandler.gotWhiteTokens = GameHandler.gotWhiteTokens - 1;
-		GameHandler.gotAbility2 = GameHandler.gotAbility2 + 1;
+		GameHandler.gotAbility2 = GameHandler.gotAbility2 + 3;
 		Ability2_count.text = GameHandler.gotAbility2.ToString();
 		m_GameHandler.updateStatsDisplay();
 		Debug.Log("A2 Created!");

@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 22c624725ba3e0845ba3b318b742956e
   - enabled: 1
-    path: Assets/Scenes/PickupScene.unity
+    path: Assets/Scenes/Gratis_Work.unity
     guid: f85d38b5757e4b34ab15ce5654a3de58
   - enabled: 1
     path: Assets/Scenes/Rishabh - Playground.unity

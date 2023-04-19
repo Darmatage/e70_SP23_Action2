@@ -10,6 +10,7 @@ public class PlayerAttackShoot : MonoBehaviour{
       public float projectileSpeed = 10f;
       public float attackRate = 2f;
       private float nextAttackTime = 0f;
+	  public GameHandler m_GameHandler;
 
       void Start(){
            //animator = gameObject.GetComponentInChildren<Animator>();
@@ -19,8 +20,16 @@ public class PlayerAttackShoot : MonoBehaviour{
            if (Time.time >= nextAttackTime){
                   //if (Input.GetKeyDown(KeyCode.Space))
                  if (Input.GetAxis("Shoot") > 0){
-                        playerFire();
+                        
+					if (GameHandler.gotAbility2 >= 1) {
+						GameHandler.gotAbility2 = GameHandler.gotAbility2 - 1;
+						playerFire();
                         nextAttackTime = Time.time + 1f / attackRate;
+						m_GameHandler.updateStatsDisplay();
+					}	
+					else {
+					Debug.Log("Not enough charge to zap!");
+					}						
                   }
             }
       }
@@ -31,4 +40,5 @@ public class PlayerAttackShoot : MonoBehaviour{
             GameObject projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity);
             projectile.GetComponent<Rigidbody2D>().AddForce(fwd * projectileSpeed, ForceMode2D.Impulse);
       }
-}
+	  
+} 

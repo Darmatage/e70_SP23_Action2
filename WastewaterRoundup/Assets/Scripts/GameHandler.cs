@@ -18,11 +18,11 @@ public class GameHandler : MonoBehaviour {
       public int StartPlayerHealth = 100;
       public GameObject healthText;
 
-      public static int gotRedTokens = 0;
-	  public static int gotBlueTokens = 0;
+      public static int gotRedTokens = 0;		// these intergers track the number of resources collected
+	  public static int gotBlueTokens = 0;		
 	  public static int gotGreenTokens = 0;
 	  public static int gotWhiteTokens = 0;
-	  public static int gotAbility1 = 0;
+	  public static int gotAbility1 = 0;		// these track the number of abilities created
 	  public static int gotAbility2 = 0;
 	  public static int gotAbility3 = 0;
 	  public static int gotAbility4 = 0;
@@ -32,6 +32,20 @@ public class GameHandler : MonoBehaviour {
 	  public GameObject tokensBlueText;
 	  public GameObject tokensGreenText;
 	  public GameObject tokensWhiteText;
+	  
+	  private string Ability1Number;    // these strings are used by the updatestatsdisplay function
+	  private string Ability2Number;    // to convert the number of charges available for each ability
+	  private string Ability3Number;	// into text to display the count on the ability bar
+	  private string Ability4Number;
+	  private string Ability5Number;
+	  private string Ability6Number;
+	  
+	  public GameObject Ability1Count;	// these are the objects used to display ability count on the bar
+	  public GameObject Ability2Count;
+	  public GameObject Ability3Count;
+	  public GameObject Ability4Count;
+	  public GameObject Ability5Count;
+	  public GameObject Ability6Count;
 
       public bool isDefending = false;
 
@@ -148,6 +162,30 @@ public class GameHandler : MonoBehaviour {
 			
 			Text tokensWhiteTextTemp = tokensWhiteText.GetComponent<Text>();
             tokensWhiteTextTemp.text = "WHITE POOP: " + gotWhiteTokens;
+			
+			Text Ability1CountTemp = Ability1Count.GetComponent<Text>();  //declare some temp text, set it to the text component of the proper object
+			Ability1Number = gotAbility1.ToString();						//we take the AbilityXNumber string, and use the ToString function to turn the interger that tracks ability count into this string
+            Ability1CountTemp.text = Ability1Number;						// now we set the actual text to be equal to this string, which was just updated to match the number of remaining ability uses
+			
+			Text Ability2CountTemp = Ability2Count.GetComponent<Text>();
+            Ability2Number = gotAbility2.ToString();
+            Ability2CountTemp.text = Ability2Number;
+			
+			Text Ability3CountTemp = Ability3Count.GetComponent<Text>();
+            Ability3Number = gotAbility3.ToString();
+            Ability3CountTemp.text = Ability3Number;
+			
+			Text Ability4CountTemp = Ability4Count.GetComponent<Text>();
+            Ability4Number = gotAbility4.ToString();
+            Ability4CountTemp.text = Ability4Number;
+			
+			Text Ability5CountTemp = Ability5Count.GetComponent<Text>();
+            Ability5Number = gotAbility5.ToString();
+            Ability5CountTemp.text = Ability5Number;
+			
+			Text Ability6CountTemp = Ability6Count.GetComponent<Text>();
+            Ability6Number = gotAbility6.ToString();
+            Ability6CountTemp.text = Ability6Number;
       }
 
       public void playerDies(){
@@ -163,7 +201,7 @@ public class GameHandler : MonoBehaviour {
       }
 
       public void StartGame() {
-            SceneManager.LoadScene("PickupScene");
+            SceneManager.LoadScene("Gratis_Work");
       }
 
       public void RestartGame() {
