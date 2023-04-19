@@ -9,6 +9,8 @@ TagManager:
   - bullet
   - Bullet
   - PauseMenuSlider
+  - Enemy
+  - PlayerFollowers
   layers:
   - Default
   - TransparentFX

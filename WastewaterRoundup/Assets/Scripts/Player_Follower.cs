@@ -43,7 +43,7 @@ public class Player_Follower : MonoBehaviour {
               //anim = gameObject.GetComponentInChildren<Animator>();
               player = GameObject.FindWithTag("Player");
               followDistance = Random.Range(0.5f, 1.5f);
-              startFollowDistance = followDistance + 1f;
+              startFollowDistance = followDistance + 1.5f;
               moveSpeed = Random.Range((topSpeed * 0.7f), topSpeed);
               scaleX = gameObject.transform.localScale.x;
        }

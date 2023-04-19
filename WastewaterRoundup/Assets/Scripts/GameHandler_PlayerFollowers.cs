@@ -35,10 +35,13 @@ public class GameHandler_PlayerFollowers : MonoBehaviour{
 		if (newFollowers > 0){
 			for (int i=0; i <= (newFollowers-1); i++){
 				//prepare a random spawn position for the new follower
-				float randX = Random.Range (1, 2); float randY = Random.Range (1, 2);
+				float randX = Random.Range (-2, 2); float randY = Random.Range (-2, 2);
 				Vector2 newPos = new Vector2 (playerPos.position.x + randX, playerPos.position.y + randY);
 				//instantiate the new follower
 				GameObject thisNewFollower = Instantiate (playerFollow, newPos, Quaternion.identity);
+				if (GameObject.FindWithTag("PlayerFollowers") != null){
+					thisNewFollower.transform.parent = GameObject.FindWithTag("PlayerFollowers").GetComponent<Transform>();
+				}
 				//add the new follower to the List<>
 				playerFollowerList.Add(thisNewFollower);
 			}
