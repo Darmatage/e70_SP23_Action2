@@ -55,6 +55,14 @@ public class GameHandler_PlayerFollowers : MonoBehaviour{
 		Destroy(followerToRemove);
 	}
 	
+	public void RemoveTHISFromFollowerList(GameObject thisFollower){
+		//remove a follower from the list and destroy the GameObject
+		//GameObject followerToRemove = playerFollowerList[playerFollowerList.Count - 1];
+		//playerFollowerList.RemoveAt(playerFollowerList.Count - 1);
+		//Destroy(followerToRemove);
+	}
+	
+	
 	public void ChangeFollowerColor(){
 		//at certain thresholds, change to a new color (random or set color?)
 		

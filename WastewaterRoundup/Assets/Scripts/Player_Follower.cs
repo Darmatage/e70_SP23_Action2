@@ -9,15 +9,17 @@ public class Player_Follower : MonoBehaviour {
        //private Animator anim;
 
 //Follow Player
-       private GameObject player;
-       private Vector2 playerPos;
-       private float distToPlayer;
-       public float startFollowDistance; //Follow Player when further than this distance
-       public float followDistance; //Stop moving towards player when at this distance
-       public float moveSpeed;
-       public float topSpeed = 10f;
-       private float scaleX;
-       //public Vector2 offsetFollow;
+	private GameObject player;
+	private Vector2 playerPos;
+	private float distToPlayer;
+	public float startFollowDistance; //Follow Player when further than this distance
+	public float followDistance; //Stop moving towards player when at this distance
+	public float moveSpeed;
+	public float topSpeed = 10f;
+	private float scaleX;
+	//public Vector2 offsetFollow;
+
+	private GameHandler_PlayerFollowers gameHandlerPF;
 
 //Avoid close enemy
 	public bool escapeEnemy = false;
@@ -27,7 +29,7 @@ public class Player_Follower : MonoBehaviour {
 
 
 //Follow Player vs Attack Enemies
-       public bool followPlayer = true;
+	public bool followPlayer = true;
 	   
 	   
        /*
@@ -55,6 +57,8 @@ public class Player_Follower : MonoBehaviour {
               startFollowDistance = followDistance + 1.5f;
               moveSpeed = Random.Range((topSpeed * 0.7f), topSpeed);
               scaleX = gameObject.transform.localScale.x;
+			  
+			  gameHandlerPF = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler_PlayerFollowers>();
        }
 
        void Update(){
@@ -199,8 +203,15 @@ public class Player_Follower : MonoBehaviour {
 			currentEnemy = other.gameObject.transform;
 		}
 	}
-
-	IEnumerator RunFromEnemy(){
+	
+	public void OnCollisionEnter2D(Collision2D other){
+		if (other.gameObject.tag == "Enemy"){
+			gameHandlerPF.RemoveFromFollowerList(); // replace this with function that removes THIS one
+			StartCoroutine(StopEscapingEnemy());
+		}
+	}
+	
+	IEnumerator StopEscapingEnemy(){
 		yield return new WaitForSeconds(0.3f);
 		escapeEnemy = false;
 	}

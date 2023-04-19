@@ -11,6 +11,7 @@ TagManager:
   - PauseMenuSlider
   - Enemy
   - PlayerFollowers
+  - Follower
   layers:
   - Default
   - TransparentFX

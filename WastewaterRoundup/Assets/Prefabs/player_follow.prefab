@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 967210782428594761}
   m_Layer: 0
   m_Name: player_follow
-  m_TagString: Untagged
+  m_TagString: Follower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,6 +115,7 @@ MonoBehaviour:
   followDistance: 0
   moveSpeed: 0
   topSpeed: 10
+  escapeEnemy: 0
   followPlayer: 1
 --- !u!1 &4198157544320975647
 GameObject:
