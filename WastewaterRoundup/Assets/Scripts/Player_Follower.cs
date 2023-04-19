@@ -19,8 +19,17 @@ public class Player_Follower : MonoBehaviour {
        private float scaleX;
        //public Vector2 offsetFollow;
 
+//Avoid close enemy
+	public bool escapeEnemy = false;
+	private float escapeSpeed;
+	private Transform currentEnemy;
+	
+
+
 //Follow Player vs Attack Enemies
        public bool followPlayer = true;
+	   
+	   
        /*
         public bool attackEnemy = false; // target enemy within range of player when player attacks
         public bool isAttacking = false; // attack a targeted enemy
@@ -60,29 +69,29 @@ public class Player_Follower : MonoBehaviour {
                */
         }
 
-        void FixedUpdate(){
-                //FOLLOW PLAYER
-               if ((followPlayer) && (player != null)){
-                      playerPos = player.transform.position;
-                      distToPlayer = Vector2.Distance(transform.position, playerPos);
+	void FixedUpdate(){
+		//FOLLOW PLAYER
+		if ((followPlayer) && (player != null)){
+			playerPos = player.transform.position;
+			distToPlayer = Vector2.Distance(transform.position, playerPos);
 
-                      //Retreat from Player
-                      if (distToPlayer <= followDistance){
-                                transform.position = Vector2.MoveTowards (transform.position, playerPos, -moveSpeed * Time.deltaTime);
-                                //anim.SetBool("Walk", true);
-                      }
+			//Retreat from Player
+			if (distToPlayer <= followDistance){
+				transform.position = Vector2.MoveTowards (transform.position, playerPos, -moveSpeed * Time.deltaTime);
+				//anim.SetBool("Walk", true);
+			}
 
-                      // Stop following Player
-                      if ((distToPlayer > followDistance) && (distToPlayer < startFollowDistance)){
-                                transform.position = this.transform.position;
-                                //anim.SetBool("Walk", false);
-                      }
+			// Stop following Player
+			if ((distToPlayer > followDistance) && (distToPlayer < startFollowDistance)){
+				transform.position = this.transform.position;
+				//anim.SetBool("Walk", false);
+			}
 
-                      // Follow Player
-                      else if (distToPlayer >= startFollowDistance){
-                                transform.position = Vector2.MoveTowards (transform.position, playerPos, moveSpeed * Time.deltaTime);
-                                //anim.SetBool("Walk", true);
-                      }
+			// Follow Player
+			else if (distToPlayer >= startFollowDistance){
+				transform.position = Vector2.MoveTowards (transform.position, playerPos, moveSpeed * Time.deltaTime);
+				//anim.SetBool("Walk", true);
+			}
 
                       // Turn follower toward player (good for bipedal characters)
                       /*
@@ -93,17 +102,20 @@ public class Player_Follower : MonoBehaviour {
                         }
                         */
 
-                        // Rotate to face player (good for swimming / flying followers)
-                        Vector2 direction = (playerPos - (Vector2)transform.position).normalized;
-                        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                        float offset = 90f;
-                        transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
-              }
+			// Rotate to face player (good for swimming / flying followers)
+			Vector2 direction = (playerPos - (Vector2)transform.position).normalized;
+			float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+			float offset = 90f;
+			transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
+		}
 
+		if (escapeEnemy == true){
+			transform.position = Vector2.MoveTowards (transform.position, currentEnemy.position, -escapeSpeed * Time.deltaTime);
+		}
 
-                //FOLLOW ENEMY
-                /*
-                if ((attackEnemy) && (enemyTarget != null)){
+		//FOLLOW ENEMY
+		/*
+		if ((attackEnemy) && (enemyTarget != null)){
                         enemyPos = enemyTarget.transform.position;
                         distToEnemy = Vector2.Distance(transform.position, enemyPos);
 
@@ -131,31 +143,31 @@ public class Player_Follower : MonoBehaviour {
                         } else {
                                 gameObject.transform.localScale = new Vector2(scaleX * -1, gameObject.transform.localScale.y);
                         }
-                }
-                */
+		}
+		*/
 
-                //Timer for shooting projectiles
-                /*
-                if ((attackEnemy==true)&&(enemyTarget !=null) && (distToEnemy > followDistance) && (distToEnemy < startFollowDistance)){
-                        if (timeBtwShots <= 0) {
-                                isAttacking = true;
-                                anim.SetBool("Attack", true);
+		//Timer for shooting projectiles
+		/*
+		if ((attackEnemy==true)&&(enemyTarget !=null) && (distToEnemy > followDistance) && (distToEnemy < startFollowDistance)){
+			if (timeBtwShots <= 0) {
+				isAttacking = true;
+				anim.SetBool("Attack", true);
 
-                                GameObject myProjectile = Instantiate (projectile, transform.position, Quaternion.identity);
-                                myProjectile.GetComponent ().attackPlayer = false;
-                                myProjectile.GetComponent ().enemyTrans = enemyTarget.transform;
+				GameObject myProjectile = Instantiate (projectile, transform.position, Quaternion.identity);
+				myProjectile.GetComponent ().attackPlayer = false;
+				myProjectile.GetComponent ().enemyTrans = enemyTarget.transform;
 
-                                timeBtwShots = startTimeBtwShots;
-                        } else {
-                                timeBtwShots -= Time.deltaTime;
-                                isAttacking = false;
-                                anim.SetBool("Attack", true);
-                        }
-                }
-                */
+				timeBtwShots = startTimeBtwShots;
+			} else {
+				timeBtwShots -= Time.deltaTime;
+				isAttacking = false;
+				anim.SetBool("Attack", true);
+			}
+		}
+		*/
 
-        //end bracket of FixedUpdate:
-        }
+	//end bracket of FixedUpdate:
+	}
 
 
         /*
@@ -179,9 +191,23 @@ public class Player_Follower : MonoBehaviour {
         }
         */
 
-        // DISPLAY the range of enemy's attack when selected in the Editor
-        void OnDrawGizmos(){
-                Gizmos.DrawWireSphere(transform.position, followDistance);
-        }
+	//Avoid enemy
+	public void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.tag == "Enemy"){
+			escapeEnemy = true;
+			escapeSpeed = moveSpeed / 2;
+			currentEnemy = other.gameObject.transform;
+		}
+	}
+
+	IEnumerator RunFromEnemy(){
+		yield return new WaitForSeconds(0.3f);
+		escapeEnemy = false;
+	}
+
+	// DISPLAY the range of enemy's attack when selected in the Editor
+	void OnDrawGizmos(){
+		Gizmos.DrawWireSphere(transform.position, followDistance);
+	}
 
 } 

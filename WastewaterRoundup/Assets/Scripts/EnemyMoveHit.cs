@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyMoveHit : MonoBehaviour {
 
-       public Animator anim;
-       public Rigidbody2D rb2D;
+       private Animator anim;
+       private Rigidbody2D rb2D;
        public float speed = 4f;
        private Transform target;
        public int damage = 10;
