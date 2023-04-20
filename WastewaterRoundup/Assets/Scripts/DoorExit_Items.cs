@@ -8,6 +8,8 @@ public class DoorExit_Items : MonoBehaviour{
       public GameObject DoorClosed;
       public GameObject DoorOpen;
 
+      private bool doorIsClosed = true; 
+
       void Start(){
             // gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
             DoorClosed.SetActive(true);
@@ -20,14 +22,16 @@ public class DoorExit_Items : MonoBehaviour{
             GameObject[] enemyShooters = GameObject.FindGameObjectsWithTag("enemyShooter");
             int totalEnemies = enemies.Length + enemyShooters.Length;
             // piecesCollected = gameHandler.thePieces;
+            Debug.Log("Total Enemies: "+ totalEnemies);
 
-
-            if (totalEnemies == 0){
+            if (totalEnemies == 0 && doorIsClosed){
+                  Debug.Log("All enemies dead!");
+                  doorIsClosed = false;
                   DoorClosed.SetActive(false);
                   DoorOpen.SetActive(true);
                   gameObject.GetComponent<Collider2D>().enabled = true;
             }
-            else {
+            else if (totalEnemies > 0 && doorIsClosed){
                   gameObject.GetComponent<Collider2D>().enabled = false;
             }
       }
