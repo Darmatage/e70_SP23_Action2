@@ -28,10 +28,12 @@ public class GameHandler : MonoBehaviour {
 	  public static int gotAbility4 = 0;
 	  public static int gotAbility5 = 0;
 	  public static int gotAbility6 = 0;
+	  public static int howManyEnemies = 0;
       public GameObject tokensRedText;
 	  public GameObject tokensBlueText;
 	  public GameObject tokensGreenText;
 	  public GameObject tokensWhiteText;
+	  public GameObject enemyCountText;
 	  
 	  private string Ability1Number;    // these strings are used by the updatestatsdisplay function
 	  private string Ability2Number;    // to convert the number of charges available for each ability
@@ -75,6 +77,7 @@ public class GameHandler : MonoBehaviour {
             //if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
                   playerHealth = StartPlayerHealth;
             //}
+			
             updateStatsDisplay();
       }
 	  
@@ -162,6 +165,16 @@ public class GameHandler : MonoBehaviour {
 			
 			Text tokensWhiteTextTemp = tokensWhiteText.GetComponent<Text>();
             tokensWhiteTextTemp.text = "WHITE POOP: " + gotWhiteTokens;
+			
+			
+			GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            GameObject[] enemyShooters = GameObject.FindGameObjectsWithTag("enemyShooter");
+            howManyEnemies = enemies.Length + enemyShooters.Length;
+            Debug.Log("There are "+ howManyEnemies + " enemies remaining.");
+			
+			
+			Text enemyCountTextTemp = enemyCountText.GetComponent<Text>();
+            enemyCountTextTemp.text = "REMAINING ENEMIES: " + howManyEnemies;
 			
 			Text Ability1CountTemp = Ability1Count.GetComponent<Text>();  //declare some temp text, set it to the text component of the proper object
 			Ability1Number = gotAbility1.ToString();						//we take the AbilityXNumber string, and use the ToString function to turn the interger that tracks ability count into this string
