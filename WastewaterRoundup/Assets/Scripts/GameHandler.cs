@@ -196,9 +196,19 @@ public class GameHandler : MonoBehaviour {
       IEnumerator DeathPause(){
             //player.GetComponent<PlayerMove>().isAlive = false;
            // player.GetComponent<PlayerJump>().isAlive = false;
-            yield return new WaitForSeconds(1.0f);
+            gotRedTokens = 0;		// these intergers track the number of resources collected
+			gotBlueTokens = 0;		
+			gotGreenTokens = 0;
+			gotWhiteTokens = 0;
+			gotAbility1 = 0;		// these track the number of abilities created
+			gotAbility2 = 0;
+			gotAbility3 = 0;
+			gotAbility4 = 0;
+			gotAbility5 = 0;
+			gotAbility6 = 0;
+			yield return new WaitForSeconds(1.0f);
             SceneManager.LoadScene("End_Lose");
-      }
+		}
 
       public void StartGame() {
             SceneManager.LoadScene("Gratis_Work");
@@ -207,9 +217,22 @@ public class GameHandler : MonoBehaviour {
       public void RestartGame() {
             Time.timeScale = 1f;
 			SceneManager.LoadScene("MainMenu");
+			
                 // Please also reset all static variables here, for new games!
+			gotRedTokens = 0;		
+			gotBlueTokens = 0;		
+			gotGreenTokens = 0;
+			gotWhiteTokens = 0;
+			gotAbility1 = 0;		
+			gotAbility2 = 0;
+			gotAbility3 = 0;
+			gotAbility4 = 0;
+			gotAbility5 = 0;
+			gotAbility6 = 0;
+			
+			
             playerHealth = StartPlayerHealth;
-      }
+		}
 
       public void QuitGame() {
                 #if UNITY_EDITOR
