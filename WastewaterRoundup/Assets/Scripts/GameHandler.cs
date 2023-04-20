@@ -82,7 +82,8 @@ public class GameHandler : MonoBehaviour {
       }
 	  
 	  void Update (){
-                if (Input.GetKeyDown(KeyCode.Escape)){
+                updateStatsDisplay();
+				if (Input.GetKeyDown(KeyCode.Escape)){
                         if (GameisPaused){
                                 Resume();
                         }
