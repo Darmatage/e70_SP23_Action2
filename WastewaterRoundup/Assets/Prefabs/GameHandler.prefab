@@ -46,12 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 0}
   mixer: {fileID: 24100000, guid: 4df9691430520554a89c8161db9d326f, type: 2}
-  StartPlayerHealth: 100
+  StartPlayerHealth: 200
   healthText: {fileID: 0}
   tokensRedText: {fileID: 0}
   tokensBlueText: {fileID: 0}
   tokensGreenText: {fileID: 0}
   tokensWhiteText: {fileID: 0}
+  enemyCountText: {fileID: 0}
   Ability1Count: {fileID: 0}
   Ability2Count: {fileID: 0}
   Ability3Count: {fileID: 0}
