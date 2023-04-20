@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 22c624725ba3e0845ba3b318b742956e
   - enabled: 1
+    path: Assets/Scenes/Peter_Level.unity
+    guid: 0c8d6d95c2c275347b31509598e8ecb6
+  - enabled: 1
     path: Assets/Scenes/Gratis_Work.unity
     guid: f85d38b5757e4b34ab15ce5654a3de58
+  - enabled: 1
+    path: Assets/Scenes/Rishabh_Work.unity
+    guid: 025ef29a8482240d4a588826f8b1b370
   - enabled: 1
     path: Assets/Scenes/Rishabh - Playground.unity
     guid: 2cda990e2423bbf4892e6590ba056729

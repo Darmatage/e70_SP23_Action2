@@ -74,9 +74,9 @@ public class GameHandler : MonoBehaviour {
 			
 			player = GameObject.FindWithTag("Player");
             sceneName = SceneManager.GetActiveScene().name;
-            //if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
+            if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
                   playerHealth = StartPlayerHealth;
-            //}
+            }
 			
             updateStatsDisplay();
       }
@@ -225,7 +225,7 @@ public class GameHandler : MonoBehaviour {
 		}
 
       public void StartGame() {
-            SceneManager.LoadScene("Gratis_Work");
+            SceneManager.LoadScene("Peter_Level");
       }
 
       public void RestartGame() {
