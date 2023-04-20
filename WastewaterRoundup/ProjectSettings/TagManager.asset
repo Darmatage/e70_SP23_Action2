@@ -13,6 +13,7 @@ TagManager:
   - PlayerFollowers
   - Follower
   - door
+  - O2_Platform
   layers:
   - Default
   - TransparentFX
