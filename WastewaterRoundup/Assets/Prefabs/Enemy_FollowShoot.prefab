@@ -270,7 +270,7 @@ MonoBehaviour:
   startTimeBtwShots: 1
   projectile: {fileID: 5746780902305054176, guid: 723a29b53e6194043b3e6cc244672654, type: 3}
   EnemyLives: 30
-  attackRange: 10
+  attackRange: 16
   isAttacking: 1
 --- !u!114 &5904388559255308547
 MonoBehaviour:
