@@ -267,7 +267,7 @@ MonoBehaviour:
   speed: 2
   stoppingDistance: 4
   retreatDistance: 3
-  startTimeBtwShots: 2
+  startTimeBtwShots: 1
   projectile: {fileID: 5746780902305054176, guid: 723a29b53e6194043b3e6cc244672654, type: 3}
   EnemyLives: 30
   attackRange: 10
