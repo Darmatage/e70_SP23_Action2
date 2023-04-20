@@ -22,7 +22,7 @@ public class GameHandler : MonoBehaviour {
 	  public static int gotBlueTokens = 0;		
 	  public static int gotGreenTokens = 0;
 	  public static int gotWhiteTokens = 0;
-	  public static int gotAbility1 = 0;		// these track the number of abilities created
+	  public static int gotAbility1 = 5;		// these track the number of abilities created
 	  public static int gotAbility2 = 0;
 	  public static int gotAbility3 = 0;
 	  public static int gotAbility4 = 0;

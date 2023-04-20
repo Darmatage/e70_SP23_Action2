@@ -7,6 +7,7 @@ public class PlayerMove_Rotate :  MonoBehaviour {
       public float moveSpeed = 5f;
 	  public float startSpeed = 5f;
       public float rotationSpeed = 720f;
+	  private float nextDashTime = 0f;
 	  
 	  private GameHandler GameHandler;
 
@@ -34,17 +35,21 @@ public class PlayerMove_Rotate :  MonoBehaviour {
                   transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
             }
 			
-			if (Input.GetAxis("Dash") > 0) {
-				if (GameHandler.gotAbility1 >= 1) {
-					GameHandler.gotAbility1 = GameHandler.gotAbility1 - 1;
-					GameHandler.updateStatsDisplay();
-					speedBoost(4f, 0.25f);
-				}
-				else {
-					Debug.Log("Not enough energy to Dash!");
+			if (Time.time >= nextDashTime){
+				if (Input.GetAxis("Dash") > 0) {
+					if (GameHandler.gotAbility1 >= 1) {
+						GameHandler.gotAbility1 = GameHandler.gotAbility1 - 1;
+						GameHandler.updateStatsDisplay();
+						speedBoost(4f, 0.25f);
+						nextDashTime = Time.time + 1f;
+						Debug.Log("You Dashed!");
+					}
+					else {
+						Debug.Log("Not enough energy to Dash!");
+					}
 				}
 			}
-      }
+        }
 	  
 	  public void speedBoost(float speedBoost, float speedLength){
             moveSpeed = moveSpeed * speedBoost;

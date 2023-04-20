@@ -93,7 +93,7 @@ public class NewInventory : MonoBehaviour {
 	public void CraftObject1(){   // Dash
         GameHandler.gotRedTokens = GameHandler.gotRedTokens - 1;       //decreases required resource 1
 		GameHandler.gotBlueTokens = GameHandler.gotBlueTokens - 1;     //decreases required resource 2
-		GameHandler.gotAbility1 = GameHandler.gotAbility1 + 1;			//adds 1 use of ability to ability count
+		GameHandler.gotAbility1 = GameHandler.gotAbility1 + 2;			//adds 2 uses of ability to ability count
 		Ability1_count.text = GameHandler.gotAbility1.ToString();		// updates ability display with new ability count
 		m_GameHandler.updateStatsDisplay();								//update the rest of the stat display
 		Debug.Log("A1 Created!");
