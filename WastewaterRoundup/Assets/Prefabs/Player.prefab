@@ -192,7 +192,7 @@ MonoBehaviour:
   rotationSpeed: 720
   breathTime: 1
   breathCost: 2
-  platformOxygen: 17
+  platformOxygen: 22
   oxygenDamage: 20
   platformRange: 4
   canBreathe: 1
