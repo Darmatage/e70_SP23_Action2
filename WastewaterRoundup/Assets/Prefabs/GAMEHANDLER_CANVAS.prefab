@@ -7341,7 +7341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 8978610243153952630}
   mixer: {fileID: 24100000, guid: 4df9691430520554a89c8161db9d326f, type: 2}
-  StartPlayerHealth: 100
+  StartPlayerHealth: 200
   healthText: {fileID: 361693707427817667}
   tokensRedText: {fileID: 361693707029087278}
   tokensBlueText: {fileID: 8687915424603855611}
