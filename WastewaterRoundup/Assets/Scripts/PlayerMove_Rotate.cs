@@ -1,6 +1,9 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove_Rotate :  MonoBehaviour {
 
@@ -8,20 +11,37 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 	  public float startSpeed = 5f;
       public float rotationSpeed = 720f;
 	  private float nextDashTime = 0f;
-	  private bool isMoving = false;
+	  private float nextO2HitTime = 0f;
+	  private float nextBreathTime = 0f;
+	  private float nextPlatformTime = 0f;
+	  public int breathTime = 1;            // the time between each loss of oxygen
+	  public int breathCost = 2;			// how much O2 the player will lose each second
+	  public int platformOxygen = 17;		// how much O2 the player will gain each second while near O2 platforms
+	  public int oxygenDamage = 20;			//how much damage the player will take each second while out of O2
+	  public int platformRange = 6;		// how close the player must be to a platform to receive O2 from it
+	  private bool isMoving = false;		//tracks whether player is moving
+	  //private bool foundPlatforms = false;
+	  
+	  public bool canBreathe = true;		// tracks whether a player is near any O2 platforms
 	  
 	  private GameHandler GameHandler;
 
       void Start() {
-		  
+			//foundPlatforms = false;
+			
 			if (GameObject.FindWithTag ("GameHandler") != null) {
                   GameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
               }
+			  
 		  
 	    }
 	  
 	  void Update(){
           
+			//if (foundPlatforms == false) {
+			GameObject[] AllPlatforms = GameObject.FindGameObjectsWithTag("O2_Platform");
+			//foundPlatforms = true;
+			//}
 			
 			float horizontalInput = Input.GetAxis ("Horizontal");
             float verticalInput = Input.GetAxis ("Vertical");
@@ -38,20 +58,20 @@ public class PlayerMove_Rotate :  MonoBehaviour {
                   transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
             }
 			
-			if (moveDirection != Vector2.zero) {
+			if (moveDirection != Vector2.zero) {		// this if/else looks at the moveDirection Vector to determine whether the player is moving
 				isMoving = true;
 			}
 			else {
 				isMoving = false;
 			}
 			
-			if (isMoving == true) {
-				if (Time.time >= nextDashTime){
+			if (isMoving == true) {						// if the player is moving, then the dash ability becomes usable
+				if (Time.time >= nextDashTime){			// however, the game will not allow the player to dash more than once per second.
 					if (Input.GetAxis("Dash") > 0) {
 						if (GameHandler.gotAbility1 >= 1) {
 							GameHandler.gotAbility1 = GameHandler.gotAbility1 - 1;
 							GameHandler.updateStatsDisplay();
-							speedBoost(4f, 0.25f);
+							speedBoost(4f, 0.25f);					// the true function of the dash: player movement is multiplied by 4 for .25 seconds.
 							nextDashTime = Time.time + 1f;
 							Debug.Log("You Dashed!");
 						}
@@ -61,7 +81,47 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 					}
 				}
 			}
-		}
+			if (GameHandler.playerOxygen <= 0) {					//this checks the gamehandler's oxygen value, to determine whether or not they should be taking damage from O2 deprivation
+				if (Time.time >= nextO2HitTime) {					// like the Dash ability, the game will only allow the player to take O2 damage once per second.
+					GameHandler.playerGetHit(oxygenDamage);
+					GameHandler.updateStatsDisplay();
+					nextO2HitTime = Time.time + 1f;
+				}
+			}
+			
+			//if (canBreathe == false) {							// if you can't breathe, your O2 should decrease
+				if (Time.time >= nextBreathTime) {					//  the game will only allow the player to lose O2 once per second.
+					GameHandler.playerOxygen = GameHandler.playerOxygen - breathCost;
+					GameHandler.updateStatsDisplay();
+					nextBreathTime = Time.time + breathTime;
+				}
+			//}
+			
+			for(int i = 0; i < AllPlatforms.Length; i++) {			//now, we need a way to check the distance from the nearest O2 platform. so we look at the list we made when we started the level, and check the distance to each one.
+         
+                if(Vector2.Distance(this.transform.position, AllPlatforms[i].transform.position) <= platformRange) {
+					if (Time.time >= nextPlatformTime) {					//  the game will only allow the player to gain O2 once per second.
+					GameHandler.playerOxygen = GameHandler.playerOxygen + platformOxygen;
+					GameHandler.updateStatsDisplay();
+					nextPlatformTime = Time.time + 1f;
+					}
+                }
+			}
+			
+			if (GameHandler.playerOxygen >= 101) {
+				GameHandler.playerOxygen = GameHandler.StartPlayerOxygen;
+			}
+			
+			//if (gotPlatforms >= 1) {
+				//canBreathe = true;
+			//}
+			//else {
+				//canBreathe = false;
+			//}
+			
+			
+			
+		} // END OF UPDATE FUNCTION
 	  
 	  public void speedBoost(float speedBoost, float speedLength){
             moveSpeed = moveSpeed * speedBoost;

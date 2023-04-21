@@ -10,10 +10,14 @@ public class PlayerAttackShoot : MonoBehaviour{
       public float projectileSpeed = 10f;
       public float attackRate = 2f;
       private float nextAttackTime = 0f;
-	  public GameHandler m_GameHandler;
+	  private GameHandler m_GameHandler;
+	  
 
       void Start(){
            //animator = gameObject.GetComponentInChildren<Animator>();
+		   if (GameObject.FindWithTag ("GameHandler") != null) {
+                  m_GameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
+              }
       }
 
       void Update(){
