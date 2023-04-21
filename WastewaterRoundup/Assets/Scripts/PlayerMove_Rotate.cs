@@ -8,6 +8,7 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 	  public float startSpeed = 5f;
       public float rotationSpeed = 720f;
 	  private float nextDashTime = 0f;
+	  private bool isMoving = false;
 	  
 	  private GameHandler GameHandler;
 
@@ -20,7 +21,9 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 	    }
 	  
 	  void Update(){
-            float horizontalInput = Input.GetAxis ("Horizontal");
+          
+			
+			float horizontalInput = Input.GetAxis ("Horizontal");
             float verticalInput = Input.GetAxis ("Vertical");
             Vector2 moveDirection = new Vector2(horizontalInput, verticalInput);
             float inputMagnitude = Mathf.Clamp01(moveDirection.magnitude);
@@ -35,21 +38,30 @@ public class PlayerMove_Rotate :  MonoBehaviour {
                   transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
             }
 			
-			if (Time.time >= nextDashTime){
-				if (Input.GetAxis("Dash") > 0) {
-					if (GameHandler.gotAbility1 >= 1) {
-						GameHandler.gotAbility1 = GameHandler.gotAbility1 - 1;
-						GameHandler.updateStatsDisplay();
-						speedBoost(4f, 0.25f);
-						nextDashTime = Time.time + 1f;
-						Debug.Log("You Dashed!");
-					}
-					else {
-						Debug.Log("Not enough energy to Dash!");
+			if (moveDirection != Vector2.zero) {
+				isMoving = true;
+			}
+			else {
+				isMoving = false;
+			}
+			
+			if (isMoving == true) {
+				if (Time.time >= nextDashTime){
+					if (Input.GetAxis("Dash") > 0) {
+						if (GameHandler.gotAbility1 >= 1) {
+							GameHandler.gotAbility1 = GameHandler.gotAbility1 - 1;
+							GameHandler.updateStatsDisplay();
+							speedBoost(4f, 0.25f);
+							nextDashTime = Time.time + 1f;
+							Debug.Log("You Dashed!");
+						}
+						else {
+							Debug.Log("Not enough energy to Dash!");
+						}
 					}
 				}
 			}
-        }
+		}
 	  
 	  public void speedBoost(float speedBoost, float speedLength){
             moveSpeed = moveSpeed * speedBoost;
