@@ -14,8 +14,8 @@ public class GameHandler : MonoBehaviour {
       private Slider sliderVolumeCtrl;
 	  
 	  private GameObject player;
-      public static int playerHealth = 100;
-      public int StartPlayerHealth = 100;
+      public static int playerHealth = 200;
+      public int StartPlayerHealth = 200;
       public GameObject healthText;
 
       public static int gotRedTokens = 0;		// these intergers track the number of resources collected
@@ -23,7 +23,7 @@ public class GameHandler : MonoBehaviour {
 	  public static int gotGreenTokens = 0;
 	  public static int gotWhiteTokens = 0;
 	  public static int gotAbility1 = 3;		// these track the number of abilities created
-	  public static int gotAbility2 = 0;
+	  public static int gotAbility2 = 3;
 	  public static int gotAbility3 = 0;
 	  public static int gotAbility4 = 0;
 	  public static int gotAbility5 = 0;
@@ -214,7 +214,7 @@ public class GameHandler : MonoBehaviour {
 			gotBlueTokens = 0;		
 			gotGreenTokens = 0;
 			gotWhiteTokens = 0;
-			gotAbility1 = 0;		// these track the number of abilities created
+			gotAbility1 = 3;		// these track the number of abilities created
 			gotAbility2 = 3;
 			gotAbility3 = 0;
 			gotAbility4 = 0;
@@ -237,7 +237,7 @@ public class GameHandler : MonoBehaviour {
 			gotBlueTokens = 0;		
 			gotGreenTokens = 0;
 			gotWhiteTokens = 0;
-			gotAbility1 = 0;		
+			gotAbility1 = 3;		
 			gotAbility2 = 3;
 			gotAbility3 = 0;
 			gotAbility4 = 0;
