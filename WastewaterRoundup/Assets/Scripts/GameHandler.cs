@@ -16,7 +16,10 @@ public class GameHandler : MonoBehaviour {
 	  private GameObject player;
       public static int playerHealth = 200;
       public int StartPlayerHealth = 200;
+	  public static int playerOxygen = 100;
+      public int StartPlayerOxygen = 100;
       public GameObject healthText;
+	  public GameObject oxygenText;
 
       public static int gotRedTokens = 0;		// these intergers track the number of resources collected
 	  public static int gotBlueTokens = 0;		
@@ -154,6 +157,9 @@ public class GameHandler : MonoBehaviour {
       public void updateStatsDisplay(){
             Text healthTextTemp = healthText.GetComponent<Text>();
             healthTextTemp.text = "HEALTH: " + playerHealth;
+			
+			Text oxygenTextTemp = oxygenText.GetComponent<Text>();
+            oxygenTextTemp.text = "OXYGEN: " + playerOxygen;
 
             Text tokensRedTextTemp = tokensRedText.GetComponent<Text>();
             tokensRedTextTemp.text = "RED POOP: " + gotRedTokens;
