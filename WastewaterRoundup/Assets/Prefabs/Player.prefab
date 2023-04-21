@@ -193,7 +193,7 @@ MonoBehaviour:
   breathTime: 1
   breathCost: 2
   platformOxygen: 22
-  oxygenDamage: 20
+  oxygenDamage: 40
   platformRange: 4
   canBreathe: 1
 --- !u!114 &3230530203349255969
