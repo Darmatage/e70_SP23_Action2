@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5746780902305054182}
   - component: {fileID: 5746780902305054177}
   m_Layer: 0
-  m_Name: EnemyProjectile
+  m_Name: EnemyProjectile_Small
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.27008545, y: 0.2698485}
+  m_Size: {x: 0.13504276, y: 0.13492425}
   m_EdgeRadius: 0
 --- !u!114 &5746780902305054177
 MonoBehaviour:
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameHandlerObj: {fileID: 0}
-  damage: 15
+  damage: 3
   speed: 10
   hitEffectAnim: {fileID: 952791140953102993, guid: ed22306a6c61ee540b610c06b93d2aa7, type: 3}
   SelfDestructTime: 2
@@ -125,7 +125,7 @@ Transform:
   m_GameObject: {fileID: 5746780902599843888}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5746780902305054180}
