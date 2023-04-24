@@ -66,7 +66,6 @@ public class GameHandler : MonoBehaviour {
 
       private string sceneName;
 	  
-	  //public PlayerMove_Rotate PM;
 
       void Awake (){
                 SetLevel (volumeLevel);
@@ -85,7 +84,6 @@ public class GameHandler : MonoBehaviour {
             GameisPaused = false;
 			
 			player = GameObject.FindWithTag("Player");
-			//PM = player.GetComponent<PlayerMove_Rotate>;
             sceneName = SceneManager.GetActiveScene().name;
             if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
                   playerHealth = StartPlayerHealth;
