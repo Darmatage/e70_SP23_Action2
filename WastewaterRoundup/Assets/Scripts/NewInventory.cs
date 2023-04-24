@@ -15,10 +15,12 @@ public class NewInventory : MonoBehaviour {
 	public Text Ability5_count;
 	public Text Ability6_count;
 	
+	private float craftMenuTime = 0f;
+	
 	
 	
 	// Assign by dragging the GameObject with ScriptA into the inspector before running the game.
-    public GameHandler m_GameHandler; 
+    public GameHandler theGameHandler; 
 	  
 	  
 	  
@@ -43,6 +45,28 @@ public class NewInventory : MonoBehaviour {
 
     // Update is called once per frame
     void Update(){
+		
+		if (theGameHandler.GameisPaused == false) {
+			if (InvIsOpen == true) {
+				Time.timeScale = 0.25f;
+			}	
+			else {
+				Time.timeScale = 1f;
+			}
+		}
+			
+		
+		
+		//Time.timeScale = 0f;
+                //GameisPaused = true;
+		
+		if (Time.time >= craftMenuTime){
+			if (Input.GetAxis("CraftMenu") > 0) {
+				OpenCloseInventory();
+				craftMenuTime = Time.time + 0.15f;
+			}
+		}
+		
 		if (GameHandler.gotRedTokens >= 1 && GameHandler.gotBlueTokens >= 1) {   // controls visibility of craft button 1
 			buttonCraft1.SetActive(true);
 		}
@@ -84,7 +108,8 @@ public class NewInventory : MonoBehaviour {
 		else {
 			buttonCraft6.SetActive(false);
 		}
-    }
+    } // END OF UPDATE FUNCTION
+	
 	public void OpenCloseInventory(){
         if (InvIsOpen){ InventoryMenu.SetActive(false); }
         else { InventoryMenu.SetActive(true); }
@@ -95,7 +120,7 @@ public class NewInventory : MonoBehaviour {
 		GameHandler.gotBlueTokens = GameHandler.gotBlueTokens - 1;     //decreases required resource 2
 		GameHandler.gotAbility1 = GameHandler.gotAbility1 + 2;			//adds 2 uses of ability to ability count
 		Ability1_count.text = GameHandler.gotAbility1.ToString();		// updates ability display with new ability count
-		m_GameHandler.updateStatsDisplay();								//update the rest of the stat display
+		theGameHandler.updateStatsDisplay();								//update the rest of the stat display
 		Debug.Log("A1 Created!");
     }
 	public void CraftObject2(){     // Zap
@@ -103,7 +128,7 @@ public class NewInventory : MonoBehaviour {
 		GameHandler.gotWhiteTokens = GameHandler.gotWhiteTokens - 1;
 		GameHandler.gotAbility2 = GameHandler.gotAbility2 + 3;
 		Ability2_count.text = GameHandler.gotAbility2.ToString();
-		m_GameHandler.updateStatsDisplay();
+		theGameHandler.updateStatsDisplay();
 		Debug.Log("A2 Created!");
     }
 	public void CraftObject3(){
@@ -111,7 +136,7 @@ public class NewInventory : MonoBehaviour {
 		GameHandler.gotGreenTokens = GameHandler.gotGreenTokens - 1;
 		GameHandler.gotAbility3 = GameHandler.gotAbility3 + 1;
 		Ability3_count.text = GameHandler.gotAbility3.ToString();
-		m_GameHandler.updateStatsDisplay();
+		theGameHandler.updateStatsDisplay();
 		Debug.Log("A3 Created!");
     }
 	public void CraftObject4(){
@@ -119,7 +144,7 @@ public class NewInventory : MonoBehaviour {
 		GameHandler.gotWhiteTokens = GameHandler.gotWhiteTokens - 1;
 		GameHandler.gotAbility4 = GameHandler.gotAbility4 + 1;
 		Ability4_count.text = GameHandler.gotAbility4.ToString();
-		m_GameHandler.updateStatsDisplay();
+		theGameHandler.updateStatsDisplay();
 		Debug.Log("A4 Created!");
     }
 	public void CraftObject5(){
@@ -127,7 +152,7 @@ public class NewInventory : MonoBehaviour {
 		GameHandler.gotBlueTokens = GameHandler.gotBlueTokens - 1;
 		GameHandler.gotAbility5 = GameHandler.gotAbility5 + 1;
 		Ability5_count.text = GameHandler.gotAbility5.ToString();
-		m_GameHandler.updateStatsDisplay();
+		theGameHandler.updateStatsDisplay();
 		Debug.Log("A5 Created!");
     }
 	public void CraftObject6(){
@@ -135,7 +160,7 @@ public class NewInventory : MonoBehaviour {
 		GameHandler.gotBlueTokens = GameHandler.gotBlueTokens - 1;
 		GameHandler.gotAbility6 = GameHandler.gotAbility6 + 1;
 		Ability6_count.text = GameHandler.gotAbility6.ToString();
-		m_GameHandler.updateStatsDisplay();
+		theGameHandler.updateStatsDisplay();
 		Debug.Log("A6 Created!");
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 
 public class GameHandler : MonoBehaviour {
 
-      public static bool GameisPaused = false;
+      public bool GameisPaused = false;
       public GameObject pauseMenuUI;
       public AudioMixer mixer;
       public static float volumeLevel = 1.0f;
