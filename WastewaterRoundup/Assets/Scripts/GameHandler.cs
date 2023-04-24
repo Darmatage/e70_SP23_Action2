@@ -45,6 +45,11 @@ public class GameHandler : MonoBehaviour {
 	  private string Ability5Number;
 	  private string Ability6Number;
 	  
+	  private string RedTokenNumber;
+	  private string WhiteTokenNumber;
+	  private string GreenTokenNumber;
+	  private string BlueTokenNumber;
+	  
 	  public GameObject Ability1Count;	// these are the objects used to display ability count on the bar
 	  public GameObject Ability2Count;
 	  public GameObject Ability3Count;
@@ -162,16 +167,16 @@ public class GameHandler : MonoBehaviour {
             oxygenTextTemp.text = "OXYGEN: " + playerOxygen;
 
             Text tokensRedTextTemp = tokensRedText.GetComponent<Text>();
-            tokensRedTextTemp.text = "RED POOP: " + gotRedTokens;
+            tokensRedTextTemp.text = ": " + gotRedTokens;
 			
 			Text tokensGreenTextTemp = tokensGreenText.GetComponent<Text>();
-            tokensGreenTextTemp.text = "GREEN POOP: " + gotGreenTokens;
+            tokensGreenTextTemp.text = ": " + gotGreenTokens;
 			
 			Text tokensBlueTextTemp = tokensBlueText.GetComponent<Text>();
-            tokensBlueTextTemp.text = "BLUE POOP: " + gotBlueTokens;
+            tokensBlueTextTemp.text = ": " + gotBlueTokens;
 			
 			Text tokensWhiteTextTemp = tokensWhiteText.GetComponent<Text>();
-            tokensWhiteTextTemp.text = "WHITE POOP: " + gotWhiteTokens;
+            tokensWhiteTextTemp.text = ": " + gotWhiteTokens;
 			
 			
 			GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
