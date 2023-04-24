@@ -2760,6 +2760,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4576325738915277742, guid: f557d0b7398c7af43b238e92ab5de65f, type: 3}
   m_PrefabInstance: {fileID: 1959995790}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1173838647 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5572962589383358820, guid: 5502962730fa72c4bbbb34a73519da36, type: 3}
+  m_PrefabInstance: {fileID: 2365813251518560621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d8dec7127540f43af3b40a0b85877c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1241448764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32604,6 +32615,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 361693706716135186, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: PM
+      value: 
+      objectReference: {fileID: 1173838647}
     - target: {fileID: 3359882440274233050, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
       propertyPath: m_Name
       value: GAMEHANDLER_CANVAS

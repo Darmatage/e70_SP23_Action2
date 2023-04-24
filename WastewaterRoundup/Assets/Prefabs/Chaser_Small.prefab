@@ -200,4 +200,4 @@ MonoBehaviour:
   anim: {fileID: 0}
   healthLoot: {fileID: 2272711844791474188, guid: cd7210f2b6a4f244fbf108e2bb78e3f8, type: 3}
   maxHealth: 25
-  currentHealth: 100
+  currentHealth: 25

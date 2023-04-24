@@ -58,11 +58,15 @@ public class GameHandler : MonoBehaviour {
 	  public GameObject Ability6Count;
 
       public bool isDefending = false;
+	  
+	  public PlayerMove_Rotate PM;
 
       public static bool stairCaseUnlocked = false;
       //this is a flag check. Add to other scripts: GameHandler.stairCaseUnlocked = true;
 
       private string sceneName;
+	  
+	  //public PlayerMove_Rotate PM;
 
       void Awake (){
                 SetLevel (volumeLevel);
@@ -81,10 +85,16 @@ public class GameHandler : MonoBehaviour {
             GameisPaused = false;
 			
 			player = GameObject.FindWithTag("Player");
+			//PM = player.GetComponent<PlayerMove_Rotate>;
             sceneName = SceneManager.GetActiveScene().name;
             if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
                   playerHealth = StartPlayerHealth;
             }
+			
+			if (GameObject.FindWithTag ("Player") != null) {
+                PM = GameObject.FindWithTag ("Player").GetComponent<PlayerMove_Rotate> ();
+            }
+			
 			
             updateStatsDisplay();
       }
@@ -137,7 +147,7 @@ public class GameHandler : MonoBehaviour {
       }
 
       public void playerGetHit(int damage){
-           if (isDefending == false){
+           if (PM.isDashing == false){
                   playerHealth -= damage;
                   if (playerHealth >=0){
                         updateStatsDisplay();
