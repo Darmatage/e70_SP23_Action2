@@ -68,7 +68,7 @@ public class EnemyMoveHit : MonoBehaviour {
 						StartCoroutine(EndKnockBack(pushRB));
 					}
                 }
-       } 
+        } 
 
        public void OnCollisionExit2D(Collision2D other){
               if (other.gameObject.tag == "Player") {

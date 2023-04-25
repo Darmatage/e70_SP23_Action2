@@ -5,7 +5,10 @@ using UnityEngine;
 public class EnemyMeleeDamage : MonoBehaviour {
        private Renderer rend;
        public Animator anim;
-       public GameObject healthLoot;
+       public GameObject enemyLoot1;
+	   public GameObject enemyLoot2;
+	   public GameObject enemyLoot3;
+	   public GameObject enemyLoot4;
        public int maxHealth = 100;
        public int currentHealth;
 	   
@@ -32,14 +35,35 @@ public class EnemyMeleeDamage : MonoBehaviour {
        }
 
        void Die(){
-              Instantiate (healthLoot, transform.position, Quaternion.identity);
-              //anim.SetTrigger ("KO");
-              GetComponent<Collider2D>().enabled = false;
-              StartCoroutine(Death());
+            int lootRoll = Random.Range(1, 5);
+			if (lootRoll == 1) {
+				Instantiate (enemyLoot1, transform.position, Quaternion.identity);
+				//anim.SetTrigger ("KO");
+				GetComponent<Collider2D>().enabled = false;
+				StartCoroutine(Death());
+			}
+			if (lootRoll == 2) {
+				Instantiate (enemyLoot2, transform.position, Quaternion.identity);
+				//anim.SetTrigger ("KO");
+				GetComponent<Collider2D>().enabled = false;
+				StartCoroutine(Death());
+			}
+			if (lootRoll == 3) {
+				Instantiate (enemyLoot3, transform.position, Quaternion.identity);
+				//anim.SetTrigger ("KO");
+				GetComponent<Collider2D>().enabled = false;
+				StartCoroutine(Death());
+			}
+			if (lootRoll == 4) {
+				Instantiate (enemyLoot4, transform.position, Quaternion.identity);
+				//anim.SetTrigger ("KO");
+				GetComponent<Collider2D>().enabled = false;
+				StartCoroutine(Death());
+			}
        }
 
        IEnumerator Death(){
-              yield return new WaitForSeconds(1f);
+              yield return new WaitForSeconds(0.25f);
               Debug.Log("You Killed a baddie. You deserve loot!");
               Destroy(gameObject);
 			  gameHandler.updateStatsDisplay();
