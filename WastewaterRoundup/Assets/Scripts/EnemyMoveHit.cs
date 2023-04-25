@@ -18,6 +18,8 @@ public class EnemyMoveHit : MonoBehaviour {
        private float scaleX;
 	   
 	   public float knockBackForce = 20f; 
+	   
+	   public PlayerMove_Rotate PM;
 
        void Start () {
               anim = GetComponentInChildren<Animator> ();
@@ -26,6 +28,7 @@ public class EnemyMoveHit : MonoBehaviour {
 
               if (GameObject.FindGameObjectWithTag ("Player") != null) {
                      target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
+					 PM = GameObject.FindWithTag ("Player").GetComponent<PlayerMove_Rotate> ();
               }
 
               if (GameObject.FindWithTag ("GameHandler") != null) {
@@ -58,11 +61,13 @@ public class EnemyMoveHit : MonoBehaviour {
                      //StartCoroutine(HitEnemy());
 
 			//This method adds force to the player, pushing them back without teleporting (choose above or below).
-                    Rigidbody2D pushRB = other.gameObject.GetComponent<Rigidbody2D>();
-                    Vector2 moveDirectionPush = rb2D.transform.position - other.transform.position;
-                    pushRB.AddForce(moveDirectionPush.normalized * knockBackForce * - 1f, ForceMode2D.Impulse);
-                    StartCoroutine(EndKnockBack(pushRB));
-              }
+					if (PM.isDashing == false) {
+						Rigidbody2D pushRB = other.gameObject.GetComponent<Rigidbody2D>();
+						Vector2 moveDirectionPush = rb2D.transform.position - other.transform.position;
+						pushRB.AddForce(moveDirectionPush.normalized * knockBackForce * - 1f, ForceMode2D.Impulse);
+						StartCoroutine(EndKnockBack(pushRB));
+					}
+                }
        } 
 
        public void OnCollisionExit2D(Collision2D other){
