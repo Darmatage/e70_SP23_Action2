@@ -13,11 +13,15 @@ public class GameHandler : MonoBehaviour {
       public static float volumeLevel = 1.0f;
       private Slider sliderVolumeCtrl;
 	  
+	  public Image healthBar;
+	  public Image oxygenBar;
+	  
 	  private GameObject player;
-      public static int playerHealth = 200;
-      public int StartPlayerHealth = 200;
-	  public static int playerOxygen = 100;
-      public int StartPlayerOxygen = 100;
+      public static float playerHealth = 100f;
+      public float StartPlayerHealth = 100f;
+	  public float MaxPlayerHealth = 200f;
+	  public static float playerOxygen = 100f;
+      public float StartPlayerOxygen = 100f;
       public GameObject healthText;
 	  public GameObject oxygenText;
 
@@ -83,6 +87,8 @@ public class GameHandler : MonoBehaviour {
 			pauseMenuUI.SetActive(false);
             GameisPaused = false;
 			
+			healthBar.fillAmount = playerHealth / MaxPlayerHealth;
+			
 			player = GameObject.FindWithTag("Player");
             sceneName = SceneManager.GetActiveScene().name;
             if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
@@ -147,6 +153,7 @@ public class GameHandler : MonoBehaviour {
       public void playerGetHit(int damage){
            if (PM.isDashing == false){
                   playerHealth -= damage;
+				  healthBar.fillAmount = playerHealth / MaxPlayerHealth;
                   if (playerHealth >=0){
                         updateStatsDisplay();
                   }
@@ -155,8 +162,8 @@ public class GameHandler : MonoBehaviour {
                   }
             }
 
-           if (playerHealth > StartPlayerHealth){
-                  playerHealth = StartPlayerHealth;
+           if (playerHealth > MaxPlayerHealth){
+                  playerHealth = MaxPlayerHealth;
                   updateStatsDisplay();
             }
 
@@ -168,7 +175,9 @@ public class GameHandler : MonoBehaviour {
       }
 
       public void updateStatsDisplay(){
-            Text healthTextTemp = healthText.GetComponent<Text>();
+            oxygenBar.fillAmount = playerOxygen / StartPlayerOxygen;
+			
+			Text healthTextTemp = healthText.GetComponent<Text>();
             healthTextTemp.text = "HEALTH: " + playerHealth;
 			
 			Text oxygenTextTemp = oxygenText.GetComponent<Text>();
