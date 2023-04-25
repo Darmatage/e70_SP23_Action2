@@ -5,11 +5,14 @@ using UnityEngine;
 public class BreakableClump : MonoBehaviour
 {
 	public PlayerMove_Rotate PM;
-	
+	private Renderer rend;
 	public GameObject clumpLoot1;
 	public GameObject clumpLoot2;
 	public GameObject clumpLoot3;
 	public GameObject clumpLoot4;
+	
+	public int maxHealth = 40;
+    public int currentHealth;
 	
 	private GameHandler gameHandler;
 	
@@ -17,6 +20,8 @@ public class BreakableClump : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		rend = GetComponentInChildren<Renderer> ();
+		
 		if (GameObject.FindGameObjectWithTag ("Player") != null) {
 			PM = GameObject.FindWithTag ("Player").GetComponent<PlayerMove_Rotate> ();
         }
@@ -24,6 +29,7 @@ public class BreakableClump : MonoBehaviour
 		if (GameObject.FindWithTag ("GameHandler") != null) {
                   gameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
               }
+		currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -36,7 +42,25 @@ public class BreakableClump : MonoBehaviour
         if (other.gameObject.tag == "Player" && PM.isDashing == true) {
 			Die();
 		}
+
 	}
+	
+
+	public void TakeDamage(int damage){
+              currentHealth -= damage;
+              rend.material.color = new Color(2.4f, 0.9f, 0.9f, 1f);
+              StartCoroutine(ResetColor());
+              //anim.SetTrigger ("getHurt");
+              if (currentHealth <= 0){
+                     Die();
+                }
+    }
+
+
+
+
+
+
 	
 	void Die(){
 			int lootRoll = Random.Range(1, 5);
@@ -71,6 +95,11 @@ public class BreakableClump : MonoBehaviour
               Debug.Log("Clump Smashed!");
               Destroy(gameObject);
 			  gameHandler.updateStatsDisplay();
+       }
+	   
+	   IEnumerator ResetColor(){
+              yield return new WaitForSeconds(0.5f);
+              rend.material.color = Color.white;
        }
 	
 }

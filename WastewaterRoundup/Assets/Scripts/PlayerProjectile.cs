@@ -22,6 +22,10 @@ public class PlayerProjectile : MonoBehaviour{
 				  Debug.Log("We hit " + other.name);
                   other.gameObject.GetComponent<EnemyMeleeDamage>().TakeDamage(damage);
             }
+			if (other.gameObject.layer == LayerMask.NameToLayer("Clumps")) {
+				  Debug.Log("We hit " + other.name);
+                  other.gameObject.GetComponent<BreakableClump>().TakeDamage(damage);
+            }
            if (other.gameObject.tag != "Player") {
                   GameObject animEffect = Instantiate (hitEffectAnim, transform.position, Quaternion.identity);
                   projectileArt.enabled = false;
