@@ -9,8 +9,7 @@ public class EnemyMoveHit : MonoBehaviour {
        public float speed = 4f;
        private Transform target;
        public int damage = 10;
-
-       public int EnemyLives = 3;
+	   
        private GameHandler gameHandler;
 
        public float attackRange = 10;
