@@ -195,7 +195,7 @@ MonoBehaviour:
   platformOxygen: 22
   oxygenDamage: 40
   platformRange: 4
-  canBreathe: 1
+  isDashing: 0
 --- !u!114 &3230530203349255969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 100
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 0.4447134, g: 0.6792453, b: 0.47330007, a: 1}
   m_FlipX: 0

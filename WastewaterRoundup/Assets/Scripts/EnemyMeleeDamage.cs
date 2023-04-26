@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 public class EnemyMeleeDamage : MonoBehaviour {
-       private Renderer rend;
+       public Renderer rend;
        public Animator anim;
        public GameObject enemyLoot1;
 	   public GameObject enemyLoot2;
@@ -15,8 +15,8 @@ public class EnemyMeleeDamage : MonoBehaviour {
 	   private GameHandler gameHandler;
 
        void Start(){
-              rend = GetComponentInChildren<Renderer> ();
-              anim = GetComponentInChildren<Animator> ();
+              rend = GetComponentInChildren<Renderer>();
+              anim = GetComponentInChildren<Animator>();
               currentHealth = maxHealth;
 			  
 			  if (GameObject.FindWithTag ("GameHandler") != null) {

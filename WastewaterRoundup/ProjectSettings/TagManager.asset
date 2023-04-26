@@ -19,6 +19,8 @@ TagManager:
   - PickUpWhite
   - PickUpGreen
   - PickUpRed
+  - EnemyFolder
+  - Hive
   layers:
   - Default
   - TransparentFX

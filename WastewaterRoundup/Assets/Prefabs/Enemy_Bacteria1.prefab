@@ -177,7 +177,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6996aa64bcce140942ec72a06088a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  healthLoot: {fileID: 5316580165054077591, guid: 83b1634cb73cb824284f3b6af241a4f8, type: 3}
+  rend: {fileID: 2455530651851051771}
+  anim: {fileID: 2455530651851051768}
+  enemyLoot1: {fileID: 2272711844791474188, guid: cd7210f2b6a4f244fbf108e2bb78e3f8, type: 3}
+  enemyLoot2: {fileID: 5316580165054077591, guid: 83b1634cb73cb824284f3b6af241a4f8, type: 3}
+  enemyLoot3: {fileID: 4576325738915277714, guid: f557d0b7398c7af43b238e92ab5de65f, type: 3}
+  enemyLoot4: {fileID: 7112530383242181724, guid: 9e446eb069d4cf049a74abc72ea5b968, type: 3}
   maxHealth: 100
   currentHealth: 0

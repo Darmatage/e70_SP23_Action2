@@ -1,18 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
 
-public class PlayerBigSuck : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+// public class PlayerBigSuck : MonoBehaviour
+// {
+//     // Update is called once per frame
+//     void Update()
+//     {
+//         if (Input.GetKeyDown(KeyCode.S)) {
+//             CollectPoop();
+//         }
+//     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}
+//     void CollectPoop(){
+//         Collider[] colliders = Physics.OverlapSphere(transform.position, 5f);
+
+//         foreach (Collider collider in colliders) {
+//             if (collider.gameObject.CompareTag("PickUp")) {
+//                 Destroy(collider.gameObject);
+//             }
+//         }
+//     }
+// }
