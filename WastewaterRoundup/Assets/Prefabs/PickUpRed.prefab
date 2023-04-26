@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 4576325738915277740}
   m_Layer: 0
   m_Name: PickUpRed
-  m_TagString: Untagged
+  m_TagString: PickUpRed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

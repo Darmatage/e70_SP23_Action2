@@ -103,6 +103,11 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 			if (GameHandler.playerOxygen >= 101) {
 				GameHandler.playerOxygen = GameHandler.StartPlayerOxygen;
 			}
+
+			 if (Input.GetKeyDown(KeyCode.B)) {
+                  // Debug.Log("Doing the Big Suck");
+                  BigSuck();
+            }
 			
 			
 			
@@ -120,5 +125,34 @@ public class PlayerMove_Rotate :  MonoBehaviour {
             moveSpeed = startSpeed;       //NOTE: returns this stat to normal
 			isDashing = false;
       }
+
+	void BigSuck(){
+        Debug.Log("Collecting the Poop!");
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10f);
+      //   string collidersString = string.Join(", ", (object[])colliders);
+      //   Debug.Log(collidersString);
+      // Debug.Log("Number of colliders: " + colliders.Length);
+
+        foreach (Collider2D collider in colliders) {
+            string pickupName = collider.name;
+            Debug.Log(pickupName);
+            if (collider.gameObject.CompareTag("PickUpGreen")) {
+               Debug.Log("Green" + GameHandler.gotGreenTokens);
+                GameHandler.gotGreenTokens = GameHandler.gotGreenTokens + 1;
+                Debug.Log("Green" + GameHandler.gotGreenTokens);
+                Destroy(collider.gameObject);
+            } else if (collider.gameObject.CompareTag("PickUpBlue")) {
+                GameHandler.gotBlueTokens = GameHandler.gotBlueTokens + 1;
+                Destroy(collider.gameObject);  
+            } else if (collider.gameObject.CompareTag("PickUpRed")) {
+                GameHandler.gotRedTokens = GameHandler.gotRedTokens + 1;
+                Destroy(collider.gameObject);  
+            } else if (collider.gameObject.CompareTag("PickUpWhite")) {
+                GameHandler.gotWhiteTokens = GameHandler.gotWhiteTokens + 1;
+                Destroy(collider.gameObject);  
+            }
+
+        }
+    }
 
 }

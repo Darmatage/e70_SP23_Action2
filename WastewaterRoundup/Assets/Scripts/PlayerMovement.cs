@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Movement Script");
         // Get the input from the player and save it in variables
         // horizontal and vertical 
         float dirX = Input.GetAxis("Horizontal");
@@ -36,6 +37,22 @@ public class PlayerMovement : MonoBehaviour
         // Change the velocity of the player to move in the direction
         // specified by `direction` with the `moveSpeed`
         rb.velocity = direction * moveSpeed;
+
+        if (Input.GetKeyDown(KeyCode.Return)) {
+            Debug.Log("Doing the Big Suck");
+            CollectPoop();
+        }
+    }
+
+    void CollectPoop(){
+        Debug.Log("Collecting the Poop!");
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 5f);
+
+        foreach (Collider collider in colliders) {
+            if (collider.gameObject.CompareTag("PickUp")) {
+                Destroy(collider.gameObject);
+            }
+        }
     }
 
     

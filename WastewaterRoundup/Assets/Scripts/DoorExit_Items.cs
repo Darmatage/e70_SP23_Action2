@@ -22,10 +22,10 @@ public class DoorExit_Items : MonoBehaviour{
             GameObject[] enemyShooters = GameObject.FindGameObjectsWithTag("enemyShooter");
             int totalEnemies = enemies.Length + enemyShooters.Length;
             // piecesCollected = gameHandler.thePieces;
-            Debug.Log("Total Enemies: "+ totalEnemies);
+            // Debug.Log("Total Enemies: "+ totalEnemies);
 
             if (totalEnemies == 0 && doorIsClosed){
-                  Debug.Log("All enemies dead!");
+                  // Debug.Log("All enemies dead!");
                   doorIsClosed = false;
                   DoorClosed.SetActive(false);
                   DoorOpen.SetActive(true);
