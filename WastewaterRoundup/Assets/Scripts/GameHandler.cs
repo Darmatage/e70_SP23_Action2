@@ -20,7 +20,8 @@ public class GameHandler : MonoBehaviour {
       public static float playerHealth = 100f;
       public float StartPlayerHealth = 100f;
 	  public float MaxPlayerHealth = 200f;
-	  public static float playerOxygen = 100f;
+      // changing public static to just public
+	  public float playerOxygen = 100f;
       public float StartPlayerOxygen = 100f;
       public GameObject healthText;
 	  public GameObject oxygenText;
@@ -199,7 +200,7 @@ public class GameHandler : MonoBehaviour {
 			GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             GameObject[] enemyShooters = GameObject.FindGameObjectsWithTag("enemyShooter");
             howManyEnemies = enemies.Length + enemyShooters.Length;
-            Debug.Log("There are "+ howManyEnemies + " enemies remaining.");
+            // Debug.Log("There are "+ howManyEnemies + " enemies remaining.");
 			
 			
 			Text enemyCountTextTemp = enemyCountText.GetComponent<Text>();
