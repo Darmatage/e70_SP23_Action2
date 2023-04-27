@@ -48,7 +48,7 @@ MonoBehaviour:
   lilRangedEnemy: {fileID: 3778159363450727475, guid: a79546dd9c3e04147be1b4ba01edc79b, type: 3}
   bigMeleeEnemy: {fileID: 2942003997707061533, guid: 0661e63f027289f4d8d3477e7e2c597e, type: 3}
   lilMeleeEnemy: {fileID: 2942003997707061533, guid: ee22ff9de7bd9c54c844d2c50bfe1577, type: 3}
-  mrSucc: {fileID: 2904762458969445440, guid: 3860f85de386449469e90afefaaf26ca, type: 3}
+  mrSucc: {fileID: 2942003997707061533, guid: ee22ff9de7bd9c54c844d2c50bfe1577, type: 3}
   spawnSelect: 0
   spawnRadiusInner: 0.5
   spawnRadiusOuter: 2
