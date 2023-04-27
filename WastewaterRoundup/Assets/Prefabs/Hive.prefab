@@ -44,7 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874043ddf24cc2d448a11e360ec022bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBacteria: {fileID: 2942003997707061533, guid: 0661e63f027289f4d8d3477e7e2c597e, type: 3}
+  bigRangedEnemy: {fileID: 3778159363450727475, guid: 7310c3e6d8a65064e860d927d90f2347, type: 3}
+  lilRangedEnemy: {fileID: 3778159363450727475, guid: a79546dd9c3e04147be1b4ba01edc79b, type: 3}
+  bigMeleeEnemy: {fileID: 2942003997707061533, guid: 0661e63f027289f4d8d3477e7e2c597e, type: 3}
+  lilMeleeEnemy: {fileID: 2942003997707061533, guid: ee22ff9de7bd9c54c844d2c50bfe1577, type: 3}
+  mrSucc: {fileID: 2904762458969445440, guid: 3860f85de386449469e90afefaaf26ca, type: 3}
+  spawnSelect: 0
   spawnRadiusInner: 0.5
   spawnRadiusOuter: 2
 --- !u!1 &7977309905167102491
@@ -98,8 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBacteria: {fileID: 2455530652689437419, guid: 27e035a6588c30f4fa99b31425da937c, type: 3}
-  spawnRate: 1
-  maxEnemies: 10
+  spawnRate: 2
+  maxEnemies: 3
   hiveStrands:
   - {fileID: 5825194221067404649}
   - {fileID: 1087752109704424805}
