@@ -4650,7 +4650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &361693707787074577
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5993,7 +5993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8235582352623809301
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6775,6 +6775,7 @@ MonoBehaviour:
   oxygenBar: {fileID: 3596660118632531807}
   StartPlayerHealth: 100
   MaxPlayerHealth: 200
+  playerOxygen: 100
   StartPlayerOxygen: 100
   healthText: {fileID: 361693707427817667}
   oxygenText: {fileID: 5033976648618594580}

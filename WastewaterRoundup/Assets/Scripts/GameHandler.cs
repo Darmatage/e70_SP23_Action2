@@ -262,7 +262,7 @@ public class GameHandler : MonoBehaviour {
 		}
 
       public void StartGame() {
-            SceneManager.LoadScene("Peter_Level");
+            SceneManager.LoadScene("Rishabh_Work");
       }
 
       public void RestartGame() {
