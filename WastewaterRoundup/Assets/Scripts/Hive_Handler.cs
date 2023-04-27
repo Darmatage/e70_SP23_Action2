@@ -7,10 +7,11 @@ public class Hive_Handler : MonoBehaviour{
 	public GameObject enemyBacteria;
 	private float theTimer = 0f;
 	public float spawnRate = 1f;
+	public float longtermSpawnRate = 2.5f;
 	//public float spawnRadiusInner = 1.5f;
 	//public float spawnRadiusOuter = 4f;
 	
-	public int maxEnemies = 10;
+	public int maxInitialEnemies = 10;
 	private int currentEnemies = 0;
 	
 	public GameObject[] hiveStrands;
@@ -28,14 +29,24 @@ public class Hive_Handler : MonoBehaviour{
 
     void FixedUpdate(){
         
-		if (currentEnemies < maxEnemies){
+		if (currentEnemies < maxInitialEnemies){
 			if (theTimer <= spawnRate){
 				theTimer += 0.01f;
-			} else {
+			} 
+			else {
 				m_Hive_Spawner.AddNewBacteria();
 				currentEnemies += 1;
 				theTimer = 0;
 			}
+		}
+		else {
+			if (theTimer <= longtermSpawnRate){
+				theTimer += 0.01f;
+			} 
+			else {
+				m_Hive_Spawner.AddNewBacteria();
+				theTimer = 0;
+			}	
 		}
     }
 	

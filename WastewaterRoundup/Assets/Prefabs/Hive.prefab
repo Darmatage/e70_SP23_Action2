@@ -104,7 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBacteria: {fileID: 2455530652689437419, guid: 27e035a6588c30f4fa99b31425da937c, type: 3}
   spawnRate: 2
-  maxEnemies: 3
+  longtermSpawnRate: 4
+  maxInitialEnemies: 10
   hiveStrands:
   - {fileID: 5825194221067404649}
   - {fileID: 1087752109704424805}
