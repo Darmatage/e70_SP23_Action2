@@ -133,7 +133,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 50
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.32941177, g: 0, b: 0.3019608, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -197,6 +197,18 @@ PrefabInstance:
     - target: {fileID: 6761553740749460820, guid: 1a7606325cd3c8d468ca42ab5583a703, type: 3}
       propertyPath: m_Name
       value: HiveStrand1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649854910226391555, guid: 1a7606325cd3c8d468ca42ab5583a703, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649854910226391555, guid: 1a7606325cd3c8d468ca42ab5583a703, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649854910226391555, guid: 1a7606325cd3c8d468ca42ab5583a703, type: 3}
+      propertyPath: m_Color.r
+      value: 0.32941177
       objectReference: {fileID: 0}
     - target: {fileID: 7678588540335342791, guid: 1a7606325cd3c8d468ca42ab5583a703, type: 3}
       propertyPath: hiveHandler
@@ -269,6 +281,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HiveStrand3
       objectReference: {fileID: 0}
+    - target: {fileID: 7649854910226391555, guid: 1a7606325cd3c8d468ca42ab5583a703, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649854910226391555, guid: 1a7606325cd3c8d468ca42ab5583a703, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649854910226391555, guid: 1a7606325cd3c8d468ca42ab5583a703, type: 3}
+      propertyPath: m_Color.r
+      value: 0.32941177
+      objectReference: {fileID: 0}
     - target: {fileID: 7678588540335342791, guid: 1a7606325cd3c8d468ca42ab5583a703, type: 3}
       propertyPath: hiveHandler
       value: 
@@ -339,6 +363,18 @@ PrefabInstance:
     - target: {fileID: 6761553740749460820, guid: 1a7606325cd3c8d468ca42ab5583a703, type: 3}
       propertyPath: m_Name
       value: HiveStrand2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649854910226391555, guid: 1a7606325cd3c8d468ca42ab5583a703, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649854910226391555, guid: 1a7606325cd3c8d468ca42ab5583a703, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649854910226391555, guid: 1a7606325cd3c8d468ca42ab5583a703, type: 3}
+      propertyPath: m_Color.r
+      value: 0.32941177
       objectReference: {fileID: 0}
     - target: {fileID: 7678588540335342791, guid: 1a7606325cd3c8d468ca42ab5583a703, type: 3}
       propertyPath: hiveHandler
