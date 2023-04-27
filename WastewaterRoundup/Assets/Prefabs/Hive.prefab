@@ -105,7 +105,7 @@ MonoBehaviour:
   - {fileID: 1087752109704424805}
   - {fileID: 2270923476735835486}
   numStrands: 0
-  theLoot: {fileID: 4576325738915277714, guid: f557d0b7398c7af43b238e92ab5de65f, type: 3}
+  theLoot: {fileID: 4716575867357622903, guid: 31b9da6100fb99949bb6562410cbfc62, type: 3}
   m_Hive_Spawner: {fileID: 3128136460150363143}
 --- !u!61 &8187506075560686804
 BoxCollider2D:
