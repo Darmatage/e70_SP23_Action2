@@ -186,6 +186,8 @@ public class GameHandler : MonoBehaviour {
       public void updateStatsDisplay(){
             oxygenBar.fillAmount = playerOxygen / StartPlayerOxygen;
 			
+			healthBar.fillAmount = playerHealth / MaxPlayerHealth;
+			
 			Text healthTextTemp = healthText.GetComponent<Text>();
             healthTextTemp.text = "HEALTH: " + playerHealth;
 			

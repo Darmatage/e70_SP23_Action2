@@ -9,24 +9,38 @@ public class GameHandler_PlayerFollowers : MonoBehaviour{
 	public GameObject playerFollow;
 	public static int playerFollowers = 0;
 	public List<GameObject> playerFollowerList = new List<GameObject>();
+	private GameHandler GameHandler;
 	
 	void Start(){
+		
+		if (GameObject.FindWithTag ("GameHandler") != null) {
+                GameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
+        }
 		playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>();
 		AddToFollowerList(playerFollowers);
 	}
 	
 	
 	void Update(){
-		// test add a follower:
-		if (Input.GetKeyDown("i")){
-			playerFollowers += 1;
-			AddToFollowerList(1);
-		}
+		
+		/*if (GameHandler.gotAbility3 > 0) {
+		
+			// test add a follower:
+			if (Input.GetKeyDown("i")){
+				playerFollowers += 1;
+				AddToFollowerList(1);
+				GameHandler.gotAbility3 -= 1;
+				GameHandler.playerHealth =+ 20f;
+				GameHandler.updateStatsDisplay();
+			}
+		
+		} */
+		
 		
 		// test remove a follower:
-		if (Input.GetKeyDown("o")){
-			RemoveFromFollowerList();
-		}
+		//if (Input.GetKeyDown("o")){
+			//RemoveFromFollowerList();
+		//}
 	}
 	
 	
