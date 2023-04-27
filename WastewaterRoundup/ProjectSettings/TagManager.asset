@@ -21,6 +21,7 @@ TagManager:
   - PickUpRed
   - EnemyFolder
   - Hive
+  - HiveSpawnPoint
   layers:
   - Default
   - TransparentFX

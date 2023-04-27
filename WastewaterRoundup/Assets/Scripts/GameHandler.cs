@@ -25,6 +25,8 @@ public class GameHandler : MonoBehaviour {
       public float StartPlayerOxygen = 100f;
       public GameObject healthText;
 	  public GameObject oxygenText;
+	  
+	  
 
       public static int gotRedTokens = 0;		// these intergers track the number of resources collected
 	  public static int gotBlueTokens = 0;		
@@ -71,6 +73,7 @@ public class GameHandler : MonoBehaviour {
 
       private string sceneName;
 	  
+	  
 
       void Awake (){
                 SetLevel (volumeLevel);
@@ -100,6 +103,7 @@ public class GameHandler : MonoBehaviour {
                 PM = GameObject.FindWithTag ("Player").GetComponent<PlayerMove_Rotate> ();
             }
 			
+			//FindObjectOfType<GameHandler_PlayerFollowers>().AddToFollowerList(1);
 			
             updateStatsDisplay();
       }
@@ -114,6 +118,10 @@ public class GameHandler : MonoBehaviour {
                                 Pause();
                         }
                 }
+				
+				if(playerHealth >= 101) {
+					
+				}
         }
 		
 		void Pause(){

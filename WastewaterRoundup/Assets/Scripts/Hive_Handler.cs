@@ -7,8 +7,8 @@ public class Hive_Handler : MonoBehaviour{
 	public GameObject enemyBacteria;
 	private float theTimer = 0f;
 	public float spawnRate = 1f;
-	public float spawnRadiusInner = 1.5f;
-	public float spawnRadiusOuter = 4f;
+	//public float spawnRadiusInner = 1.5f;
+	//public float spawnRadiusOuter = 4f;
 	
 	public int maxEnemies = 10;
 	private int currentEnemies = 0;
@@ -18,8 +18,11 @@ public class Hive_Handler : MonoBehaviour{
 	
 	public GameObject theLoot;
 	
+	public Hive_Spawner m_Hive_Spawner;
+	
     void Start(){
-        AddNewBacteria();
+        
+		m_Hive_Spawner.AddNewBacteria();
 		numStrands = hiveStrands.Length;
     }
 
@@ -29,7 +32,7 @@ public class Hive_Handler : MonoBehaviour{
 			if (theTimer <= spawnRate){
 				theTimer += 0.01f;
 			} else {
-				AddNewBacteria();
+				m_Hive_Spawner.AddNewBacteria();
 				currentEnemies += 1;
 				theTimer = 0;
 			}
@@ -37,7 +40,7 @@ public class Hive_Handler : MonoBehaviour{
     }
 	
 	
-	public void AddNewBacteria(){
+	/*public void AddNewBacteria(){
 		//prepare a random spawn position for the new follower
 		float randX = Random.Range (-spawnRadiusOuter, spawnRadiusOuter); 
 		float randY = Random.Range (-spawnRadiusOuter, spawnRadiusOuter);
@@ -49,7 +52,7 @@ public class Hive_Handler : MonoBehaviour{
 			thisNewEnemy.transform.parent = GameObject.FindWithTag("EnemyFolder").GetComponent<Transform>();
 		}
 		
-	}
+	}*/
 	
 	
 	public void StrandDeath(){
