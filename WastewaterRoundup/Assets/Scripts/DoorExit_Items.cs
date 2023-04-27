@@ -20,7 +20,8 @@ public class DoorExit_Items : MonoBehaviour{
       void Update(){
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             GameObject[] enemyShooters = GameObject.FindGameObjectsWithTag("enemyShooter");
-            int totalEnemies = enemies.Length + enemyShooters.Length;
+			GameObject[] Hives = GameObject.FindGameObjectsWithTag("Hive");
+            int totalEnemies = enemies.Length + enemyShooters.Length + Hives.Length;
             // piecesCollected = gameHandler.thePieces;
             // Debug.Log("Total Enemies: "+ totalEnemies);
 
