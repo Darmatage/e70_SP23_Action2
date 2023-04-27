@@ -205,14 +205,13 @@ public class GameHandler : MonoBehaviour {
             tokensWhiteTextTemp.text = ": " + gotWhiteTokens;
 			
 			
-			GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            GameObject[] enemyShooters = GameObject.FindGameObjectsWithTag("enemyShooter");
-            howManyEnemies = enemies.Length + enemyShooters.Length;
+			GameObject[] hives = GameObject.FindGameObjectsWithTag("Hive");
+            howManyEnemies = hives.Length;
             // Debug.Log("There are "+ howManyEnemies + " enemies remaining.");
 			
 			
 			Text enemyCountTextTemp = enemyCountText.GetComponent<Text>();
-            enemyCountTextTemp.text = "REMAINING ENEMIES: " + howManyEnemies;
+            enemyCountTextTemp.text = "REMAINING HIVES: " + howManyEnemies;
 			
 			Text Ability1CountTemp = Ability1Count.GetComponent<Text>();  //declare some temp text, set it to the text component of the proper object
 			Ability1Number = gotAbility1.ToString();						//we take the AbilityXNumber string, and use the ToString function to turn the interger that tracks ability count into this string

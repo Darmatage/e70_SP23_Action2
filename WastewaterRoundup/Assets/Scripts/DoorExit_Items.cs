@@ -7,21 +7,21 @@ public class DoorExit_Items : MonoBehaviour{
       public string NextLevel = "Gratis_Work";
       public GameObject DoorClosed;
       public GameObject DoorOpen;
+	  
+	  public GameHandler gameHandler;
 
       private bool doorIsClosed = true; 
 
       void Start(){
-            // gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
+            gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
             DoorClosed.SetActive(true);
             DoorOpen.SetActive(false);
             gameObject.GetComponent<Collider2D>().enabled = false;
       }
 
       void Update(){
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            GameObject[] enemyShooters = GameObject.FindGameObjectsWithTag("enemyShooter");
 			GameObject[] Hives = GameObject.FindGameObjectsWithTag("Hive");
-            int totalEnemies = enemies.Length + enemyShooters.Length + Hives.Length;
+            int totalEnemies = Hives.Length;
             // piecesCollected = gameHandler.thePieces;
             // Debug.Log("Total Enemies: "+ totalEnemies);
 

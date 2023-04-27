@@ -2149,6 +2149,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hive (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7977309905167102491, guid: 77b36e690da1d994aabad835df69cc98, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77b36e690da1d994aabad835df69cc98, type: 3}
 --- !u!1001 &537166499
@@ -4347,6 +4351,10 @@ PrefabInstance:
     - target: {fileID: 7977309905167102491, guid: 77b36e690da1d994aabad835df69cc98, type: 3}
       propertyPath: m_Name
       value: Hive
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977309905167102491, guid: 77b36e690da1d994aabad835df69cc98, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77b36e690da1d994aabad835df69cc98, type: 3}
@@ -29942,6 +29950,10 @@ PrefabInstance:
     - target: {fileID: 7977309905167102491, guid: 77b36e690da1d994aabad835df69cc98, type: 3}
       propertyPath: m_Name
       value: Hive (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977309905167102491, guid: 77b36e690da1d994aabad835df69cc98, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77b36e690da1d994aabad835df69cc98, type: 3}
