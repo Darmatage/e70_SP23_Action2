@@ -137,19 +137,22 @@ public class PlayerMove_Rotate :  MonoBehaviour {
             string pickupName = collider.name;
             Debug.Log(pickupName);
             if (collider.gameObject.CompareTag("PickUpGreen")) {
-               Debug.Log("Green" + GameHandler.gotGreenTokens);
                 GameHandler.gotGreenTokens = GameHandler.gotGreenTokens + 1;
                 Debug.Log("Green" + GameHandler.gotGreenTokens);
                 Destroy(collider.gameObject);
+				GameHandler.updateStatsDisplay();
             } else if (collider.gameObject.CompareTag("PickUpBlue")) {
                 GameHandler.gotBlueTokens = GameHandler.gotBlueTokens + 1;
-                Destroy(collider.gameObject);  
+                Destroy(collider.gameObject);
+				GameHandler.updateStatsDisplay();				
             } else if (collider.gameObject.CompareTag("PickUpRed")) {
                 GameHandler.gotRedTokens = GameHandler.gotRedTokens + 1;
-                Destroy(collider.gameObject);  
+                Destroy(collider.gameObject);
+				GameHandler.updateStatsDisplay();
             } else if (collider.gameObject.CompareTag("PickUpWhite")) {
                 GameHandler.gotWhiteTokens = GameHandler.gotWhiteTokens + 1;
-                Destroy(collider.gameObject);  
+                Destroy(collider.gameObject); 
+				GameHandler.updateStatsDisplay();
             }
 
         }
