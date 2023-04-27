@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Hive_Handler : MonoBehaviour{
 	
-	public GameObject enemyBacteria;
 	private float theTimer = 0f;
 	public float spawnRate = 1f;
 	public float longtermSpawnRate = 2.5f;
