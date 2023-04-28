@@ -39,6 +39,7 @@ public class PickUpWhite : MonoBehaviour{
 
       IEnumerator DestroyThis(){
             yield return new WaitForSeconds(0.3f);
+			GameHandler.playerHealth += 1;
             Destroy(gameObject);
       }
 

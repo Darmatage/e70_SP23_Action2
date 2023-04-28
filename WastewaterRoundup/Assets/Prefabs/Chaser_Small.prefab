@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.7456679, g: 0.764151, b: 0.23429158, a: 1}
+  m_Color: {r: 1, g: 0.37177002, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -181,7 +181,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   damage: 5
-  EnemyLives: 3
   attackRange: 16
   isAttacking: 0
   knockBackForce: 20
@@ -198,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6996aa64bcce140942ec72a06088a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rend: {fileID: 0}
   anim: {fileID: 0}
   enemyLoot1: {fileID: 4576325738915277714, guid: f557d0b7398c7af43b238e92ab5de65f, type: 3}
   enemyLoot2: {fileID: 2272711844791474188, guid: cd7210f2b6a4f244fbf108e2bb78e3f8, type: 3}
