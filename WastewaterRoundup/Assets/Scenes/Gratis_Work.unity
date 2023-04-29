@@ -4760,7 +4760,7 @@ GameObject:
   - component: {fileID: 1092469310}
   m_Layer: 0
   m_Name: blastPoint
-  m_TagString: Untagged
+  m_TagString: blast
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4794,6 +4794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 25
   knockBackForce: 20
+  pulseEffectAnim: {fileID: 7308390651615354426, guid: 29d817627f370174d8401e02aa941b73, type: 3}
 --- !u!58 &1092469311
 CircleCollider2D:
   m_ObjectHideFlags: 0

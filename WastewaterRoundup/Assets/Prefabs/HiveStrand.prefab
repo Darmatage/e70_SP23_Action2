@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2222997249400917568}
   - component: {fileID: 1799972959518200032}
   - component: {fileID: 7678588540335342791}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HiveStrand
-  m_TagString: Untagged
+  m_TagString: strand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,6 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numHits: 0
   maxHits: 3
+  knockBackForce: 16
   hiveHandler: {fileID: 0}
   rend: {fileID: 7649854910226391555}
 --- !u!1 &9072588598059119375

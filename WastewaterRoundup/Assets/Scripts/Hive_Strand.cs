@@ -6,6 +6,9 @@ public class Hive_Strand : MonoBehaviour{
 
 	public int numHits = 0;
 	public int maxHits = 3;
+	
+	public float knockBackForce = 10f;
+	private float nextStrandHitTime = 0f;
 
 	public Hive_Handler hiveHandler;
 
@@ -22,15 +25,21 @@ public class Hive_Strand : MonoBehaviour{
 
 
     public void OnCollisionEnter2D(Collision2D other){
-		if ((other.gameObject.tag == "Player") || (other.gameObject.tag == "bullet")){
-			if (numHits <= maxHits){
+		if (other.gameObject.tag == "Player") {
+			if (Time.time >= nextStrandHitTime){
 				HitStrand();
-				
-			}
-			else {
+				nextStrandHitTime = Time.time + 1.5f;
+				Debug.Log("Player bit " + this.name);
+                Rigidbody2D pushRB = other.gameObject.GetComponent<Rigidbody2D>();
+				Vector2 moveDirectionPush = this.transform.position - other.transform.position;
+				pushRB.AddForce(moveDirectionPush.normalized * knockBackForce * - 1f, ForceMode2D.Impulse);
+				StartCoroutine(EndKnockBack(pushRB));
+			}	
+			
+			/*else {
 				hiveHandler.StrandDeath();
 				Destroy(gameObject);
-			}
+			}*/
 			
 		}
         
@@ -50,13 +59,23 @@ public class Hive_Strand : MonoBehaviour{
 		//change the color of the strand
 		rend.material.color = new Color(2.4f, 0.9f, 0.9f, 1f);
         StartCoroutine(ResetColor());
+		if (numHits >= maxHits){
+			hiveHandler.StrandDeath();
+			Destroy(gameObject);	
+		}
 		
 	}
 	
 	IEnumerator ResetColor(){
 		yield return new WaitForSeconds(0.5f);
 		rend.material.color = Color.white;
+		
 	}
+	
+	IEnumerator EndKnockBack(Rigidbody2D otherRB){
+              yield return new WaitForSeconds(0.2f);
+              otherRB.velocity= new Vector3(0,0,0);
+    }
 	
 	
 }

@@ -9,6 +9,7 @@ public class PlayerProjectile : MonoBehaviour{
       public float SelfDestructTime = 4.0f;
       public float SelfDestructVFX = 0.5f;
       public SpriteRenderer projectileArt;
+	  private bool hitAlready = false;
 
       void Start(){
            projectileArt = GetComponentInChildren<SpriteRenderer>();
@@ -17,21 +18,28 @@ public class PlayerProjectile : MonoBehaviour{
 
       //if the bullet hits a collider, play the explosion animation, then destroy the effect and the bullet
       void OnTriggerEnter2D(Collider2D other){
-            if (other.gameObject.layer == LayerMask.NameToLayer("Enemies")) {
-                  //gameHandlerObj.playerGetHit(damage);
-				  Debug.Log("We hit " + other.name);
-                  other.gameObject.GetComponent<EnemyMeleeDamage>().TakeDamage(damage);
-            }
-			if (other.gameObject.layer == LayerMask.NameToLayer("Clumps")) {
-				  Debug.Log("We hit " + other.name);
-                  other.gameObject.GetComponent<BreakableClump>().TakeDamage(damage);
-            }
-           if (other.gameObject.tag != "Player") {
-                  GameObject animEffect = Instantiate (hitEffectAnim, transform.position, Quaternion.identity);
-                  projectileArt.enabled = false;
-                  //Destroy (animEffect, 0.5);
-                  StartCoroutine(selfDestructHit(animEffect));
-            }
+            if (hitAlready == false) {
+				if (other.gameObject.layer == LayerMask.NameToLayer("Enemies")) {
+					  //gameHandlerObj.playerGetHit(damage);
+					  Debug.Log("We hit " + other.name);
+					  other.gameObject.GetComponent<EnemyMeleeDamage>().TakeDamage(damage);
+				}
+				if (other.gameObject.layer == LayerMask.NameToLayer("Clumps")) {
+					  Debug.Log("We hit " + other.name);
+					  other.gameObject.GetComponent<BreakableClump>().TakeDamage(damage);
+				}
+				if (other.gameObject.layer == LayerMask.NameToLayer("strand")) {
+					  Debug.Log("We hit " + other.name);
+					  other.gameObject.GetComponent<Hive_Strand>().HitStrand();
+				}
+			   if (other.gameObject.tag != "Player" && other.gameObject.tag != "blast") {
+					  GameObject animEffect = Instantiate (hitEffectAnim, transform.position, Quaternion.identity);
+					  projectileArt.enabled = false;
+					  hitAlready = true;
+					  //Destroy (animEffect, 0.5);
+					  StartCoroutine(selfDestructHit(animEffect));
+				}
+			}
       } 
 
       IEnumerator selfDestructHit(GameObject VFX){
