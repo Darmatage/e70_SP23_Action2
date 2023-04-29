@@ -6,10 +6,14 @@ public class playerAttackPulse : MonoBehaviour {
     	  
 	public int damage = 25;
 	private float nextShockWaveTime = 0f;
+	public float knockBackForce = 20f;
+	
+	//private Rigidbody2D rb2D;
 	
 	// Start is called before the first frame update
     void Start()
     {
+		//rb2D = GetComponent<Rigidbody2D> ();
 		GetComponent<CircleCollider2D>().radius = 0.15f;
     }
 
@@ -23,7 +27,7 @@ public class playerAttackPulse : MonoBehaviour {
 					//if (GameHandler.gotAbility2 >= 1) {
 						//GameHandler.gotAbility2 = GameHandler.gotAbility2 - 1;
 						StartCoroutine("playerShockWave");
-                        nextShockWaveTime = Time.time + 3f;
+                        nextShockWaveTime = Time.time + 2f;
 					//}	
 					//else {
 					//Debug.Log("Not enough charge to zap!");
@@ -36,7 +40,11 @@ public class playerAttackPulse : MonoBehaviour {
             if (other.gameObject.layer == LayerMask.NameToLayer("Enemies")) {
                   //gameHandlerObj.playerGetHit(damage);
 				  Debug.Log("We hit " + other.name);
-                  other.gameObject.GetComponent<EnemyMeleeDamage>().TakeDamage(damage);
+                  Rigidbody2D pushRB = other.gameObject.GetComponent<Rigidbody2D>();
+				  Vector2 moveDirectionPush = this.transform.position - other.transform.position;
+				  pushRB.AddForce(moveDirectionPush.normalized * knockBackForce * - 1f, ForceMode2D.Impulse);
+				  other.gameObject.GetComponent<EnemyMeleeDamage>().TakeDamage(damage);
+				  StartCoroutine(EndKnockBack(pushRB));
             }
       }
 	
@@ -45,11 +53,16 @@ public class playerAttackPulse : MonoBehaviour {
 			for (int i = 0; i < 8; i++){
 				GetComponent<CircleCollider2D>().radius += 0.2375f;
 				Debug.Log("Radius is:" + GetComponent<CircleCollider2D>().radius );
-				yield return new WaitForSeconds(0.1875f);
+				yield return new WaitForSeconds(0.094f);
 			}
 			Debug.Log("BAM!");
 			stopShock();
 		}
+		
+	IEnumerator EndKnockBack(Rigidbody2D otherRB){
+              yield return new WaitForSeconds(0.2f);
+              otherRB.velocity= new Vector3(0,0,0);
+       }
 	  
 	  void stopShock () {
 		GetComponent<CircleCollider2D>().radius = 0.15f;
