@@ -36,7 +36,8 @@ public class PlayerAttackShoot : MonoBehaviour{
 					}						
                   }
             }
-      }
+			
+      } // END OF UPDATE FUNCTION
 
       void playerFire(){
             //animator.SetTrigger ("Fire");
