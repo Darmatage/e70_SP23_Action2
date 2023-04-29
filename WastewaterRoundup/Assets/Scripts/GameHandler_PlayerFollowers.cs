@@ -23,24 +23,20 @@ public class GameHandler_PlayerFollowers : MonoBehaviour{
 	
 	void Update(){
 		
-		/*if (GameHandler.gotAbility3 > 0) {
 		
 			// test add a follower:
 			if (Input.GetKeyDown("i")){
 				playerFollowers += 1;
 				AddToFollowerList(1);
-				GameHandler.gotAbility3 -= 1;
-				GameHandler.playerHealth =+ 20f;
 				GameHandler.updateStatsDisplay();
 			}
 		
-		} */
 		
 		
 		// test remove a follower:
-		//if (Input.GetKeyDown("o")){
-			//RemoveFromFollowerList();
-		//}
+		if (Input.GetKeyDown("o")){
+			RemoveFromFollowerList();
+		}
 	}
 	
 	
