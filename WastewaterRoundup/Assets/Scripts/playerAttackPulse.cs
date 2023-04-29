@@ -92,7 +92,7 @@ public class playerAttackPulse : MonoBehaviour {
 				blastArt.transform.localScale = new Vector3(newScale, newScale, newScale);
 				blastArt.transform.position = this.transform.position;
 				Debug.Log("Radius is:" + GetComponent<CircleCollider2D>().radius );
-				newScale += 0.125f;
+				newScale += 0.3f;
 				yield return new WaitForSeconds(0.094f);
 			}
 			Debug.Log("BAM!");
