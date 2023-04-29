@@ -183,7 +183,7 @@ MonoBehaviour:
   damage: 5
   attackRange: 16
   isAttacking: 0
-  knockBackForce: 20
+  knockBackForce: 10
   PM: {fileID: 0}
 --- !u!114 &2942003997707061528
 MonoBehaviour:
