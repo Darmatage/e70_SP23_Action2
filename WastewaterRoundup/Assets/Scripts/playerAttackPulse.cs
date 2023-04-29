@@ -6,6 +6,7 @@ public class playerAttackPulse : MonoBehaviour {
     	  
 	public int damage = 25;
 	private float nextShockWaveTime = 0f;
+	private float newScale = 1f;
 	public float knockBackForce = 20f;
 	public GameObject pulseEffectAnim;
 	private bool isPulsing = false;
@@ -84,9 +85,14 @@ public class playerAttackPulse : MonoBehaviour {
 	
 	IEnumerator playerShockWave() {
 			GetComponent<CircleCollider2D>().radius = 0.6f;
+			GameObject blastArt = GameObject.FindGameObjectWithTag("blastart");
+			newScale = 1f;
 			for (int i = 0; i < 8; i++){
 				GetComponent<CircleCollider2D>().radius += 0.2375f;
+				blastArt.transform.localScale = new Vector3(newScale, newScale, newScale);
+				blastArt.transform.position = this.transform.position;
 				Debug.Log("Radius is:" + GetComponent<CircleCollider2D>().radius );
+				newScale += 0.125f;
 				yield return new WaitForSeconds(0.094f);
 			}
 			Debug.Log("BAM!");

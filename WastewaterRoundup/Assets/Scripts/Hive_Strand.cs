@@ -6,6 +6,7 @@ public class Hive_Strand : MonoBehaviour{
 
 	public int numHits = 0;
 	public int maxHits = 3;
+	public float hitDelay = 1.25f;
 	
 	public float knockBackForce = 10f;
 	private float nextStrandHitTime = 0f;
@@ -28,7 +29,7 @@ public class Hive_Strand : MonoBehaviour{
 		if (other.gameObject.tag == "Player") {
 			if (Time.time >= nextStrandHitTime){
 				HitStrand();
-				nextStrandHitTime = Time.time + 1.5f;
+				nextStrandHitTime = Time.time + hitDelay;
 				Debug.Log("Player bit " + this.name);
                 Rigidbody2D pushRB = other.gameObject.GetComponent<Rigidbody2D>();
 				Vector2 moveDirectionPush = this.transform.position - other.transform.position;
@@ -59,17 +60,17 @@ public class Hive_Strand : MonoBehaviour{
 		//change the color of the strand
 		rend.material.color = new Color(2.4f, 0.9f, 0.9f, 1f);
         StartCoroutine(ResetColor());
-		if (numHits >= maxHits){
-			hiveHandler.StrandDeath();
-			Destroy(gameObject);	
-		}
+
 		
 	}
 	
 	IEnumerator ResetColor(){
 		yield return new WaitForSeconds(0.5f);
 		rend.material.color = Color.white;
-		
+		if (numHits >= maxHits){
+			hiveHandler.StrandDeath();
+			Destroy(gameObject);	
+		}
 	}
 	
 	IEnumerator EndKnockBack(Rigidbody2D otherRB){

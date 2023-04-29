@@ -74,7 +74,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numHits: 0
   maxHits: 3
-  knockBackForce: 16
+  hitDelay: 1.25
+  knockBackForce: 22
   hiveHandler: {fileID: 0}
   rend: {fileID: 7649854910226391555}
 --- !u!1 &9072588598059119375

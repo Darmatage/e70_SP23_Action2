@@ -24,6 +24,7 @@ TagManager:
   - HiveSpawnPoint
   - blast
   - strand
+  - blastart
   layers:
   - Default
   - TransparentFX
