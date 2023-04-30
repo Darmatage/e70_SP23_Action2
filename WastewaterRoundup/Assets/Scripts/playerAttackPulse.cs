@@ -49,7 +49,7 @@ public class playerAttackPulse : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other){
         if (isPulsing==true){    
-			if (other.gameObject.layer == LayerMask.NameToLayer("Enemies")) {
+			if ((other.gameObject.layer == LayerMask.NameToLayer("Enemies")) || (other.gameObject.layer == LayerMask.NameToLayer("Pickups")))  {
                   //gameHandlerObj.playerGetHit(damage);
 				  Debug.Log("We hit " + other.name);
                   Rigidbody2D pushRB = other.gameObject.GetComponent<Rigidbody2D>();
