@@ -9,7 +9,7 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 
 	//private Animator anim;
 
-     public float playerSuckStrength = 10f;
+     public float playerSuckStrength = 1.5f;
 	 public float moveSpeed = 5f;
 	  public float startSpeed = 5f;
       public float rotationSpeed = 720f;
@@ -17,7 +17,7 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 	  private float nextO2HitTime = 0f;
 	  private float nextBreathTime = 0f;
 	  private float nextPlatformTime = 0f;
-	  public float suckRadius = 8f;
+	  public float suckRadius = 10f;
 	  public int breathTime = 1;            // the time between each loss of oxygen
 	  public int breathCost = 2;			// how much O2 the player will lose each second
 	  public int platformOxygen = 17;		// how much O2 the player will gain each second while near O2 platforms
@@ -196,12 +196,12 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 			GameObject[] AllPickups = GameObject.FindGameObjectsWithTag("Pickups");
 
 			foreach (GameObject pickup in AllPickups) {
-			 
-				Rigidbody2D pushRB = pickup.gameObject.GetComponent<Rigidbody2D>();
-				Vector2 moveDirectionPush = pickup.transform.position - this.transform.position;
-				pushRB.AddForce(moveDirectionPush * playerSuckStrength * - 1f, ForceMode2D.Impulse);
-				StartCoroutine(EndKnockBack(pushRB));
-				
+				if(Vector2.Distance(this.transform.position, pickup.transform.position) <= suckRadius) {
+					Rigidbody2D pushRB = pickup.gameObject.GetComponent<Rigidbody2D>();
+					Vector2 moveDirectionPush = pickup.transform.position - this.transform.position;
+					pushRB.AddForce(moveDirectionPush * playerSuckStrength * - 1f, ForceMode2D.Impulse);
+					StartCoroutine(EndKnockBack(pushRB));
+				}
 			}
 	}
 
