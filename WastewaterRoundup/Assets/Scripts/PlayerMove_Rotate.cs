@@ -14,6 +14,7 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 	  private float nextO2HitTime = 0f;
 	  private float nextBreathTime = 0f;
 	  private float nextPlatformTime = 0f;
+	  public float suckRadius = 8f;
 	  public int breathTime = 1;            // the time between each loss of oxygen
 	  public int breathCost = 2;			// how much O2 the player will lose each second
 	  public int platformOxygen = 17;		// how much O2 the player will gain each second while near O2 platforms
@@ -104,10 +105,10 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 				GameHandler.playerOxygen = GameHandler.StartPlayerOxygen;
 			}
 
-			 if (Input.GetKeyDown(KeyCode.B)) {
+			 //if (Input.GetKeyDown(KeyCode.B)) {
                   // Debug.Log("Doing the Big Suck");
-                  BigSuck();
-            }
+                  //BigSuck();
+            //}
 			
 			
 			
@@ -126,9 +127,9 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 			isDashing = false;
       }
 
-	void BigSuck(){
+	/*void BigSuck(){
         Debug.Log("Collecting the Poop!");
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10f);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, suckRadius);
       //   string collidersString = string.Join(", ", (object[])colliders);
       //   Debug.Log(collidersString);
       // Debug.Log("Number of colliders: " + colliders.Length);
@@ -156,6 +157,17 @@ public class PlayerMove_Rotate :  MonoBehaviour {
             }
 
         }
-    }
+    }*/
+	
+	/*void BigSuck(){
+        Debug.Log("Collecting the Poop!");
+        GameObject[] nearbyPickups = Physics2D.OverlapCircleAll(transform.position, suckRadius);
 
-}
+        foreach (GameObject pickup in nearbyPickups) {
+           if (pickup.gameObject.layer == LayerMask.NameToLayer("Pickups")) { 
+            
+		    }
+        }
+    } */
+
+} // END OF MONOBEHAVIOR

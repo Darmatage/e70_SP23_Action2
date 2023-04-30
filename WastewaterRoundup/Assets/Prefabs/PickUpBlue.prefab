@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2272711844791474191}
   - component: {fileID: 2272711844791474179}
   - component: {fileID: 2272711844791474178}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PickUpBlue
   m_TagString: PickUpBlue
   m_Icon: {fileID: 0}
