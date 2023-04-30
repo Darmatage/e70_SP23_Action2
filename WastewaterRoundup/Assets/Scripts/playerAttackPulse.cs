@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class playerAttackPulse : MonoBehaviour {
     	  
+	//private Animator anim;
 	public int damage = 25;
 	private float nextShockWaveTime = 0f;
 	private float newScale = 1f;
@@ -16,6 +17,7 @@ public class playerAttackPulse : MonoBehaviour {
 	// Start is called before the first frame update
     void Start()
     {
+		//anim = GetComponentInChildren<Animator>();
 		//rb2D = GetComponent<Rigidbody2D> ();
 		GetComponent<CircleCollider2D>().radius = 0.15f;
     }
@@ -30,6 +32,7 @@ public class playerAttackPulse : MonoBehaviour {
 					//if (GameHandler.gotAbility2 >= 1) {
 						//GameHandler.gotAbility2 = GameHandler.gotAbility2 - 1;
 						isPulsing = true;
+						//anim.SetTrigger("pulse");
 						strandAlready = false;
 						GameObject animEffect = Instantiate (pulseEffectAnim, transform.position, Quaternion.identity);
 						StartCoroutine(selfDestructHit(animEffect));

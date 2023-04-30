@@ -73,7 +73,8 @@ public class GameHandler : MonoBehaviour {
 
       private string sceneName;
 	  
-	  
+	  //used in getHit to test for player follower removal:
+	  bool is120; bool is140; bool is160; bool is180; bool is200;
 
       void Awake (){
                 SetLevel (volumeLevel);
@@ -84,10 +85,7 @@ public class GameHandler : MonoBehaviour {
                 }
         }
 	  
-	  
-	  
 	  void Start(){
-            
 			pauseMenuUI.SetActive(false);
             GameisPaused = false;
 			
@@ -159,15 +157,40 @@ public class GameHandler : MonoBehaviour {
             updateStatsDisplay();
       }
 
-      public void playerGetHit(int damage){
-           if (PM.isDashing == false){
-                  playerHealth -= damage;
+	public void playerGetHit(int damage){
+		//note: poop adds to health with "negative damage"
+		if ((PM.isDashing == false)||(damage < 0)){
+			//check to add follower
+			if ((damage < 0)&&(playerHealth==119 || playerHealth==139 || playerHealth==159 || playerHealth==179 || playerHealth==199)){
+				GetComponent<GameHandler_PlayerFollowers>().AddToFollowerList(1);
+				GameHandler_PlayerFollowers.playerFollowers ++;
+			}
+			
+			//prepare check to remove follower:
+			if 	((playerHealth > 119)&&(playerHealth < 140)){is120=true;}
+			else if ((playerHealth > 139)&&(playerHealth < 160)){is140=true;}	
+			else if ((playerHealth > 159)&&(playerHealth < 180)){is160=true;}
+			else if ((playerHealth > 179)&&(playerHealth < 200)){is180=true;}
+			else if (playerHealth >= 200){is200=true;}
+			
+            playerHealth -= damage;
+			
+			// check to remove follower:
+			if ((is120)&&(playerHealth < 120)){GetComponent<GameHandler_PlayerFollowers>().RemoveFromFollowerList();is120=false;}
+			else if ((is140)&&(playerHealth < 140)){GetComponent<GameHandler_PlayerFollowers>().RemoveFromFollowerList();is140=false;}
+			else if ((is160)&&(playerHealth < 160)){GetComponent<GameHandler_PlayerFollowers>().RemoveFromFollowerList();is160=false;}
+			else if ((is180)&&(playerHealth < 180)){GetComponent<GameHandler_PlayerFollowers>().RemoveFromFollowerList();is180=false;}
+			else if ((is200)&&(playerHealth < 200)){GetComponent<GameHandler_PlayerFollowers>().RemoveFromFollowerList();is200=false;}
+			
 				  healthBar.fillAmount = playerHealth / MaxPlayerHealth;
                   if (playerHealth >=0){
                         updateStatsDisplay();
                   }
                   if (damage > 0){
-                        //player.GetComponent<PlayerHurt>().playerHit();       //play GetHit animation
+                        //player.GetComponent<PlayerGetHurt>().playerHit();       //play GetHit animation
+                  }
+				  else if (damage < 0){
+                        //player.GetComponent<PlayerMove_Rotate>().playerChomp();       //play Chomp animation
                   }
             }
 
@@ -182,7 +205,7 @@ public class GameHandler : MonoBehaviour {
                   playerDies();
             }
       }
-
+	  
       public void updateStatsDisplay(){
             oxygenBar.fillAmount = playerOxygen / StartPlayerOxygen;
 			
@@ -269,6 +292,7 @@ public class GameHandler : MonoBehaviour {
       public void RestartGame() {
             Time.timeScale = 1f;
 			SceneManager.LoadScene("MainMenu");
+			GameHandler_PlayerFollowers.playerFollowers = 0;
 			
                 // Please also reset all static variables here, for new games!
 			gotRedTokens = 0;		

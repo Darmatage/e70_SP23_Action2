@@ -94,10 +94,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2272711844791474176}
   - component: {fileID: 2272711844791474177}
-  - component: {fileID: 2272711844791474190}
-  - component: {fileID: 2272711844791474191}
+  - component: {fileID: 5271419478176863724}
   - component: {fileID: 2272711844791474179}
   - component: {fileID: 2272711844791474178}
+  - component: {fileID: 2272711844791474190}
   m_Layer: 8
   m_Name: PickUpBlue
   m_TagString: PickUpBlue
@@ -147,6 +147,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5271419478176863724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2272711844791474188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 039de0e1aeead304ca3f1050016891ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBlue: 1
+  isRed: 0
+  isWhite: 0
+  isGreen: 0
+  healthBoost: 1
+--- !u!114 &2272711844791474179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2272711844791474188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3848f31f9738d4ea1c474f9107abf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedS: 2.5
+  distS: 0.15
+--- !u!114 &2272711844791474178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2272711844791474188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad30b902fd89c44ab83b0f0a9baa1e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 35
+  height: 15
 --- !u!82 &2272711844791474190
 AudioSource:
   m_ObjectHideFlags: 0
@@ -243,49 +288,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2272711844791474191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2272711844791474188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a1e5eec7134664439291a184b7a8ee3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameHandler: {fileID: 0}
-  isHealthPickUp: 1
-  isSpeedBoostPickUp: 0
-  healthBoost: 0
-  speedBoost: 0
-  speedTime: 0
---- !u!114 &2272711844791474179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2272711844791474188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a3848f31f9738d4ea1c474f9107abf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedS: 2.5
-  distS: 0.15
---- !u!114 &2272711844791474178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2272711844791474188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ad30b902fd89c44ab83b0f0a9baa1e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  width: 35
-  height: 15

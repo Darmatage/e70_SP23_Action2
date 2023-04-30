@@ -5,8 +5,10 @@ using UnityEngine;
 public class Hive_Handler : MonoBehaviour{
 	
 	private float theTimer = 0f;
-	public float spawnRate = 1f;
-	public float longtermSpawnRate = 2.5f;
+	public float spawnRate;
+	public float spawnRateStart = 5f;
+	public float spawnRateEncounter = 2f;
+	public float longtermSpawnRate = 8f;
 	//public float spawnRadiusInner = 1.5f;
 	//public float spawnRadiusOuter = 4f;
 	
@@ -20,11 +22,24 @@ public class Hive_Handler : MonoBehaviour{
 	
 	public Hive_Spawner m_Hive_Spawner;
 	
+	private Transform player;
+	private float distToPlayer;
+	public float speedUpDistance = 2f;
+	
     void Start(){
-        
+		spawnRate = spawnRateStart;
+        player = GameObject.FindWithTag("Player").GetComponent<Transform>();
 		m_Hive_Spawner.AddNewBacteria();
 		numStrands = hiveStrands.Length;
+		
     }
+
+	void Update(){
+		distToPlayer = Vector3.Distance(transform.position, player.position);
+		if (distToPlayer <= speedUpDistance){
+			spawnRate = spawnRateEncounter;
+		} else {spawnRate = spawnRateStart;}
+	}
 
     void FixedUpdate(){
         
@@ -61,7 +76,6 @@ public class Hive_Handler : MonoBehaviour{
 		if (GameObject.FindWithTag("EnemyFolder") != null){
 			thisNewEnemy.transform.parent = GameObject.FindWithTag("EnemyFolder").GetComponent<Transform>();
 		}
-		
 	}*/
 	
 	

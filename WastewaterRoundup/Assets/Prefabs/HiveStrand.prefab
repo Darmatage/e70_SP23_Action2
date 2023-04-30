@@ -75,7 +75,7 @@ MonoBehaviour:
   numHits: 0
   maxHits: 3
   hitDelay: 1.25
-  knockBackForce: 22
+  knockBackForce: 8
   hiveHandler: {fileID: 0}
   rend: {fileID: 7649854910226391555}
 --- !u!1 &9072588598059119375

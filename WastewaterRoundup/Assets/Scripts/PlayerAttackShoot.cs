@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PlayerAttackShoot : MonoBehaviour{
 
-      //public Animator animator;
+      //public Animator anim;
       public Transform firePoint;
       public GameObject projectilePrefab;
-      public float projectileSpeed = 10f;
+      public float projectileSpeed = 12f;
       public float attackRate = 2f;
       private float nextAttackTime = 0f;
 	  private GameHandler m_GameHandler;
 	  
 
       void Start(){
-           //animator = gameObject.GetComponentInChildren<Animator>();
+           //anim = gameObject.GetComponentInChildren<Animator>();
 		   if (GameObject.FindWithTag ("GameHandler") != null) {
                   m_GameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
               }
@@ -40,7 +40,7 @@ public class PlayerAttackShoot : MonoBehaviour{
       } // END OF UPDATE FUNCTION
 
       void playerFire(){
-            //animator.SetTrigger ("Fire");
+            //anim.SetTrigger("shoot");
             Vector2 fwd = (firePoint.position - this.transform.position).normalized;
             GameObject projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity);
             projectile.GetComponent<Rigidbody2D>().AddForce(fwd * projectileSpeed, ForceMode2D.Impulse);

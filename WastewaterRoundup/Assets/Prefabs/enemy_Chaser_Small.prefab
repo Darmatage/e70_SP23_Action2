@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2942003997707061532}
   - component: {fileID: 2942003997707061528}
   m_Layer: 3
-  m_Name: Chaser_Small
+  m_Name: enemy_Chaser_Small
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,9 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eda0e387f529b74c85a0af91c829426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  damage: 5
-  attackRange: 16
+  speed: 2
+  damage: 3
+  attackRange: 2
   isAttacking: 0
   knockBackForce: 10
   PM: {fileID: 0}

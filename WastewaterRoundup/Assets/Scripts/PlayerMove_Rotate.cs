@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMove_Rotate :  MonoBehaviour {
 
+	//private Animator anim;
+
       public float moveSpeed = 5f;
 	  public float startSpeed = 5f;
       public float rotationSpeed = 720f;
@@ -28,7 +30,7 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 	  private GameHandler GameHandler;
 
       void Start() {
-			
+			//anim = GetComponentInChilderen<Animator>();
 			if (GameObject.FindWithTag ("GameHandler") != null) {
                 GameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
             }
@@ -54,9 +56,11 @@ public class PlayerMove_Rotate :  MonoBehaviour {
                   Quaternion toRotation = Quaternion.LookRotation (Vector3.forward, moveDirection);
                   transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
 				  isMoving = true;
+				  //anim.SetBool("move", true);
 			}
 			else {
 				isMoving = false;
+				//anim.SetBool("move", false);
 			}
 			
 			if (isMoving == true) {						// if the player is moving, then the dash ability becomes usable
@@ -110,13 +114,11 @@ public class PlayerMove_Rotate :  MonoBehaviour {
                   //BigSuck();
             //}
 			
-			
-			
-			
 		} // END OF UPDATE FUNCTION
 	  
 	  public void speedBoost(float speedBoost, float speedLength){
             isDashing = true;
+			//anim.SetBool("dash", true);
 			moveSpeed = moveSpeed * speedBoost;
             StartCoroutine(normalSpeed(speedLength));
       }
@@ -125,7 +127,22 @@ public class PlayerMove_Rotate :  MonoBehaviour {
             yield return new WaitForSeconds(speedLength);
             moveSpeed = startSpeed;       //NOTE: returns this stat to normal
 			isDashing = false;
+			//anim.SetBool("dash", false);
       }
+
+	public void OnTriggerEnter2D(Collider2D other){
+		if ((other.gameObject.tag=="PickUpBlue")||
+		(other.gameObject.tag=="PickUpRed")||
+		(other.gameObject.tag=="PickUpWhite")||
+		(other.gameObject.tag=="PickUpGreen")){
+			PlayerChomp();
+		}
+	}
+	
+	public void PlayerChomp(){
+		//anim.SetTrigger("chomp");
+	}
+
 
 	/*void BigSuck(){
         Debug.Log("Collecting the Poop!");

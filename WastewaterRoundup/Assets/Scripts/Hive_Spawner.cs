@@ -4,38 +4,51 @@ using UnityEngine;
 
 public class Hive_Spawner : MonoBehaviour
 {
-    public GameObject bigRangedEnemy;
-	public GameObject lilRangedEnemy;
-	public GameObject bigMeleeEnemy;
-	public GameObject lilMeleeEnemy;
-	public GameObject mrSucc;
-	
+	//enemy variables
+	public GameObject[] enemies;
+	private int rangeEndEnemies; 
 	public int spawnSelect = 0;
+
+	//location variables
+	public Transform[] spawnPoints;
+	private int rangeEndPositions; 
+	private Transform spawnPoint; 
 	
-	public float spawnRadiusInner = 0.5f;
-	public float spawnRadiusOuter = 2.5f;
+	//public float spawnRadiusInner = 0.5f;
+	//public float spawnRadiusOuter = 2.5f;
 	
 	
 	// Start is called before the first frame update
     void Start() {
-    
-        
+		rangeEndPositions = spawnPoints.Length;
+		rangeEndEnemies = enemies.Length;
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
     
         
     }
 	
 	public void AddNewBacteria(){
 		//prepare a random spawn position for the new follower
-		float randX = Random.Range (-spawnRadiusOuter, spawnRadiusOuter); 
-		float randY = Random.Range (-spawnRadiusOuter, spawnRadiusOuter);
-		Vector2 newPos = new Vector2 (transform.position.x + randX, transform.position.y + randY);
+		//float randX = Random.Range (-spawnRadiusOuter, spawnRadiusOuter); 
+		//float randY = Random.Range (-spawnRadiusOuter, spawnRadiusOuter);
+		//Vector2 newPos = new Vector2 (transform.position.x + randX, transform.position.y + randY);
 		
-		spawnSelect = Random.Range (1, 6);
+		//get random location
+		int SPnum = Random.Range(0, rangeEndPositions);
+        spawnPoint = spawnPoints[SPnum];
+		Vector2 newPos = new Vector2 (spawnPoint.position.x, spawnPoint.position.y);
 		
+		//choose random enemy and spawn at location
+		spawnSelect = Random.Range(0, rangeEndEnemies);
+		GameObject thisNewEnemy = Instantiate (enemies[spawnSelect], newPos, Quaternion.identity);
+		if (GameObject.FindWithTag("EnemyFolder") != null){
+			thisNewEnemy.transform.parent = GameObject.FindWithTag("EnemyFolder").GetComponent<Transform>();
+		}
+		
+		/*
 		if (spawnSelect == 1) {
 			
 			//instantiate the new follower
@@ -81,6 +94,7 @@ public class Hive_Spawner : MonoBehaviour
 				}
 			
 		}
+		*/
 		
 	}
 	

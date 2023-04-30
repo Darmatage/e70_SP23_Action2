@@ -8,7 +8,7 @@ public class PlayerProjectile : MonoBehaviour{
       public GameObject hitEffectAnim;
       public float SelfDestructTime = 4.0f;
       public float SelfDestructVFX = 0.5f;
-      public SpriteRenderer projectileArt;
+      private SpriteRenderer projectileArt;
 	  private bool hitAlready = false;
 
       void Start(){
@@ -18,7 +18,7 @@ public class PlayerProjectile : MonoBehaviour{
 
       //if the bullet hits a collider, play the explosion animation, then destroy the effect and the bullet
       void OnTriggerEnter2D(Collider2D other){
-            if (hitAlready == false) {
+            //if (hitAlready == false) {
 				if (other.gameObject.layer == LayerMask.NameToLayer("Enemies")) {
 					  //gameHandlerObj.playerGetHit(damage);
 					  Debug.Log("We hit " + other.name);
@@ -34,12 +34,13 @@ public class PlayerProjectile : MonoBehaviour{
 				}
 			   if (other.gameObject.tag != "Player" && other.gameObject.tag != "blast") {
 					  GameObject animEffect = Instantiate (hitEffectAnim, transform.position, Quaternion.identity);
+					  GetComponent<Collider2D>().enabled = false;
 					  projectileArt.enabled = false;
-					  hitAlready = true;
-					  //Destroy (animEffect, 0.5);
+					  //hitAlready = true;
+					  //AudioSource.Play();
 					  StartCoroutine(selfDestructHit(animEffect));
 				}
-			}
+			//}
       } 
 
       IEnumerator selfDestructHit(GameObject VFX){

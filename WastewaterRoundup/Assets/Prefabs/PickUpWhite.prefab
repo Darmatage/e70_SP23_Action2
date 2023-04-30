@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7112530383242181728}
   - component: {fileID: 7112530383242181729}
   - component: {fileID: 7112530383242181726}
-  - component: {fileID: 4186806524962222379}
   - component: {fileID: 7112530383242181731}
   - component: {fileID: 7112530383242181730}
+  - component: {fileID: 4075619424149509421}
   m_Layer: 8
   m_Name: PickUpWhite
   m_TagString: PickUpWhite
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7112530383242181724}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.31, y: 6.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -159,24 +159,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4186806524962222379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7112530383242181724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aba79f22892dbb84481bcc8eff3e1691, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameHandler: {fileID: 0}
-  isHealthPickUp: 0
-  isSpeedBoostPickUp: 0
-  healthBoost: 0
-  speedBoost: 0
-  speedTime: 0
 --- !u!114 &7112530383242181731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +187,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 35
   height: 15
+--- !u!114 &4075619424149509421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7112530383242181724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 039de0e1aeead304ca3f1050016891ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBlue: 0
+  isRed: 0
+  isWhite: 1
+  isGreen: 0
+  healthBoost: 1
 --- !u!1 &7112530383344449312
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,14 +228,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7112530383344449312}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7112530383242181728}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &7112530383344449314
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -53,7 +53,7 @@ public class Player_Follower : MonoBehaviour {
        void Start(){
               //anim = gameObject.GetComponentInChildren<Animator>();
               player = GameObject.FindWithTag("Player");
-              followDistance = Random.Range(0.5f, 1.5f);
+              followDistance = Random.Range(0.3f, 0.6f);
               startFollowDistance = followDistance + 1.5f;
               moveSpeed = Random.Range((topSpeed * 0.7f), topSpeed);
               scaleX = gameObject.transform.localScale.x;
@@ -206,7 +206,7 @@ public class Player_Follower : MonoBehaviour {
 	
 	public void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.tag == "Enemy"){
-			gameHandlerPF.RemoveFromFollowerList(); // replace this with function that removes THIS one
+			//gameHandlerPF.RemoveFromFollowerList(); // replace this with function that removes THIS one
 			StartCoroutine(StopEscapingEnemy());
 		}
 	}

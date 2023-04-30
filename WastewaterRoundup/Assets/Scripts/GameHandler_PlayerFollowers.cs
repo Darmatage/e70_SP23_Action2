@@ -12,7 +12,6 @@ public class GameHandler_PlayerFollowers : MonoBehaviour{
 	private GameHandler GameHandler;
 	
 	void Start(){
-		
 		if (GameObject.FindWithTag ("GameHandler") != null) {
                 GameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
         }
@@ -20,18 +19,14 @@ public class GameHandler_PlayerFollowers : MonoBehaviour{
 		AddToFollowerList(playerFollowers);
 	}
 	
-	
 	void Update(){
 		
-		
-			// test add a follower:
-			if (Input.GetKeyDown("i")){
-				playerFollowers += 1;
-				AddToFollowerList(1);
-				GameHandler.updateStatsDisplay();
-			}
-		
-		
+		// test add a follower:
+		if (Input.GetKeyDown("i")){
+			playerFollowers += 1;
+			AddToFollowerList(1);
+			GameHandler.updateStatsDisplay();
+		}
 		
 		// test remove a follower:
 		if (Input.GetKeyDown("o")){
@@ -75,14 +70,10 @@ public class GameHandler_PlayerFollowers : MonoBehaviour{
 	
 	public void ChangeFollowerColor(){
 		//at certain thresholds, change to a new color (random or set color?)
-		
-		
+			
 	}
-	
-	
+		
 }
-
-
 
 
 

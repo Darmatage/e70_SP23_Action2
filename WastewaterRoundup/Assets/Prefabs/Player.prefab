@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 5572962589383358820}
   - component: {fileID: 3230530203349255969}
   - component: {fileID: 1715262885}
+  - component: {fileID: 4310518574611732140}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -255,6 +256,7 @@ MonoBehaviour:
   moveSpeed: 5
   startSpeed: 5
   rotationSpeed: 720
+  suckRadius: 8
   breathTime: 1
   breathCost: 1
   platformOxygen: 22
@@ -296,6 +298,18 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2708981259541150515, guid: f7895288089db3d43ae68ca4a336d45d, type: 3}
   projectileSpeed: 16
   attackRate: 3
+--- !u!114 &4310518574611732140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4248618225503576207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c601ab4825dcaf5468eb2fe979016b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8365685118674206334
 GameObject:
   m_ObjectHideFlags: 0
