@@ -25,6 +25,7 @@ TagManager:
   - blast
   - strand
   - blastart
+  - Pickups
   layers:
   - Default
   - TransparentFX
@@ -34,7 +35,7 @@ TagManager:
   - UI
   - Clumps
   - strand
-  - 
+  - Pickups
   - 
   - 
   - 

@@ -3736,6 +3736,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7112530383242181729, guid: 9e446eb069d4cf049a74abc72ea5b968, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7112530383242181730, guid: 9e446eb069d4cf049a74abc72ea5b968, type: 3}
       propertyPath: width
       value: 6.9
@@ -37778,6 +37782,10 @@ PrefabInstance:
     - target: {fileID: 4248618225503576207, guid: 5502962730fa72c4bbbb34a73519da36, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572962589383358820, guid: 5502962730fa72c4bbbb34a73519da36, type: 3}
+      propertyPath: playerSuckStrength
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5502962730fa72c4bbbb34a73519da36, type: 3}

@@ -9,7 +9,8 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 
 	//private Animator anim;
 
-      public float moveSpeed = 5f;
+     public float playerSuckStrength = 10f;
+	 public float moveSpeed = 5f;
 	  public float startSpeed = 5f;
       public float rotationSpeed = 720f;
 	  private float nextDashTime = 0f;
@@ -109,10 +110,10 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 				GameHandler.playerOxygen = GameHandler.StartPlayerOxygen;
 			}
 
-			 //if (Input.GetKeyDown(KeyCode.B)) {
-                  // Debug.Log("Doing the Big Suck");
-                  //BigSuck();
-            //}
+			if (Input.GetKeyDown(KeyCode.B)) {
+                Debug.Log("Doing the Big Suck");
+                BigSuck();
+            }
 			
 		} // END OF UPDATE FUNCTION
 	  
@@ -178,13 +179,38 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 	
 	/*void BigSuck(){
         Debug.Log("Collecting the Poop!");
-        GameObject[] nearbyPickups = Physics2D.OverlapCircleAll(transform.position, suckRadius);
+		Collider2D[] nearbyPickups = Physics2D.OverlapCircleAll(transform.position, suckRadius);
 
-        foreach (GameObject pickup in nearbyPickups) {
+        foreach (Collider2D pickup in nearbyPickups) {
            if (pickup.gameObject.layer == LayerMask.NameToLayer("Pickups")) { 
-            
+				Rigidbody2D pushRB = pickup.gameObject.GetComponent<Rigidbody2D>();
+				Vector2 moveDirectionPush = pickup.transform.position - this.transform.position;
+				pushRB.AddForce(moveDirectionPush.normalized * playerSuckStrength * - 1f, ForceMode2D.Impulse);
+			
 		    }
         }
-    } */
+    }*/
+
+	void BigSuck(){
+			Debug.Log("Collecting the Poop!");
+			GameObject[] AllPickups = GameObject.FindGameObjectsWithTag("Pickups");
+
+			foreach (GameObject pickup in AllPickups) {
+			 
+				Rigidbody2D pushRB = pickup.gameObject.GetComponent<Rigidbody2D>();
+				Vector2 moveDirectionPush = pickup.transform.position - this.transform.position;
+				pushRB.AddForce(moveDirectionPush * playerSuckStrength * - 1f, ForceMode2D.Impulse);
+				StartCoroutine(EndKnockBack(pushRB));
+				
+			}
+	}
+
+	IEnumerator EndKnockBack(Rigidbody2D otherRB){
+              yield return new WaitForSeconds(1.5f);
+			  otherRB.velocity = new Vector3(0,0,0);
+    }
+
 
 } // END OF MONOBEHAVIOR
+
+
