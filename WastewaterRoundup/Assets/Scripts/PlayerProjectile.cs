@@ -9,7 +9,6 @@ public class PlayerProjectile : MonoBehaviour{
       public float SelfDestructTime = 4.0f;
       public float SelfDestructVFX = 0.5f;
       private SpriteRenderer projectileArt;
-	  private bool hitAlready = false;
 
       void Start(){
            projectileArt = GetComponentInChildren<SpriteRenderer>();
@@ -32,7 +31,7 @@ public class PlayerProjectile : MonoBehaviour{
 					  Debug.Log("We hit " + other.name);
 					  other.gameObject.GetComponent<Hive_Strand>().HitStrand();
 				}
-			   if (other.gameObject.tag != "Player" && other.gameObject.tag != "blast") {
+			   if (other.gameObject.tag != "Player" && other.gameObject.tag != "blast" && other.gameObject.tag != "Follower") {
 					  GameObject animEffect = Instantiate (hitEffectAnim, transform.position, Quaternion.identity);
 					  GetComponent<Collider2D>().enabled = false;
 					  projectileArt.enabled = false;

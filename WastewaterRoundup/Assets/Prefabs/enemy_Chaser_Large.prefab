@@ -179,9 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eda0e387f529b74c85a0af91c829426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
   damage: 10
-  attackRange: 5
+  attackRange: 7
   isAttacking: 0
   knockBackForce: 20
   PM: {fileID: 0}
