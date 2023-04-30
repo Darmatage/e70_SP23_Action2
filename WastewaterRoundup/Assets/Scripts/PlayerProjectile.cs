@@ -31,7 +31,7 @@ public class PlayerProjectile : MonoBehaviour{
 					  Debug.Log("We hit " + other.name);
 					  other.gameObject.GetComponent<Hive_Strand>().HitStrand();
 				}
-			   if (other.gameObject.tag != "Player" && other.gameObject.tag != "blast" && other.gameObject.tag != "Follower") {
+			   if (other.gameObject.tag != "Player" && other.gameObject.tag != "blast" && other.gameObject.tag != "Follower" && other.gameObject.tag != "bullet") {
 					  GameObject animEffect = Instantiate (hitEffectAnim, transform.position, Quaternion.identity);
 					  GetComponent<Collider2D>().enabled = false;
 					  projectileArt.enabled = false;
