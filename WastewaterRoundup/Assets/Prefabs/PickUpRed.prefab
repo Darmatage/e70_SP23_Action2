@@ -240,8 +240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ad30b902fd89c44ab83b0f0a9baa1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 35
-  height: 15
+  width: 2
+  height: 2
 --- !u!82 &4576325738915277712
 AudioSource:
   m_ObjectHideFlags: 0
