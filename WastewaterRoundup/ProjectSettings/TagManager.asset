@@ -26,6 +26,7 @@ TagManager:
   - strand
   - blastart
   - Pickups
+  - DialogueManager
   layers:
   - Default
   - TransparentFX
