@@ -27,6 +27,9 @@ TagManager:
   - blastart
   - Pickups
   - DialogueManager
+  - waterShmutzUpLeft
+  - waterShmutzDownRight
+  - waterShmutzFolder
   layers:
   - Default
   - TransparentFX

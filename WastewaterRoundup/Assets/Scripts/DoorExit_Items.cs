@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DoorExit_Items : MonoBehaviour{
-      public string NextLevel = "Gratis_Work";
+      
+	  public string NextLevel = "Gratis_Work";
       public GameObject DoorClosed;
       public GameObject DoorOpen;
 	  
-	  public GameHandler gameHandler;
+	  private GameHandler gameHandler;
 
       private bool doorIsClosed = true; 
 
