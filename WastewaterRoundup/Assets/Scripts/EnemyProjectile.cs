@@ -11,6 +11,7 @@ public class EnemyProjectile : MonoBehaviour {
        private Vector2 target;
        public GameObject hitEffectAnim;
        public float SelfDestructTime = 2.0f;
+	   public AudioSource soundEffect;
 
        void Start() {
              //NOTE: transform gets location, but we need Vector2 for direction, so we can use MoveTowards.
@@ -39,6 +40,7 @@ public class EnemyProjectile : MonoBehaviour {
        void OnTriggerEnter2D(Collider2D collision){
               if (collision.gameObject.tag == "Player") {
                      gameHandlerObj.playerGetHit(damage);
+					 soundEffect.Play();
               }
               if (collision.gameObject.tag != "enemyShooter") {
                      GameObject animEffect = Instantiate (hitEffectAnim, transform.position, Quaternion.identity);
