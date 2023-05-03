@@ -26,6 +26,8 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 	  private bool isMoving = false;		//tracks whether player is moving
 	  public AudioSource dashSound;
 	  public AudioSource breatheSound;
+	  public AudioSource suckSound;
+	  
 	  //private bool foundPlatforms = false;
 	  
 	  public bool isDashing = false;		//tracks whether the player is dashing
@@ -116,6 +118,7 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 
 			if (Input.GetKeyDown(KeyCode.B)) {
                 Debug.Log("Doing the Big Suck");
+				suckSound.Play();
                 BigSuck();
             }
 			
