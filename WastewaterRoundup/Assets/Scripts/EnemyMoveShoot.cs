@@ -11,7 +11,7 @@ public class EnemyMoveShoot : MonoBehaviour {
        private float timeBtwShots;
        public float startTimeBtwShots = 2;
        public GameObject projectile;
-
+	   public AudioSource soundEffect;
        private Rigidbody2D rb;
        private Transform player;
        private Vector2 PlayerVect;
@@ -81,6 +81,7 @@ public class EnemyMoveShoot : MonoBehaviour {
                             isAttacking = true;
                             //anim.SetTrigger("Attack");
                             Instantiate (projectile, transform.position, Quaternion.identity);
+							soundEffect.Play();
                             timeBtwShots = startTimeBtwShots;
                      } else {
                             timeBtwShots -= Time.deltaTime;

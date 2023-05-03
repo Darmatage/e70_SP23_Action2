@@ -24,6 +24,8 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 	  public int oxygenDamage = 20;			//how much damage the player will take each second while out of O2
 	  public int platformRange = 6;		// how close the player must be to a platform to receive O2 from it
 	  private bool isMoving = false;		//tracks whether player is moving
+	  public AudioSource dashSound;
+	  public AudioSource breatheSound;
 	  //private bool foundPlatforms = false;
 	  
 	  public bool isDashing = false;		//tracks whether the player is dashing
@@ -70,6 +72,7 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 						if (GameHandler.gotAbility1 >= 1) {
 							GameHandler.gotAbility1 = GameHandler.gotAbility1 - 1;
 							GameHandler.updateStatsDisplay();
+							dashSound.Play();
 							speedBoost(4f, 0.25f);					// the true function of the dash: player movement is multiplied by 4 for .25 seconds.
 							nextDashTime = Time.time + 1f;
 							Debug.Log("You Dashed!");
@@ -100,6 +103,7 @@ public class PlayerMove_Rotate :  MonoBehaviour {
                 if(Vector2.Distance(this.transform.position, AllPlatforms[i].transform.position) <= platformRange) {
 					if (Time.time >= nextPlatformTime) {					//  the game will only allow the player to gain O2 once per second.
 					GameHandler.playerOxygen = GameHandler.playerOxygen + platformOxygen;
+					breatheSound.Play();
 					GameHandler.updateStatsDisplay();
 					nextPlatformTime = Time.time + 1f;
 					}

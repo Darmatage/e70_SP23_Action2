@@ -11,6 +11,7 @@ public class PlayerAttackShoot : MonoBehaviour{
       public float attackRate = 2f;
       private float nextAttackTime = 0f;
 	  private GameHandler m_GameHandler;
+      public AudioSource soundEffect;
 	  
 
       void Start(){
@@ -30,6 +31,7 @@ public class PlayerAttackShoot : MonoBehaviour{
 						playerFire();
                         nextAttackTime = Time.time + 1f / attackRate;
 						m_GameHandler.updateStatsDisplay();
+						soundEffect.Play();
 					}	
 					else {
 					Debug.Log("Not enough charge to zap!");

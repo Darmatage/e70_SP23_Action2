@@ -12,6 +12,7 @@ public class playerAttackPulse : MonoBehaviour {
 	public GameObject pulseEffectAnim;
 	private bool isPulsing = false;
 	private bool strandAlready = false;
+	public AudioSource soundEffect;
 	//private Rigidbody2D rb2D;
 	
 	// Start is called before the first frame update
@@ -37,6 +38,7 @@ public class playerAttackPulse : MonoBehaviour {
 						GameObject animEffect = Instantiate (pulseEffectAnim, transform.position, Quaternion.identity);
 						StartCoroutine(selfDestructHit(animEffect));
 						StartCoroutine("playerShockWave");
+						soundEffect.Play();
                         nextShockWaveTime = Time.time + 2f;
 						Debug.Log("Starting Pulse.");
 					//}	
