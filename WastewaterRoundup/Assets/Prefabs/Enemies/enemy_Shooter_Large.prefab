@@ -187,7 +187,7 @@ MonoBehaviour:
   projectile: {fileID: 5746780902305054176, guid: 723a29b53e6194043b3e6cc244672654, type: 3}
   soundEffect: {fileID: 6883371685752826889}
   EnemyLives: 30
-  attackRange: 2
+  attackRange: 10
   isAttacking: 1
 --- !u!114 &5904388559255308547
 MonoBehaviour:
@@ -252,7 +252,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8fa27d43ca9516a44b5b7aff36b7ef37, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

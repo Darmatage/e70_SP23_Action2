@@ -184,8 +184,9 @@ MonoBehaviour:
   retreatDistance: 2
   startTimeBtwShots: 2
   projectile: {fileID: 5746780902305054176, guid: b0e2b92587321e545ac5e98792d50895, type: 3}
+  soundEffect: {fileID: 0}
   EnemyLives: 30
-  attackRange: 3
+  attackRange: 10
   isAttacking: 1
 --- !u!114 &5904388559255308547
 MonoBehaviour:

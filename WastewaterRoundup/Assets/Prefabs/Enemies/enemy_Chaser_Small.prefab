@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   damage: 4
-  attackRange: 3
+  attackRange: 10
   isAttacking: 0
   knockBackForce: 10
   PM: {fileID: 0}

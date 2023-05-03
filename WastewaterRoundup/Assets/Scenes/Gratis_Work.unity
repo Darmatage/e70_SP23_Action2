@@ -1965,6 +1965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: -1}
   damping: 0.69
+  camSpeed: 4
 --- !u!1001 &525123100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2950,11 +2951,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 118564073235134928, guid: f02ad782c54074ed49de8f64621264d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -68.27
+      value: -10.8
       objectReference: {fileID: 0}
     - target: {fileID: 118564073235134928, guid: f02ad782c54074ed49de8f64621264d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 118564073235134928, guid: f02ad782c54074ed49de8f64621264d5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -37719,6 +37720,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3724069888667676942, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724069888667676942, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f520493e531ebe14086753009993d7d0, type: 3}
+    - target: {fileID: 5139305641156527290, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: m_Name
+      value: Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978296348970805154, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978296348970805154, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f520493e531ebe14086753009993d7d0, type: 3}
     - target: {fileID: 7734741775869917973, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
       propertyPath: m_RootOrder
       value: 2
