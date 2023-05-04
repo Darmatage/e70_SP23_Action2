@@ -117,7 +117,7 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 				GameHandler.playerOxygen = GameHandler.StartPlayerOxygen;
 			}
 
-			if (Input.GetKeyDown(KeyCode.B)) {
+			if (Input.GetKeyDown(KeyCode.F)) {
                 Debug.Log("Doing the Big Suck");
 				suckSound.Play();
                 BigSuck();

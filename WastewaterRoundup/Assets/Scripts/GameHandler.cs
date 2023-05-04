@@ -294,6 +294,10 @@ public class GameHandler : MonoBehaviour {
       public void StartGame() {
             SceneManager.LoadScene("Rishabh_Work");
       }
+	  
+	  public void StartLate() {
+            SceneManager.LoadScene("Gratis_Work");
+      }
 
       public void RestartGame() {
             Time.timeScale = 1f;
