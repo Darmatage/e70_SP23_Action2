@@ -22,7 +22,7 @@ public class PickUp_Poop : MonoBehaviour{
 
       public void OnTriggerEnter2D (Collider2D other){
             if (other.gameObject.tag == "Player"){
-                  GetComponent<Collider2D>().enabled = false;
+				  GetComponent<Collider2D>().enabled = false;
 				  GetComponentInChildren<SpriteRenderer>().enabled = false;
                   GetComponent<AudioSource>().Play();
                   StartCoroutine(DestroyThis());

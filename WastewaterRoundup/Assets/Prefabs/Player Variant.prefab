@@ -29,8 +29,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6506635270599353389}
+  m_Children: []
   m_Father: {fileID: 4248618225503576201}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -267,8 +266,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1092469309}
-  m_RootOrder: 0
+  m_Father: {fileID: 4248618225503576201}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &7356425754902088408
 AudioSource:
@@ -825,6 +824,7 @@ Transform:
   - {fileID: 1102809325932825536}
   - {fileID: 6166946803910070851}
   - {fileID: 399822153995245672}
+  - {fileID: 6506635270599353389}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -926,9 +926,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27362f7321f7a8c4bb70d7238817eb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   attackPt: {fileID: 3230530204414261326}
   attackRange: 0.8
   attackRate: 2
+  knockBackForce: 8
   attackDamage: 50
   enemyLayers:
     serializedVersion: 2

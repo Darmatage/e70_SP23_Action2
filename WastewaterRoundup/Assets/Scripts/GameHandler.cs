@@ -7,7 +7,8 @@ using UnityEngine.Audio;
 
 public class GameHandler : MonoBehaviour {
 
-      public bool GameisPaused = false;
+      private Animator anim;
+	  public bool GameisPaused = false;
       public GameObject pauseMenuUI;
       public AudioMixer mixer;
       public static float volumeLevel = 1.0f;
@@ -99,6 +100,10 @@ public class GameHandler : MonoBehaviour {
 			
 			if (GameObject.FindWithTag ("Player") != null) {
                 PM = GameObject.FindWithTag ("Player").GetComponent<PlayerMove_Rotate> ();
+            }
+			
+			if (GameObject.FindWithTag ("PLAYERART") != null) {
+                anim = GameObject.FindWithTag ("PLAYERART").GetComponent<Animator> ();
             }
 			
 			//FindObjectOfType<GameHandler_PlayerFollowers>().AddToFollowerList(1);
@@ -271,7 +276,8 @@ public class GameHandler : MonoBehaviour {
       IEnumerator DeathPause(){
             //player.GetComponent<PlayerMove>().isAlive = false;
            // player.GetComponent<PlayerJump>().isAlive = false;
-            gotRedTokens = 0;		// these intergers track the number of resources collected
+            anim.SetTrigger("Death");
+			gotRedTokens = 0;		// these intergers track the number of resources collected
 			gotBlueTokens = 0;		
 			gotGreenTokens = 0;
 			gotWhiteTokens = 0;
@@ -281,7 +287,7 @@ public class GameHandler : MonoBehaviour {
 			gotAbility4 = 0;
 			gotAbility5 = 0;
 			gotAbility6 = 0;
-			yield return new WaitForSeconds(1.0f);
+			yield return new WaitForSeconds(3.5f);
             SceneManager.LoadScene("End_Lose");
 		}
 

@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMove_Rotate :  MonoBehaviour {
 
-	//private Animator anim;
+	  private Animator anim;
 
-     public float playerSuckStrength = 1.5f;
-	 public float moveSpeed = 5f;
+      public float playerSuckStrength = 1.5f;
+	  public float moveSpeed = 5f;
 	  public float startSpeed = 5f;
       public float rotationSpeed = 720f;
 	  private float nextDashTime = 0f;
@@ -35,7 +35,7 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 	  private GameHandler GameHandler;
 
       void Start() {
-			//anim = GetComponentInChilderen<Animator>();
+			anim = GetComponentInChildren<Animator>();
 			if (GameObject.FindWithTag ("GameHandler") != null) {
                 GameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
             }
@@ -61,11 +61,11 @@ public class PlayerMove_Rotate :  MonoBehaviour {
                   Quaternion toRotation = Quaternion.LookRotation (Vector3.forward, moveDirection);
                   transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
 				  isMoving = true;
-				  //anim.SetBool("move", true);
+				  anim.SetBool("Swim", true);
 			}
 			else {
 				isMoving = false;
-				//anim.SetBool("move", false);
+				anim.SetBool("Swim", false);
 			}
 			
 			if (isMoving == true) {						// if the player is moving, then the dash ability becomes usable
@@ -75,6 +75,7 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 							GameHandler.gotAbility1 = GameHandler.gotAbility1 - 1;
 							GameHandler.updateStatsDisplay();
 							dashSound.Play();
+							anim.SetBool("Dash", true);
 							speedBoost(4f, 0.25f);					// the true function of the dash: player movement is multiplied by 4 for .25 seconds.
 							nextDashTime = Time.time + 1f;
 							Debug.Log("You Dashed!");
@@ -126,7 +127,6 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 	  
 	  public void speedBoost(float speedBoost, float speedLength){
             isDashing = true;
-			//anim.SetBool("dash", true);
 			moveSpeed = moveSpeed * speedBoost;
             StartCoroutine(normalSpeed(speedLength));
       }
@@ -135,7 +135,7 @@ public class PlayerMove_Rotate :  MonoBehaviour {
             yield return new WaitForSeconds(speedLength);
             moveSpeed = startSpeed;       //NOTE: returns this stat to normal
 			isDashing = false;
-			//anim.SetBool("dash", false);
+			anim.SetBool("Dash", false);
       }
 
 	public void OnTriggerEnter2D(Collider2D other){
@@ -148,7 +148,7 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 	}
 	
 	public void PlayerChomp(){
-		//anim.SetTrigger("chomp");
+		anim.SetTrigger("Chomp");
 	}
 
 

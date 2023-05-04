@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playerAttackPulse : MonoBehaviour {
     	  
-	//private Animator anim;
+	private Animator anim;
 	public int damage = 25;
 	private float nextShockWaveTime = 0f;
 	private float newScale = 1f;
@@ -18,7 +18,7 @@ public class playerAttackPulse : MonoBehaviour {
 	// Start is called before the first frame update
     void Start()
     {
-		//anim = GetComponentInChildren<Animator>();
+		anim = GetComponentInChildren<Animator>();
 		//rb2D = GetComponent<Rigidbody2D> ();
 		GetComponent<CircleCollider2D>().radius = 0.15f;
     }
@@ -30,10 +30,10 @@ public class playerAttackPulse : MonoBehaviour {
                   //if (Input.GetKeyDown(KeyCode.Space))
                 if (Input.GetAxis("Pulse") > 0){
                         
-					//if (GameHandler.gotAbility2 >= 1) {
-						//GameHandler.gotAbility2 = GameHandler.gotAbility2 - 1;
+					if (GameHandler.gotAbility3 >= 1) {
+						GameHandler.gotAbility3 = GameHandler.gotAbility3 - 1;
 						isPulsing = true;
-						//anim.SetTrigger("pulse");
+						anim.SetTrigger("Pulse");
 						strandAlready = false;
 						GameObject animEffect = Instantiate (pulseEffectAnim, transform.position, Quaternion.identity);
 						StartCoroutine(selfDestructHit(animEffect));
@@ -44,7 +44,7 @@ public class playerAttackPulse : MonoBehaviour {
 					//}	
 					//else {
 					//Debug.Log("Not enough charge to zap!");
-					//}						
+					}						
                 }
         } 
     }  //END OF UPDATE FUNCTION
