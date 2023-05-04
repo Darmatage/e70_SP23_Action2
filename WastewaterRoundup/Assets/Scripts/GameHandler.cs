@@ -33,8 +33,8 @@ public class GameHandler : MonoBehaviour {
 	  public static int gotBlueTokens = 0;		
 	  public static int gotGreenTokens = 0;
 	  public static int gotWhiteTokens = 0;
-	  public static int gotAbility1 = 3;		// these track the number of abilities created
-	  public static int gotAbility2 = 3;
+	  public static int gotAbility1 = 0;		// these track the number of abilities created
+	  public static int gotAbility2 = 0;
 	  public static int gotAbility3 = 0;
 	  public static int gotAbility4 = 0;
 	  public static int gotAbility5 = 0;
@@ -281,8 +281,8 @@ public class GameHandler : MonoBehaviour {
 			gotBlueTokens = 0;		
 			gotGreenTokens = 0;
 			gotWhiteTokens = 0;
-			gotAbility1 = 3;		// these track the number of abilities created
-			gotAbility2 = 3;
+			gotAbility1 = 0;		// these track the number of abilities created
+			gotAbility2 = 0;
 			gotAbility3 = 0;
 			gotAbility4 = 0;
 			gotAbility5 = 0;
@@ -309,8 +309,8 @@ public class GameHandler : MonoBehaviour {
 			gotBlueTokens = 0;		
 			gotGreenTokens = 0;
 			gotWhiteTokens = 0;
-			gotAbility1 = 3;		
-			gotAbility2 = 3;
+			gotAbility1 = 0;		
+			gotAbility2 = 0;
 			gotAbility3 = 0;
 			gotAbility4 = 0;
 			gotAbility5 = 0;

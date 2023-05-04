@@ -118,9 +118,12 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 			}
 
 			if (Input.GetKeyDown(KeyCode.F)) {
-                Debug.Log("Doing the Big Suck");
-				suckSound.Play();
-                BigSuck();
+                if (GameHandler.gotAbility4 >= 1) {
+					GameHandler.gotAbility4 -= 1;
+					Debug.Log("Doing the Big Suck");
+					suckSound.Play();
+					BigSuck();
+				}
             }
 			
 		} // END OF UPDATE FUNCTION
