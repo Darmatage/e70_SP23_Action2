@@ -12,7 +12,8 @@ public class NPC_PatrolRandomSpace : MonoBehaviour {
        private float waitTime;
        public float startWaitTime = 0.5f;
 
-       public Transform moveSpot;
+       public Vector2 moveSpot;
+       private Vector2 initialPosition; 
        public float minX;
        public float maxX;
        public float minY;
@@ -23,25 +24,28 @@ public class NPC_PatrolRandomSpace : MonoBehaviour {
 
        void Start(){
               waitTime = startWaitTime;
-              // float randomX = Random.Range(minX, maxX);
-              // float randomY = Random.Range(minY, maxY);
-              // moveSpot.position = new Vector2(randomX, randomY);
-              moveSpot.position = transform.position;
+              initialPosition = transform.position; 
+              Debug.Log("Initial Position: " + initialPosition.ToString());
+              float randomX = Random.Range(initialPosition.x + minX, initialPosition.x + maxX);
+              float randomY = Random.Range(initialPosition.y + minY, initialPosition.y + maxY);
+              moveSpot = new Vector2(randomX, randomY);
+              Debug.Log("Moving To: " + moveSpot);
+              
               player = GameObject.FindGameObjectWithTag("Player");
-            if (GameObject.FindWithTag ("GameHandler") != null) {
-                gameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
+            if (GameObject.FindWithTag("GameHandler") != null) {
+                gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler> ();
             }
             StartCoroutine(StealOxygen());
        }
 
        void Update(){
-              transform.position = Vector2.MoveTowards(transform.position, moveSpot.position, speed * Time.deltaTime);
+              transform.position = Vector2.MoveTowards(transform.position, moveSpot, speed * Time.deltaTime);
 
-              if (Vector2.Distance(transform.position, moveSpot.position) < 0.2f){
+              if (Vector2.Distance(transform.position, moveSpot) < 0.2f){
                      if (waitTime <= 0){
-                            float randomX = Random.Range(minX, maxX);
-                            float randomY = Random.Range(minY, maxY);
-                            moveSpot.position = new Vector2(randomX, randomY);
+                            float randomX = Random.Range(initialPosition.x + minX, initialPosition.x + maxX);
+                            float randomY = Random.Range(initialPosition.y + minY, initialPosition.y + maxY);
+                            moveSpot = new Vector2(randomX, randomY);
                             waitTime = startWaitTime;
                      } else {
                             waitTime -= Time.deltaTime;
