@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttackShoot : MonoBehaviour{
 
-      //public Animator anim;
+      public Animator anim;
       public Transform firePoint;
       public GameObject projectilePrefab;
       public float projectileSpeed = 12f;
@@ -15,7 +15,7 @@ public class PlayerAttackShoot : MonoBehaviour{
 	  
 
       void Start(){
-           //anim = gameObject.GetComponentInChildren<Animator>();
+           anim = gameObject.GetComponentInChildren<Animator>();
 		   if (GameObject.FindWithTag ("GameHandler") != null) {
                   m_GameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
               }
@@ -27,6 +27,7 @@ public class PlayerAttackShoot : MonoBehaviour{
                  if (Input.GetAxis("Shoot") > 0){
                         
 					if (GameHandler.gotAbility2 >= 1) {
+						anim.SetTrigger("Zap");
 						GameHandler.gotAbility2 = GameHandler.gotAbility2 - 1;
 						playerFire();
                         nextAttackTime = Time.time + 1f / attackRate;
@@ -42,7 +43,6 @@ public class PlayerAttackShoot : MonoBehaviour{
       } // END OF UPDATE FUNCTION
 
       void playerFire(){
-            //anim.SetTrigger("shoot");
             Vector2 fwd = (firePoint.position - this.transform.position).normalized;
             GameObject projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity);
             projectile.GetComponent<Rigidbody2D>().AddForce(fwd * projectileSpeed, ForceMode2D.Impulse);

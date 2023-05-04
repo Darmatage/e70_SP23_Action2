@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 526102749941365889}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2708981259541150512}
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 80
-  m_Sprite: {fileID: 21300000, guid: 02a9d97696efb1b4a8d4a1c08712e5dd, type: 3}
-  m_Color: {r: 0.89375913, g: 0.9716981, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: cd58e8ba58cd44f4caabee1fd3a25ce3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -182,4 +182,3 @@ MonoBehaviour:
   hitEffectAnim: {fileID: 952791140953102993, guid: ed22306a6c61ee540b610c06b93d2aa7, type: 3}
   SelfDestructTime: 4
   SelfDestructVFX: 0.5
-  projectileArt: {fileID: 0}
