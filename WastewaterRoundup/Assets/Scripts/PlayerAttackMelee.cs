@@ -6,14 +6,17 @@ public class PlayerAttackMelee : MonoBehaviour{
 
       public Animator anim;
       public Transform attackPt;
-      public float attackRange = 0.5f;
+      //public float attackRange = 0.5f;
+	  public Vector2 attackRange = Vector2.zero;
       public float attackRate = 2f;
       private float nextAttackTime = 0f;
 	  public float knockBackForce = 8f;
       public int attackDamage = 40;
       public LayerMask enemyLayers;
 	  public AudioSource soundEffect;
-	  private Vector2 moveDirection;
+	  public GameObject hitSquare1;
+	  public GameObject hitSquare2;
+	  
 
       void Start(){
            anim = gameObject.GetComponentInChildren<Animator>();
@@ -28,16 +31,18 @@ public class PlayerAttackMelee : MonoBehaviour{
 		   if (Time.time >= nextAttackTime){
                   //if (Input.GetKeyDown(KeyCode.Space))
                  if (Input.GetAxis("Attack") > 0){
-                        //Attack();
+                        Attack();
 						soundEffect.Play();
                         nextAttackTime = Time.time + 1f / attackRate;
                   }
             }
       }
 
-      /*void Attack(){
-            anim.SetTrigger ("Melee");
-            Collider2D[] hitEnemies = Physics2D.OverlapCapsuleAll(attackPt.position, attackRange, moveDirection, 90, enemyLayers);
+      void Attack(){
+            Vector2 atkCorn1 = (hitSquare1.transform.position);
+			Vector2 atkCorn2 = (hitSquare2.transform.position);
+			anim.SetTrigger ("Melee");
+            Collider2D[] hitEnemies = Physics2D.OverlapAreaAll(atkCorn1, atkCorn2);
            
             foreach(Collider2D enemy in hitEnemies){
                   Debug.Log("We hit " + enemy.name);
@@ -47,16 +52,18 @@ public class PlayerAttackMelee : MonoBehaviour{
 				  pushRB.AddForce(moveDirectionPush.normalized * knockBackForce * - 1f, ForceMode2D.Impulse);
 				  StartCoroutine(EndKnockBack(pushRB));
             }
-      }*/
+      }
 
       //NOTE: to help see the attack sphere in editor:
-      void OnDrawGizmosSelected(){
-           if (attackPt == null) {return;}
-            Gizmos.DrawWireSphere(attackPt.position, attackRange);
-      }
+      //void OnDrawGizmosSelected(){
+           //if (attackPt == null) {return;}
+            //Gizmos.DrawWireSphere(attackPt.position, attackRange);
+      //}
 	  
 	  IEnumerator EndKnockBack(Rigidbody2D otherRB){
               yield return new WaitForSeconds(0.4f);
-              otherRB.velocity= new Vector3(0,0,0);
+              if (otherRB != null){
+			  otherRB.velocity= new Vector3(0,0,0);
+			  }
     }
 }

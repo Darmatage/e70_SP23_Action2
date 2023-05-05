@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4248618225503576201}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1092469311
 CircleCollider2D:
@@ -95,7 +95,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4248618225503576201}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1709735391
 MonoBehaviour:
@@ -139,7 +139,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4248618225503576201}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &7249422631523599527
 AudioSource:
@@ -267,7 +267,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4248618225503576201}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &7356425754902088408
 AudioSource:
@@ -395,7 +395,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4248618225503576201}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &6889886743280261711
 AudioSource:
@@ -523,7 +523,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4248618225503576201}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &7631306613744468014
 AudioSource:
@@ -621,6 +621,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &2974870832683777183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5146234000854822850}
+  m_Layer: 3
+  m_Name: HitPoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5146234000854822850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2974870832683777183}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.625, y: 0.009, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4248618225503576201}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3230530204414261327
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,7 +662,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3230530204414261326}
   m_Layer: 3
-  m_Name: HitPoint
+  m_Name: HitPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -645,7 +676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3230530204414261327}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 0.87, z: 0}
+  m_LocalPosition: {x: -0.57, y: 1.215, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -682,7 +713,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4248618225503576201}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &6996630639361770013
 AudioSource:
@@ -817,6 +848,7 @@ Transform:
   m_Children:
   - {fileID: 1786591436633354308}
   - {fileID: 3230530204414261326}
+  - {fileID: 5146234000854822850}
   - {fileID: 1709735390}
   - {fileID: 1092469309}
   - {fileID: 3551155646155489600}
@@ -928,7 +960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   attackPt: {fileID: 3230530204414261326}
-  attackRange: 0.8
+  attackRange: {x: 0, y: 0}
   attackRate: 2
   knockBackForce: 8
   attackDamage: 50
@@ -936,6 +968,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   soundEffect: {fileID: 3450231719011258128}
+  hitSquare1: {fileID: 3230530204414261327}
+  hitSquare2: {fileID: 2974870832683777183}
 --- !u!114 &1715262885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,6 +982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a22b142253e2f2458a72a6f1e401629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   firePoint: {fileID: 1709735390}
   projectilePrefab: {fileID: 2708981259541150515, guid: f7895288089db3d43ae68ca4a336d45d, type: 3}
   projectileSpeed: 16
@@ -995,7 +1030,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4248618225503576201}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &3450231719011258128
 AudioSource:

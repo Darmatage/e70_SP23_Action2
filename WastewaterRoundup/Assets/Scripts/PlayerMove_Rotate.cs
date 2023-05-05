@@ -141,65 +141,6 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 			anim.SetBool("Dash", false);
       }
 
-	public void OnTriggerEnter2D(Collider2D other){
-		if ((other.gameObject.tag=="PickUpBlue")||
-		(other.gameObject.tag=="PickUpRed")||
-		(other.gameObject.tag=="PickUpWhite")||
-		(other.gameObject.tag=="PickUpGreen")){
-			PlayerChomp();
-		}
-	}
-	
-	public void PlayerChomp(){
-		//anim.SetTrigger("Chomp");
-	}
-
-
-	/*void BigSuck(){
-        Debug.Log("Collecting the Poop!");
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, suckRadius);
-      //   string collidersString = string.Join(", ", (object[])colliders);
-      //   Debug.Log(collidersString);
-      // Debug.Log("Number of colliders: " + colliders.Length);
-
-        foreach (Collider2D collider in colliders) {
-            string pickupName = collider.name;
-            Debug.Log(pickupName);
-            if (collider.gameObject.CompareTag("PickUpGreen")) {
-                GameHandler.gotGreenTokens = GameHandler.gotGreenTokens + 1;
-                Debug.Log("Green" + GameHandler.gotGreenTokens);
-                Destroy(collider.gameObject);
-				GameHandler.updateStatsDisplay();
-            } else if (collider.gameObject.CompareTag("PickUpBlue")) {
-                GameHandler.gotBlueTokens = GameHandler.gotBlueTokens + 1;
-                Destroy(collider.gameObject);
-				GameHandler.updateStatsDisplay();				
-            } else if (collider.gameObject.CompareTag("PickUpRed")) {
-                GameHandler.gotRedTokens = GameHandler.gotRedTokens + 1;
-                Destroy(collider.gameObject);
-				GameHandler.updateStatsDisplay();
-            } else if (collider.gameObject.CompareTag("PickUpWhite")) {
-                GameHandler.gotWhiteTokens = GameHandler.gotWhiteTokens + 1;
-                Destroy(collider.gameObject); 
-				GameHandler.updateStatsDisplay();
-            }
-
-        }
-    }*/
-	
-	/*void BigSuck(){
-        Debug.Log("Collecting the Poop!");
-		Collider2D[] nearbyPickups = Physics2D.OverlapCircleAll(transform.position, suckRadius);
-
-        foreach (Collider2D pickup in nearbyPickups) {
-           if (pickup.gameObject.layer == LayerMask.NameToLayer("Pickups")) { 
-				Rigidbody2D pushRB = pickup.gameObject.GetComponent<Rigidbody2D>();
-				Vector2 moveDirectionPush = pickup.transform.position - this.transform.position;
-				pushRB.AddForce(moveDirectionPush.normalized * playerSuckStrength * - 1f, ForceMode2D.Impulse);
-			
-		    }
-        }
-    }*/
 
 	void BigSuck(){
 			Debug.Log("Collecting the Poop!");
