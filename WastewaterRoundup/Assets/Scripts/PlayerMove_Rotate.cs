@@ -151,7 +151,7 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 	}
 	
 	public void PlayerChomp(){
-		anim.SetTrigger("Chomp");
+		//anim.SetTrigger("Chomp");
 	}
 
 

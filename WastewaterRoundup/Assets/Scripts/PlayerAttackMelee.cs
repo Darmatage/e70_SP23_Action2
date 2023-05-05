@@ -13,25 +13,31 @@ public class PlayerAttackMelee : MonoBehaviour{
       public int attackDamage = 40;
       public LayerMask enemyLayers;
 	  public AudioSource soundEffect;
+	  private Vector2 moveDirection;
 
       void Start(){
            anim = gameObject.GetComponentInChildren<Animator>();
       }
 
       void Update(){
-           if (Time.time >= nextAttackTime){
+           
+		   float horizontalInput = Input.GetAxis ("Horizontal");
+           float verticalInput = Input.GetAxis ("Vertical");
+		   Vector2 moveDirection = new Vector2(horizontalInput, verticalInput);
+		   
+		   if (Time.time >= nextAttackTime){
                   //if (Input.GetKeyDown(KeyCode.Space))
                  if (Input.GetAxis("Attack") > 0){
-                        Attack();
+                        //Attack();
 						soundEffect.Play();
                         nextAttackTime = Time.time + 1f / attackRate;
                   }
             }
       }
 
-      void Attack(){
+      /*void Attack(){
             anim.SetTrigger ("Melee");
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPt.position, attackRange, enemyLayers);
+            Collider2D[] hitEnemies = Physics2D.OverlapCapsuleAll(attackPt.position, attackRange, moveDirection, 90, enemyLayers);
            
             foreach(Collider2D enemy in hitEnemies){
                   Debug.Log("We hit " + enemy.name);
@@ -41,7 +47,7 @@ public class PlayerAttackMelee : MonoBehaviour{
 				  pushRB.AddForce(moveDirectionPush.normalized * knockBackForce * - 1f, ForceMode2D.Impulse);
 				  StartCoroutine(EndKnockBack(pushRB));
             }
-      }
+      }*/
 
       //NOTE: to help see the attack sphere in editor:
       void OnDrawGizmosSelected(){
