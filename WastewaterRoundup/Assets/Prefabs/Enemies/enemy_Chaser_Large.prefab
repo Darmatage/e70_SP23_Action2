@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  damage: 6
+  damage: 10
   attackRange: 10
   isAttacking: 0
   knockBackForce: 20

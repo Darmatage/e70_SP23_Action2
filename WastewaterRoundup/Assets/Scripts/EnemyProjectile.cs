@@ -38,11 +38,9 @@ public class EnemyProjectile : MonoBehaviour {
 
        //if the bullet hits a collider, play the explosion animation, then destroy the effect and the bullet
        void OnTriggerEnter2D(Collider2D collision){
-              if (collision.gameObject.tag == "Player")
-				  soundEffect.Play();
-			  {
+              if (collision.gameObject.tag == "Player") {
                      gameHandlerObj.playerGetHit(damage);
-
+					 soundEffect.Play();
               }
               if (collision.gameObject.tag != "enemyShooter") {
                      GameObject animEffect = Instantiate (hitEffectAnim, transform.position, Quaternion.identity);
