@@ -94,7 +94,8 @@ public class Hive_Handler : MonoBehaviour{
 	IEnumerator HiveDeath(){
 		yield return new WaitForSeconds(2.6f);
 		Instantiate (theLoot, transform.position, Quaternion.identity);
-		yield return new WaitForSeconds(1f);
+		GetComponent<Collider2D>().enabled = false;
+		yield return new WaitForSeconds(1.3f);
 		Destroy(gameObject);
     }
 	
