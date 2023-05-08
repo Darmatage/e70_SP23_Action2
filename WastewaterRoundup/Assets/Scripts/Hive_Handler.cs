@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hive_Handler : MonoBehaviour{
 	
+	private Animator anim;
 	private float theTimer = 0f;
 	public float spawnRate;
 	public float spawnRateStart = 5f;
@@ -27,6 +28,7 @@ public class Hive_Handler : MonoBehaviour{
 	public float speedUpDistance = 2f;
 	
     void Start(){
+		anim = GetComponentInChildren<Animator>();
 		spawnRate = spawnRateStart;
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
 		m_Hive_Spawner.AddNewBacteria();
@@ -83,10 +85,18 @@ public class Hive_Handler : MonoBehaviour{
 		//if hive contents == null, then kill the hive, instantiate theLoot
 		numStrands -= 1;
 		if (numStrands <= 0){
-			Instantiate (theLoot, transform.position, Quaternion.identity);
-			Destroy(gameObject);
+			StartCoroutine("HiveDeath");
+			
+			anim.SetTrigger("DEATH");
 		}
 	}
+	
+	IEnumerator HiveDeath(){
+		yield return new WaitForSeconds(2.6f);
+		Instantiate (theLoot, transform.position, Quaternion.identity);
+		yield return new WaitForSeconds(1f);
+		Destroy(gameObject);
+    }
 	
 	
 }

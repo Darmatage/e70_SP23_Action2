@@ -44,6 +44,7 @@ public class PlayerAttackShoot : MonoBehaviour{
 
       void playerFire(){
             Vector2 fwd = (firePoint.position - this.transform.position).normalized;
+			//Vector2 fwd = (firePoint.position - this.transform.position);
             GameObject projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity);
             projectile.GetComponent<Rigidbody2D>().AddForce(fwd * projectileSpeed, ForceMode2D.Impulse);
       }
