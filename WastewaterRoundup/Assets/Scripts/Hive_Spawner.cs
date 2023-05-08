@@ -14,6 +14,8 @@ public class Hive_Spawner : MonoBehaviour
 	private int rangeEndPositions; 
 	private Transform spawnPoint; 
 	
+	private Animator anim;
+	
 	//public float spawnRadiusInner = 0.5f;
 	//public float spawnRadiusOuter = 2.5f;
 	
@@ -41,8 +43,11 @@ public class Hive_Spawner : MonoBehaviour
         spawnPoint = spawnPoints[SPnum];
 		Vector2 newPos = new Vector2 (spawnPoint.position.x, spawnPoint.position.y);
 		
+		anim = spawnPoint.GetComponentInChildren<Animator>();
+		
 		//choose random enemy and spawn at location
 		spawnSelect = Random.Range(0, rangeEndEnemies);
+		anim.SetTrigger("Spawn");
 		GameObject thisNewEnemy = Instantiate (enemies[spawnSelect], newPos, Quaternion.identity);
 		if (GameObject.FindWithTag("EnemyFolder") != null){
 			thisNewEnemy.transform.parent = GameObject.FindWithTag("EnemyFolder").GetComponent<Transform>();

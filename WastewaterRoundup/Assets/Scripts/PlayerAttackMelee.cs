@@ -43,14 +43,16 @@ public class PlayerAttackMelee : MonoBehaviour{
             Collider2D[] hitEnemies = Physics2D.OverlapAreaAll(atkCorn1, atkCorn2);
            
             foreach(Collider2D enemy in hitEnemies){
-                  Debug.Log("We hit " + enemy.name);
-                  enemy.GetComponent<EnemyMeleeDamage>().TakeDamage(attackDamage);
-				  Rigidbody2D pushRB = enemy.GetComponent<Rigidbody2D>();
-				  Vector2 moveDirectionPush = this.transform.position - enemy.transform.position;
-				  pushRB.AddForce(moveDirectionPush.normalized * knockBackForce * - 1f, ForceMode2D.Impulse);
-				  StartCoroutine(EndKnockBack(pushRB));
+                if (enemy.gameObject.layer == LayerMask.NameToLayer("Enemies")) { 
+					Debug.Log("We hit " + enemy.name);
+					enemy.GetComponent<EnemyMeleeDamage>().TakeDamage(attackDamage);
+					Rigidbody2D pushRB = enemy.GetComponent<Rigidbody2D>();
+					Vector2 moveDirectionPush = this.transform.position - enemy.transform.position;
+					pushRB.AddForce(moveDirectionPush.normalized * knockBackForce * - 1f, ForceMode2D.Impulse);
+					StartCoroutine(EndKnockBack(pushRB));
+				}
             }
-      }
+        }
 
       //NOTE: to help see the attack sphere in editor:
       //void OnDrawGizmosSelected(){

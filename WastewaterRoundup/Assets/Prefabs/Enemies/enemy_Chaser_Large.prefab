@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2942003997662342379}
   - component: {fileID: 2942003997662342378}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: enemy_art
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2942003997707061529}
   - component: {fileID: 2942003997707061534}
-  - component: {fileID: 2942003997707061535}
+  - component: {fileID: 6299856002833344671}
   - component: {fileID: 2942003997707061532}
   - component: {fileID: 2942003997707061528}
   m_Layer: 3
@@ -141,8 +141,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &2942003997707061535
-BoxCollider2D:
+--- !u!70 &6299856002833344671
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -154,19 +154,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.005248189, y: -0.0026239157}
+  m_Size: {x: 0.9828322, y: 1.9814093}
+  m_Direction: 0
 --- !u!114 &2942003997707061532
 MonoBehaviour:
   m_ObjectHideFlags: 0
