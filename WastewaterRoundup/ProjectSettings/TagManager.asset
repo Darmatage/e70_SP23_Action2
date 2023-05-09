@@ -31,6 +31,7 @@ TagManager:
   - waterShmutzDownRight
   - waterShmutzFolder
   - PLAYERART
+  - SpawnArt
   layers:
   - Default
   - TransparentFX

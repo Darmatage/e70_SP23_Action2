@@ -6,15 +6,18 @@ public class Hive_Spawner : MonoBehaviour
 {
 	//enemy variables
 	public GameObject[] enemies;
+	public GameObject spawnVisual;
 	private int rangeEndEnemies; 
 	public int spawnSelect = 0;
+	
+	private GameObject spawnParticles;
 
 	//location variables
 	public Transform[] spawnPoints;
 	private int rangeEndPositions; 
 	private Transform spawnPoint; 
 	
-	private Animator anim;
+	//public Animator anim;
 	
 	//public float spawnRadiusInner = 0.5f;
 	//public float spawnRadiusOuter = 2.5f;
@@ -33,26 +36,29 @@ public class Hive_Spawner : MonoBehaviour
     }
 	
 	public void AddNewBacteria(){
-		//prepare a random spawn position for the new follower
-		//float randX = Random.Range (-spawnRadiusOuter, spawnRadiusOuter); 
-		//float randY = Random.Range (-spawnRadiusOuter, spawnRadiusOuter);
-		//Vector2 newPos = new Vector2 (transform.position.x + randX, transform.position.y + randY);
 		
+		StartCoroutine(newBac());
+		
+		/*
 		//get random location
 		int SPnum = Random.Range(0, rangeEndPositions);
         spawnPoint = spawnPoints[SPnum];
 		Vector2 newPos = new Vector2 (spawnPoint.position.x, spawnPoint.position.y);
 		
-		anim = spawnPoint.GetComponentInChildren<Animator>();
-		Debug.Log("Spawn Point" + spawnPoint.name + "just spawned an enemy! The animator is:" + anim.name);
+		//anim = spawnPoint.GetComponentInChildren<Animator>();
+		//Debug.Log(spawnPoint.name + "just spawned an enemy! The animator is:" + anim.name);
 		
 		//choose random enemy and spawn at location
 		spawnSelect = Random.Range(0, rangeEndEnemies);
-		anim.SetTrigger("Spawn");
+		//anim.SetTrigger("Spawn");
+		GameObject spawnParticles = Instantiate (spawnVisual, newPos, Quaternion.identity);
 		GameObject thisNewEnemy = Instantiate (enemies[spawnSelect], newPos, Quaternion.identity);
-		if (GameObject.FindWithTag("EnemyFolder") != null){
-			thisNewEnemy.transform.parent = GameObject.FindWithTag("EnemyFolder").GetComponent<Transform>();
-		}
+			if (GameObject.FindWithTag("EnemyFolder") != null){
+				thisNewEnemy.transform.parent = GameObject.FindWithTag("EnemyFolder").GetComponent<Transform>();
+			}
+		StartCoroutine(removeParticles(spawnParticles));
+		*/
+		
 		
 		/*
 		if (spawnSelect == 1) {
@@ -101,6 +107,33 @@ public class Hive_Spawner : MonoBehaviour
 			
 		}
 		*/
+		
+	}
+	
+	IEnumerator removeParticles(GameObject VFX){
+            yield return new WaitForSeconds(3f);
+            Destroy (VFX);
+    }
+	
+	IEnumerator newBac() {
+		//get random location
+		int SPnum = Random.Range(0, rangeEndPositions);
+        spawnPoint = spawnPoints[SPnum];
+		Vector2 newPos = new Vector2 (spawnPoint.position.x, spawnPoint.position.y);
+		
+		//anim = spawnPoint.GetComponentInChildren<Animator>();
+		//Debug.Log(spawnPoint.name + "just spawned an enemy! The animator is:" + anim.name);
+		
+		//choose random enemy and spawn at location
+		spawnSelect = Random.Range(0, rangeEndEnemies);
+		//anim.SetTrigger("Spawn");
+		GameObject spawnParticles = Instantiate (spawnVisual, newPos, Quaternion.identity);
+		StartCoroutine(removeParticles(spawnParticles));
+		yield return new WaitForSeconds(2.5f);
+		GameObject thisNewEnemy = Instantiate (enemies[spawnSelect], newPos, Quaternion.identity);
+			if (GameObject.FindWithTag("EnemyFolder") != null){
+				thisNewEnemy.transform.parent = GameObject.FindWithTag("EnemyFolder").GetComponent<Transform>();
+			}
 		
 	}
 	

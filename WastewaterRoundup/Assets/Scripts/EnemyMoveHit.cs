@@ -55,9 +55,7 @@ public class EnemyMoveHit : MonoBehaviour {
               if (other.gameObject.tag == "Player") {
                      isAttacking = true;
                      //anim.SetBool("Attack", true);
-                    if (other != null) { 
-						gameHandler.playerGetHit(damage);
-					}
+                    
                      //rend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
                      //StartCoroutine(HitEnemy());
 
@@ -65,6 +63,9 @@ public class EnemyMoveHit : MonoBehaviour {
 					if (PM.isDashing == false) {
 						Rigidbody2D pushRB = other.gameObject.GetComponent<Rigidbody2D>();
 						Vector2 moveDirectionPush = rb2D.transform.position - other.transform.position;
+						if (other != null) { 
+							gameHandler.playerGetHit(damage);
+						}
 						pushRB.AddForce(moveDirectionPush.normalized * knockBackForce * - 1f, ForceMode2D.Impulse);
 						StartCoroutine(EndKnockBack(pushRB));
 					}
