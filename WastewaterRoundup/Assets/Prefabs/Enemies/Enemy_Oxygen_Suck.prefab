@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 2904762458969445446}
   - component: {fileID: 2078487644334783141}
   - component: {fileID: 544373806215154431}
+  - component: {fileID: 6719597731605142314}
   m_Layer: 3
   m_Name: Enemy_Oxygen_Suck
   m_TagString: enemyShooter
@@ -175,3 +176,23 @@ MonoBehaviour:
   maxX: 2
   minY: 1
   maxY: 2
+--- !u!114 &6719597731605142314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2904762458969445440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe6996aa64bcce140942ec72a06088a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rend: {fileID: 0}
+  anim: {fileID: 0}
+  enemyLoot1: {fileID: 0}
+  enemyLoot2: {fileID: 0}
+  enemyLoot3: {fileID: 0}
+  enemyLoot4: {fileID: 0}
+  maxHealth: 30
+  currentHealth: 0
