@@ -44,6 +44,7 @@ public class Hive_Spawner : MonoBehaviour
 		Vector2 newPos = new Vector2 (spawnPoint.position.x, spawnPoint.position.y);
 		
 		anim = spawnPoint.GetComponentInChildren<Animator>();
+		Debug.Log("Spawn Point" + spawnPoint.name + "just spawned an enemy! The animator is:" + anim.name);
 		
 		//choose random enemy and spawn at location
 		spawnSelect = Random.Range(0, rangeEndEnemies);

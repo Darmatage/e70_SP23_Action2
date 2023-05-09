@@ -40,7 +40,7 @@ public class playerAttackPulse : MonoBehaviour {
 						StartCoroutine("playerShockWave");
 						soundEffect.Play();
                         nextShockWaveTime = Time.time + 2f;
-						Debug.Log("Starting Pulse.");
+						//Debug.Log("Starting Pulse.");
 					//}	
 					//else {
 					//Debug.Log("Not enough charge to zap!");
@@ -57,8 +57,12 @@ public class playerAttackPulse : MonoBehaviour {
                   Rigidbody2D pushRB = other.gameObject.GetComponent<Rigidbody2D>();
 				  Vector2 moveDirectionPush = this.transform.position - other.transform.position;
 				  pushRB.AddForce(moveDirectionPush.normalized * knockBackForce * - 1f, ForceMode2D.Impulse);
-				  other.gameObject.GetComponent<EnemyMeleeDamage>().TakeDamage(damage);
-				  StartCoroutine(EndKnockBack(pushRB));
+				  if (other != null) {
+						if (other.gameObject.tag != "Pickups") {
+							other.gameObject.GetComponent<EnemyMeleeDamage>().TakeDamage(damage);
+						}
+						StartCoroutine(EndKnockBack(pushRB));
+				    }
             }
 			if (other.gameObject.layer == LayerMask.NameToLayer("Clumps")) {
 				  Debug.Log("We hit " + other.name);
@@ -96,11 +100,11 @@ public class playerAttackPulse : MonoBehaviour {
 				GetComponent<CircleCollider2D>().radius += 0.2375f;
 				blastArt.transform.localScale = new Vector3(newScale, newScale, newScale);
 				blastArt.transform.position = this.transform.position;
-				Debug.Log("Radius is:" + GetComponent<CircleCollider2D>().radius );
+				//Debug.Log("Radius is:" + GetComponent<CircleCollider2D>().radius );
 				newScale += 0.3f;
 				yield return new WaitForSeconds(0.094f);
 			}
-			Debug.Log("BAM!");
+			//Debug.Log("BAM!");
 			stopShock();
 	}
 		
@@ -108,21 +112,23 @@ public class playerAttackPulse : MonoBehaviour {
 	IEnumerator selfDestructHit(GameObject VFX){
             yield return new WaitForSeconds(1f);
             Destroy (VFX);
-            //Destroy (gameObject);
-			Debug.Log("Pulse Removed.");
+
+			//Debug.Log("Pulse Removed.");
 			//StopCoroutine (selfDestructHit);
     }
 	
 	IEnumerator EndKnockBack(Rigidbody2D otherRB){
               yield return new WaitForSeconds(0.2f);
-              otherRB.velocity= new Vector3(0,0,0);
+              if (otherRB != null){
+				otherRB.velocity= new Vector3(0,0,0);
+			  }
     }
 	  
 	void stopShock () {
 		isPulsing = false;
 		GetComponent<CircleCollider2D>().radius = 0.15f;
-		Debug.Log("Radius is:" + GetComponent<CircleCollider2D>().radius );
-		Debug.Log("Pulse Stopped.");
+		//Debug.Log("Radius is:" + GetComponent<CircleCollider2D>().radius );
+		//Debug.Log("Pulse Stopped.");
 	}
 	
 	

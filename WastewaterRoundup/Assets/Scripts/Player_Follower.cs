@@ -114,7 +114,9 @@ public class Player_Follower : MonoBehaviour {
 		}
 
 		if (escapeEnemy == true){
-			transform.position = Vector2.MoveTowards (transform.position, currentEnemy.position, -escapeSpeed * Time.deltaTime);
+			if (transform != null) {
+				transform.position = Vector2.MoveTowards (transform.position, currentEnemy.position, -escapeSpeed * Time.deltaTime);
+			}
 		}
 
 		//FOLLOW ENEMY

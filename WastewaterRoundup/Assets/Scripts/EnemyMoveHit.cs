@@ -55,7 +55,9 @@ public class EnemyMoveHit : MonoBehaviour {
               if (other.gameObject.tag == "Player") {
                      isAttacking = true;
                      //anim.SetBool("Attack", true);
-                     gameHandler.playerGetHit(damage);
+                    if (other != null) { 
+						gameHandler.playerGetHit(damage);
+					}
                      //rend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
                      //StartCoroutine(HitEnemy());
 
