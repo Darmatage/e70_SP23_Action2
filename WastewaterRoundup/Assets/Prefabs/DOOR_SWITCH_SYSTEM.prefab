@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 85
-  m_Sprite: {fileID: 2076880658, guid: 49b3b906c0f844cd9b869c93d70e91bf, type: 3}
+  m_Sprite: {fileID: -1701116069, guid: de1fd06b19aaf474499ff2c2320d85a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 90
-  m_Sprite: {fileID: -920985967, guid: 49b3b906c0f844cd9b869c93d70e91bf, type: 3}
+  m_Sprite: {fileID: -1411314041, guid: de1fd06b19aaf474499ff2c2320d85a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -244,7 +244,6 @@ MonoBehaviour:
   NextLevel: Gratis_Work
   DoorClosed: {fileID: 118564072434989793}
   DoorOpen: {fileID: 118564071972825154}
-  gameHandler: {fileID: 0}
 --- !u!1 &118564073235134931
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +269,7 @@ Transform:
   m_GameObject: {fileID: 118564073235134931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -67.9, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 118564072562500354}
