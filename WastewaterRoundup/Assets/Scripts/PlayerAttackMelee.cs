@@ -29,7 +29,8 @@ public class PlayerAttackMelee : MonoBehaviour{
 		   if (Time.time >= nextAttackTime){
                   //if (Input.GetKeyDown(KeyCode.Space))
                  if (Input.GetAxis("Attack") > 0){
-                        Attack();
+                        //Attack();
+						StartCoroutine("TrueAttack");
 						soundEffect.Play();
                         nextAttackTime = Time.time + 1f / attackRate;
                   }
@@ -63,7 +64,13 @@ public class PlayerAttackMelee : MonoBehaviour{
 	  IEnumerator EndKnockBack(Rigidbody2D otherRB){
               yield return new WaitForSeconds(0.4f);
               if (otherRB != null){
-			  otherRB.velocity= new Vector3(0,0,0);
+				otherRB.velocity= new Vector3(0,0,0);
 			  }
-    }
+        }
+		
+		IEnumerator TrueAttack(){
+              Attack();
+			  yield return new WaitForSeconds(0.15f);
+			  Attack();
+        }
 }
