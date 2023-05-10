@@ -113,11 +113,11 @@ public class Player_Follower : MonoBehaviour {
 			transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
 		}
 
-		if (escapeEnemy == true){
-			if (transform != null) {
-				transform.position = Vector2.MoveTowards (transform.position, currentEnemy.position, -escapeSpeed * Time.deltaTime);
-			}
-		}
+		//if (escapeEnemy == true){
+			//if (transform != null) {
+				//transform.position = Vector2.MoveTowards (transform.position, currentEnemy.position, -escapeSpeed * Time.deltaTime);
+			//}
+		//}
 
 		//FOLLOW ENEMY
 		/*

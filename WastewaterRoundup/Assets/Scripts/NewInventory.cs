@@ -88,7 +88,7 @@ public class NewInventory : MonoBehaviour {
 			buttonCraft3.SetActive(false);
 		}
 		
-		if (GameHandler.gotRedTokens >= 1 && GameHandler.gotWhiteTokens >= 1) {   // controls visibility of craft button 4
+		if (GameHandler.gotBlueTokens >= 1 && GameHandler.gotWhiteTokens >= 1) {   // controls visibility of craft button 4
 			buttonCraft4.SetActive(true);
 		}
 		else {
@@ -126,7 +126,7 @@ public class NewInventory : MonoBehaviour {
 		Debug.Log("A3 Created!");
     }
 	public void CraftObject4(){
-        GameHandler.gotRedTokens = GameHandler.gotRedTokens - 1;
+        GameHandler.gotBlueTokens = GameHandler.gotBlueTokens - 1;
 		GameHandler.gotWhiteTokens = GameHandler.gotWhiteTokens - 1;
 		GameHandler.gotAbility4 = GameHandler.gotAbility4 + 1;
 		Ability4_count.text = GameHandler.gotAbility4.ToString();
