@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMoveShoot : MonoBehaviour {
 
-      //public Animator anim;
+       private Animator anim;
        public float speed = 2f;
        public float stoppingDistance = 4f; // when enemy stops moving towards player
        public float retreatDistance = 3f; // when enemy moves away from approaching player
@@ -35,7 +35,7 @@ public class EnemyMoveShoot : MonoBehaviour {
               timeBtwShots = startTimeBtwShots;
 
               rend = GetComponentInChildren<Renderer> ();
-              //anim = GetComponentInChildren<Animator> ();
+              anim = GetComponentInChildren<Animator> ();
 
               //if (GameObject.FindWithTag ("GameHandler") != null) {
               // gameHander = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
@@ -48,8 +48,9 @@ public class EnemyMoveShoot : MonoBehaviour {
                      // approach player
                      if (Vector2.Distance (transform.position, player.position) > stoppingDistance) {
                             transform.position = Vector2.MoveTowards (transform.position, player.position, speed * Time.deltaTime);
-                            if (isAttacking == false) {
-                                   //anim.SetBool("Walk", true);
+                            //anim.SetBool("Walk", true);
+							if (isAttacking == false) {
+                                   anim.SetBool("Swim", true);
                             }
                             //Vector2 lookDir = PlayerVect - rb.position;
                             //float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg -90f;
@@ -58,14 +59,14 @@ public class EnemyMoveShoot : MonoBehaviour {
                      // stop moving
                      else if (Vector2.Distance (transform.position, player.position) < stoppingDistance && Vector2.Distance (transform.position, player.position) > retreatDistance) {
                             transform.position = this.transform.position;
-                            //anim.SetBool("Walk", false);
+                            anim.SetBool("Swim", false);
                      }
 
                      // retreat from player
                      else if (Vector2.Distance (transform.position, player.position) < retreatDistance) {
                             transform.position = Vector2.MoveTowards (transform.position, player.position, -speed * Time.deltaTime);
                             if (isAttacking == false) {
-                                   //anim.SetBool("Walk", true);
+                                   anim.SetBool("Swim", true);
                             }
                      }
 
@@ -78,12 +79,10 @@ public class EnemyMoveShoot : MonoBehaviour {
 
                      //Timer for shooting projectiles
                      if (timeBtwShots <= 0) {
-                            isAttacking = true;
-                            //anim.SetTrigger("Attack");
-                            Instantiate (projectile, transform.position, Quaternion.identity);
-							soundEffect.Play();
                             timeBtwShots = startTimeBtwShots;
-                     } else {
+							StartCoroutine("TheShoot");
+                     } 
+					 else {
                             timeBtwShots -= Time.deltaTime;
                             isAttacking = false;
                      }
@@ -112,6 +111,16 @@ public class EnemyMoveShoot : MonoBehaviour {
               }
               else yield return new WaitForSeconds(0.5f);
               rend.material.color = Color.white;
+       }
+	   
+	   IEnumerator TheShoot(){
+            isAttacking = true;
+			//yield return new WaitForSeconds(0.2f);
+            anim.SetTrigger("Shoot");
+			yield return new WaitForSeconds(0.4f);
+            Instantiate (projectile, transform.position, Quaternion.identity);
+			soundEffect.Play(); 
+             
        }
 
       //DISPLAY the range of enemy's attack when selected in the Editor
