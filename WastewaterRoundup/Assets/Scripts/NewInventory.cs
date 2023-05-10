@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class NewInventory : MonoBehaviour {
 	public GameObject InventoryMenu;
     //public GameObject CraftMenu;
-    public bool InvIsOpen = false;
+    public bool InvIsOpen = true;
 	
 	public Text Ability1_count;
 	public Text Ability2_count;
 	public Text Ability3_count;
 	public Text Ability4_count;
-	public Text Ability5_count;
-	public Text Ability6_count;
+	//public Text Ability5_count;
+	//public Text Ability6_count;
 	
-	private float craftMenuTime = 0f;
+	//private float craftMenuTime = 0f;
 	
 	
 	
@@ -29,18 +29,18 @@ public class NewInventory : MonoBehaviour {
 	public GameObject buttonCraft2; // create ability 2
 	public GameObject buttonCraft3; // create ability 3
 	public GameObject buttonCraft4; // create ability 4
-	public GameObject buttonCraft5; // create ability 5
-	public GameObject buttonCraft6; // create ability 6
+	//public GameObject buttonCraft5; // create ability 5
+	//public GameObject buttonCraft6; // create ability 6
 	
     // Start is called before the first frame update
     void Start(){
-    InventoryMenu.SetActive(false);
+    InventoryMenu.SetActive(true);
 	Ability1_count.text = GameHandler.gotAbility1.ToString();
 	Ability2_count.text = GameHandler.gotAbility2.ToString();
 	Ability3_count.text = GameHandler.gotAbility3.ToString();
 	Ability4_count.text = GameHandler.gotAbility4.ToString();
-	Ability5_count.text = GameHandler.gotAbility5.ToString();
-	Ability6_count.text = GameHandler.gotAbility6.ToString();
+	//Ability5_count.text = GameHandler.gotAbility5.ToString();
+	//Ability6_count.text = GameHandler.gotAbility6.ToString();
     }
 
     // Update is called once per frame
@@ -48,10 +48,10 @@ public class NewInventory : MonoBehaviour {
 		
 		if (theGameHandler.GameisPaused == false) {
 			if (InvIsOpen == true) {
-				Time.timeScale = 0.25f;
+				//Time.timeScale = 0.25f;
 			}	
 			else {
-				Time.timeScale = 1f;
+				//Time.timeScale = 1f;
 			}
 		}
 			
@@ -60,12 +60,12 @@ public class NewInventory : MonoBehaviour {
 		//Time.timeScale = 0f;
                 //GameisPaused = true;
 		
-		if (Time.time >= craftMenuTime){
+		/*if (Time.time >= craftMenuTime){
 			if (Input.GetAxis("CraftMenu") > 0) {
 				OpenCloseInventory();
 				craftMenuTime = Time.time + 0.15f;
 			}
-		}
+		}*/
 		
 		if (GameHandler.gotRedTokens >= 1 && GameHandler.gotBlueTokens >= 1) {   // controls visibility of craft button 1
 			buttonCraft1.SetActive(true);
@@ -89,32 +89,18 @@ public class NewInventory : MonoBehaviour {
 		}
 		
 		if (GameHandler.gotRedTokens >= 1 && GameHandler.gotWhiteTokens >= 1) {   // controls visibility of craft button 4
-			//buttonCraft4.SetActive(true);
+			buttonCraft4.SetActive(true);
 		}
 		else {
 			buttonCraft4.SetActive(false);
 		}
-		
-		if (GameHandler.gotGreenTokens >= 1 && GameHandler.gotBlueTokens >= 1) {   // controls visibility of craft button 5
-			//buttonCraft5.SetActive(true);
-		}
-		else {
-			buttonCraft5.SetActive(false);
-		}
-		
-		if (GameHandler.gotWhiteTokens >= 1 && GameHandler.gotBlueTokens >= 1) {   // controls visibility of craft button 6
-			//buttonCraft6.SetActive(true);
-		}
-		else {
-			buttonCraft6.SetActive(false);
-		}
     } // END OF UPDATE FUNCTION
 	
-	public void OpenCloseInventory(){
+	/*public void OpenCloseInventory(){
         if (InvIsOpen){ InventoryMenu.SetActive(false); }
         else { InventoryMenu.SetActive(true); }
         InvIsOpen = !InvIsOpen;
-    }
+    }*/
 	public void CraftObject1(){   // Dash
         GameHandler.gotRedTokens = GameHandler.gotRedTokens - 1;       //decreases required resource 1
 		GameHandler.gotBlueTokens = GameHandler.gotBlueTokens - 1;     //decreases required resource 2
@@ -146,21 +132,5 @@ public class NewInventory : MonoBehaviour {
 		Ability4_count.text = GameHandler.gotAbility4.ToString();
 		theGameHandler.updateStatsDisplay();
 		Debug.Log("A4 Created!");
-    }
-	public void CraftObject5(){
-        GameHandler.gotGreenTokens = GameHandler.gotGreenTokens - 1;
-		GameHandler.gotBlueTokens = GameHandler.gotBlueTokens - 1;
-		GameHandler.gotAbility5 = GameHandler.gotAbility5 + 1;
-		Ability5_count.text = GameHandler.gotAbility5.ToString();
-		theGameHandler.updateStatsDisplay();
-		Debug.Log("A5 Created!");
-    }
-	public void CraftObject6(){
-        GameHandler.gotWhiteTokens = GameHandler.gotWhiteTokens - 1;
-		GameHandler.gotBlueTokens = GameHandler.gotBlueTokens - 1;
-		GameHandler.gotAbility6 = GameHandler.gotAbility6 + 1;
-		Ability6_count.text = GameHandler.gotAbility6.ToString();
-		theGameHandler.updateStatsDisplay();
-		Debug.Log("A6 Created!");
     }
 }

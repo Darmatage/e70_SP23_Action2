@@ -37,8 +37,8 @@ public class GameHandler : MonoBehaviour {
 	  public static int gotAbility2 = 0;
 	  public static int gotAbility3 = 0;
 	  public static int gotAbility4 = 0;
-	  public static int gotAbility5 = 0;
-	  public static int gotAbility6 = 0;
+	  //public static int gotAbility5 = 0;
+	  //public static int gotAbility6 = 0;
 	  public static int howManyEnemies = 0;
       public GameObject tokensRedText;
 	  public GameObject tokensBlueText;
@@ -50,8 +50,8 @@ public class GameHandler : MonoBehaviour {
 	  private string Ability2Number;    // to convert the number of charges available for each ability
 	  private string Ability3Number;	// into text to display the count on the ability bar
 	  private string Ability4Number;
-	  private string Ability5Number;
-	  private string Ability6Number;
+	  //private string Ability5Number;
+	  //private string Ability6Number;
 	  
 	  private string RedTokenNumber;
 	  private string WhiteTokenNumber;
@@ -62,8 +62,8 @@ public class GameHandler : MonoBehaviour {
 	  public GameObject Ability2Count;
 	  public GameObject Ability3Count;
 	  public GameObject Ability4Count;
-	  public GameObject Ability5Count;
-	  public GameObject Ability6Count;
+	  //public GameObject Ability5Count;
+	  //public GameObject Ability6Count;
 
       public bool isDefending = false;
 	  
@@ -258,14 +258,7 @@ public class GameHandler : MonoBehaviour {
 			Text Ability4CountTemp = Ability4Count.GetComponent<Text>();
             Ability4Number = gotAbility4.ToString();
             Ability4CountTemp.text = Ability4Number;
-			
-			Text Ability5CountTemp = Ability5Count.GetComponent<Text>();
-            Ability5Number = gotAbility5.ToString();
-            Ability5CountTemp.text = Ability5Number;
-			
-			Text Ability6CountTemp = Ability6Count.GetComponent<Text>();
-            Ability6Number = gotAbility6.ToString();
-            Ability6CountTemp.text = Ability6Number;
+
       }
 
       public void playerDies(){
@@ -285,8 +278,6 @@ public class GameHandler : MonoBehaviour {
 			gotAbility2 = 0;
 			gotAbility3 = 0;
 			gotAbility4 = 0;
-			gotAbility5 = 0;
-			gotAbility6 = 0;
 			yield return new WaitForSeconds(3.5f);
             SceneManager.LoadScene("End_Lose");
 		}
@@ -313,8 +304,6 @@ public class GameHandler : MonoBehaviour {
 			gotAbility2 = 0;
 			gotAbility3 = 0;
 			gotAbility4 = 0;
-			gotAbility5 = 0;
-			gotAbility6 = 0;
 			
 			
             playerHealth = StartPlayerHealth;
