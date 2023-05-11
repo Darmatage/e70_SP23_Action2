@@ -8,10 +8,10 @@ public class statfixer : MonoBehaviour
     void Start()
     {
 		if (GameHandler.gotAbility1 == 0) {
-			GameHandler.gotAbility1 = 3;
+			GameHandler.gotAbility1 = 20;
 		}
 		if (GameHandler.gotAbility2 == 0) {
-			GameHandler.gotAbility2 = 3;
+			GameHandler.gotAbility2 = 20;
 		}
     }
 
