@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 1120516654761791555}
   m_Layer: 0
   m_Name: TargetingReticle
-  m_TagString: Untagged
+  m_TagString: Reticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -31,10 +31,12 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 	  //private bool foundPlatforms = false;
 	  
 	  public bool isDashing = false;		//tracks whether the player is dashing
+	  public bool isDying = false;
 	  
 	  private GameHandler GameHandler;
 
       void Start() {
+			isDying = false;
 			anim = GetComponentInChildren<Animator>();
 			if (GameObject.FindWithTag ("GameHandler") != null) {
                 GameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
@@ -53,8 +55,9 @@ public class PlayerMove_Rotate :  MonoBehaviour {
             float inputMagnitude = Mathf.Clamp01(moveDirection.magnitude);
             moveDirection.Normalize();
 
-            transform.Translate(moveDirection * moveSpeed * inputMagnitude * Time.deltaTime, Space.World);
-			
+            if (isDying == false) {
+				transform.Translate(moveDirection * moveSpeed * inputMagnitude * Time.deltaTime, Space.World);
+			}
 
 
             if (moveDirection != Vector2.zero) {

@@ -36,6 +36,7 @@ public class EnemyMeleeDamage : MonoBehaviour {
 
        void Die(){
             int lootRoll = Random.Range(1, 5);
+			anim.SetTrigger("Death");
 			if (lootRoll == 1) {
 				Instantiate (enemyLoot1, transform.position, Quaternion.identity);
 				//anim.SetTrigger ("KO");
@@ -63,7 +64,7 @@ public class EnemyMeleeDamage : MonoBehaviour {
        }
 
        IEnumerator Death(){
-              yield return new WaitForSeconds(0.25f);
+              yield return new WaitForSeconds(1f);
               Debug.Log("You Killed a baddie. You deserve loot!");
               Destroy(gameObject);
 			  gameHandler.updateStatsDisplay();

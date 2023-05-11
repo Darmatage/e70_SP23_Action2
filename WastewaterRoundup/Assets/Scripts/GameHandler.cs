@@ -14,6 +14,9 @@ public class GameHandler : MonoBehaviour {
       public static float volumeLevel = 1.0f;
       private Slider sliderVolumeCtrl;
 	  
+	  private GameObject O2Overlay;
+	  private GameObject HealthOverlay;
+	  
 	  public Image healthBar;
 	  public Image oxygenBar;
 	  
@@ -93,6 +96,12 @@ public class GameHandler : MonoBehaviour {
 			
 			healthBar.fillAmount = playerHealth / MaxPlayerHealth;
 			
+			O2Overlay = GameObject.FindWithTag("OverlayBlack");
+			HealthOverlay = GameObject.FindWithTag("OverlayRed");
+			
+			O2Overlay.SetActive(false);
+			HealthOverlay.SetActive(false);
+			
 			player = GameObject.FindWithTag("Player");
             sceneName = SceneManager.GetActiveScene().name;
             if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
@@ -123,10 +132,20 @@ public class GameHandler : MonoBehaviour {
                         }
                 }
 				
-				if(playerHealth >= 101) {
-					
+				if(playerHealth <= 33f) {
+					HealthOverlay.SetActive(true);
 				}
-        }
+				else {
+					HealthOverlay.SetActive(false);
+				}
+				
+				if(playerOxygen <= 33f) {
+					O2Overlay.SetActive(true);
+				}
+				else {
+					O2Overlay.SetActive(false);
+				}
+        } // END OF UPDATE FUNCTION
 		
 		void Pause(){
                 pauseMenuUI.SetActive(true);
@@ -206,9 +225,11 @@ public class GameHandler : MonoBehaviour {
             }
 
            if (playerHealth <= 0){
-                  playerHealth = 0;
-                  updateStatsDisplay();
-                  playerDies();
+                if (PM.isDying == false){  
+					playerHealth = 0;
+					updateStatsDisplay();
+					playerDies();
+				}
             }
       }
 	  
@@ -271,6 +292,7 @@ public class GameHandler : MonoBehaviour {
             //player.GetComponent<PlayerMove>().isAlive = false;
            // player.GetComponent<PlayerJump>().isAlive = false;
             anim.SetTrigger("Death");
+			PM.isDying = true;
 			gotRedTokens = 0;		// these intergers track the number of resources collected
 			gotBlueTokens = 0;		
 			gotGreenTokens = 0;

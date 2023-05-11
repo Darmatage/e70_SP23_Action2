@@ -13,16 +13,26 @@ public class PlayerAttackShoot : MonoBehaviour{
 	  private GameHandler m_GameHandler;
       public AudioSource soundEffect;
 	  
+	  private GameObject Reticle;
+	  
 
       void Start(){
            anim = gameObject.GetComponentInChildren<Animator>();
+		   Reticle = GameObject.FindWithTag("Reticle");
 		   if (GameObject.FindWithTag ("GameHandler") != null) {
                   m_GameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
               }
       }
 
       void Update(){
-           if (Time.time >= nextAttackTime){
+           if (GameHandler.gotAbility2 >= 1) {
+				Reticle.SetActive(true);
+		    }
+		   else {
+				Reticle.SetActive(false);
+		    }
+		   
+		   if (Time.time >= nextAttackTime){
                   //if (Input.GetKeyDown(KeyCode.Space))
                  if (Input.GetAxis("Shoot") > 0){
                         
