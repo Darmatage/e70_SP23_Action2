@@ -9,6 +9,7 @@ public class NPCDialogue : MonoBehaviour {
        public string[] dialogue; //enter dialogue lines into the inspector for each NPC
        public bool playerInRange = false; //could be used to display an image: hit [e] to talk
        public int dialogueLength;
+	   public AudioSource soundEffect;
 
        void Start(){
               //anim = gameObject.GetComponentInChildren<Animator>();
@@ -21,6 +22,7 @@ public class NPCDialogue : MonoBehaviour {
        private void OnTriggerEnter2D(Collider2D other){
               if (other.gameObject.tag == "Player") {
                      playerInRange = true;
+					 soundEffect.Play();
                      dialogueMNGR.LoadDialogueArray(dialogue, dialogueLength);
                      dialogueMNGR.OpenDialogue();
                      //anim.SetBool("Chat", true);
