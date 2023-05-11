@@ -22,15 +22,15 @@ public class GameHandler_PlayerFollowers : MonoBehaviour{
 	void Update(){
 		
 		// test add a follower:
-		if (Input.GetKeyDown("i")){
-			playerFollowers += 1;
-			AddToFollowerList(1);
-			GameHandler.updateStatsDisplay();
+		//if (Input.GetKeyDown("i")){
+		//	playerFollowers += 1;
+		//	AddToFollowerList(1);
+		//	GameHandler.updateStatsDisplay();
 		}
 		
 		// test remove a follower:
-		if (Input.GetKeyDown("o")){
-			RemoveFromFollowerList();
+		//if (Input.GetKeyDown("o")){
+		//	RemoveFromFollowerList();
 		}
 	}
 	
