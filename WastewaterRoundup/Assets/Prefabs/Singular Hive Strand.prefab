@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2222997249400917568}
   - component: {fileID: 1799972959518200032}
   - component: {fileID: -1899940325564308519}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Singular Hive Strand
   m_TagString: strand
   m_Icon: {fileID: 0}
