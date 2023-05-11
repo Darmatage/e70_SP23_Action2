@@ -89,7 +89,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.09, y: 1.03}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!50 &3383624106508747440
 Rigidbody2D:
@@ -254,6 +254,7 @@ MonoBehaviour:
   isGreen: 0
   art: {fileID: 0}
   healthBoost: 2
+  PM: {fileID: 0}
 --- !u!1 &7112530383344449312
 GameObject:
   m_ObjectHideFlags: 0

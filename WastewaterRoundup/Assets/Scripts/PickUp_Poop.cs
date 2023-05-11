@@ -34,7 +34,7 @@ public class PickUp_Poop : MonoBehaviour{
 					if (other.gameObject.tag == "Player"){
 						  alreadyGrabbed = true;
 						  GetComponent<Collider2D>().enabled = false;
-						  GetComponentInChildren<SpriteRenderer>().enabled = false;
+						  //GetComponentInChildren<SpriteRenderer>().enabled = false;
 						  //anim = other.GetComponentInChildren<Animator>;
 						  other.GetComponentInChildren<Animator>().SetTrigger("Chomp");
 						  Debug.Log("Pickup found!");
@@ -77,7 +77,7 @@ public class PickUp_Poop : MonoBehaviour{
         }
 
       IEnumerator DestroyThis(){
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.3f);
             Destroy(gameObject);
       }
 

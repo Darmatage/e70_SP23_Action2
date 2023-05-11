@@ -173,7 +173,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.09, y: 1.03}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!50 &-8770640300531346204
 Rigidbody2D:
@@ -214,6 +214,7 @@ MonoBehaviour:
   isGreen: 0
   art: {fileID: 0}
   healthBoost: 2
+  PM: {fileID: 0}
 --- !u!114 &4576325738915277741
 MonoBehaviour:
   m_ObjectHideFlags: 0
