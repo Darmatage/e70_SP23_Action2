@@ -173,9 +173,9 @@ public class GameHandler : MonoBehaviour {
                 volumeLevel = sliderValue;
         } 
 		
-		public void SetEffectLevel (float sliderValue){
-                effectmixer.SetFloat("effectVolumeLevel", Mathf.Log10 (sliderValue) * 20);
-                volumeLevel = sliderValue;
+		public void SetEffectLevel (float effectsliderValue){
+                effectmixer.SetFloat("MyExposedParam", Mathf.Log10 (effectsliderValue) * 20);
+                effectVolumeLevel = effectsliderValue;
         }
 	  
 
