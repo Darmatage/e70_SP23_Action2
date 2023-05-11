@@ -54,7 +54,8 @@ public class EnemyMoveHit : MonoBehaviour {
        public void OnCollisionEnter2D(Collision2D other){
               if (other.gameObject.tag == "Player") {
                      isAttacking = true;
-                     //anim.SetBool("Attack", true);
+                     // anim.SetBool("attack", true);
+                     anim.SetTrigger("attack");
                     
                      //rend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
                      //StartCoroutine(HitEnemy());
@@ -75,7 +76,7 @@ public class EnemyMoveHit : MonoBehaviour {
        public void OnCollisionExit2D(Collision2D other){
               if (other.gameObject.tag == "Player") {
                      isAttacking = false;
-                     //anim.SetBool("Attack", false);
+                     // anim.SetBool("attack", false);
               }
        }
 	   
