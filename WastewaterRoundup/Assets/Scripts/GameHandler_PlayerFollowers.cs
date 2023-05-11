@@ -55,9 +55,11 @@ public class GameHandler_PlayerFollowers : MonoBehaviour{
 	
 	public void RemoveFromFollowerList(){
 		//remove a follower from the list and destroy the GameObject
-		GameObject followerToRemove = playerFollowerList[playerFollowerList.Count - 1];
-		playerFollowerList.RemoveAt(playerFollowerList.Count - 1);
-		Destroy(followerToRemove);
+		if (playerFollowerList.Count > 0) {
+			GameObject followerToRemove = playerFollowerList[playerFollowerList.Count - 1];
+			playerFollowerList.RemoveAt(playerFollowerList.Count - 1);
+			Destroy(followerToRemove);
+		}
 	}
 	
 	public void RemoveTHISFromFollowerList(GameObject thisFollower){
