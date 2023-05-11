@@ -23,8 +23,8 @@ public class GameHandler_PlayerFollowers : MonoBehaviour{
 		
 		// test add a follower:
 		if (Input.GetKeyDown("i")){
-			playerFollowers += 0;
-			AddToFollowerList(0);
+		//	playerFollowers += 1;
+		//	AddToFollowerList(0);
 			GameHandler.updateStatsDisplay();
 		}
 		
