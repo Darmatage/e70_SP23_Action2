@@ -64,7 +64,6 @@ public class EnemyMeleeDamage : MonoBehaviour {
        }
 
        IEnumerator Death(){
-              anim.SetTrigger("death");
               yield return new WaitForSeconds(0.25f);
               Debug.Log("You Killed a baddie. You deserve loot!");
               Destroy(gameObject);
