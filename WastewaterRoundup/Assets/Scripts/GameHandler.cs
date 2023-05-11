@@ -201,7 +201,7 @@ public class GameHandler : MonoBehaviour {
 		if ((PM.isDashing == false)||(damage < 0)){
 			//check to add follower
 			if ((damage < 0)&&(playerHealth==119 || playerHealth==139 || playerHealth==159 || playerHealth==179 || playerHealth==199)){
-				GetComponent<GameHandler_PlayerFollowers>().AddToFollowerList(1);
+			//	GetComponent<GameHandler_PlayerFollowers>().AddToFollowerList(1);
 				GameHandler_PlayerFollowers.playerFollowers ++;
 			}
 			
@@ -220,7 +220,13 @@ public class GameHandler : MonoBehaviour {
 			else if ((is160)&&(playerHealth < 160)){GetComponent<GameHandler_PlayerFollowers>().RemoveFromFollowerList();is160=false;}
 			else if ((is180)&&(playerHealth < 180)){GetComponent<GameHandler_PlayerFollowers>().RemoveFromFollowerList();is180=false;}
 			else if ((is200)&&(playerHealth < 200)){GetComponent<GameHandler_PlayerFollowers>().RemoveFromFollowerList();is200=false;}
-			
+		
+			if ((!is200)&&(playerHealth > 199)){GetComponent<GameHandler_PlayerFollowers>().AddToFollowerList(1);is200=true;}
+			else if ((!is180)&&(playerHealth > 179)){GetComponent<GameHandler_PlayerFollowers>().AddToFollowerList(1);is180=true;}
+			else if ((!is160)&&(playerHealth > 159)){GetComponent<GameHandler_PlayerFollowers>().AddToFollowerList(1);is160=true;}
+			else if ((!is140)&&(playerHealth > 139)){GetComponent<GameHandler_PlayerFollowers>().AddToFollowerList(1);is140=true;}
+			else if ((!is120)&&(playerHealth > 119)){GetComponent<GameHandler_PlayerFollowers>().AddToFollowerList(1);is120=true;}		
+
 				  healthBar.fillAmount = playerHealth / MaxPlayerHealth;
                   if (playerHealth >=0){
                         updateStatsDisplay();
