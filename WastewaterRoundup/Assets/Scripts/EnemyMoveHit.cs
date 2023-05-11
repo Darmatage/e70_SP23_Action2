@@ -40,6 +40,7 @@ public class EnemyMoveHit : MonoBehaviour {
 
               if ((target != null) && (DistToPlayer <= attackRange)){
                      transform.position = Vector2.MoveTowards (transform.position, target.position, speed * Time.deltaTime);
+                    // Switch on chasing animation 
                     anim.SetBool("chasing", true);
                     //flip enemy to face player direction. Wrong direction? Swap the * -1.
                     if (target.position.x > gameObject.transform.position.x){
@@ -48,6 +49,7 @@ public class EnemyMoveHit : MonoBehaviour {
                                     gameObject.transform.localScale = new Vector2(scaleX * -1, gameObject.transform.localScale.y);
                     }
               }
+              // Switch off chasing animation 
                else { anim.SetBool("chasing", false);}
        }
 
