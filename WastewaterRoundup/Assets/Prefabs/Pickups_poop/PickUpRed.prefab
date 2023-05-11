@@ -213,7 +213,7 @@ MonoBehaviour:
   isWhite: 0
   isGreen: 0
   art: {fileID: 0}
-  healthBoost: 1
+  healthBoost: 2
 --- !u!114 &4576325738915277741
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -337,4 +337,4 @@ MonoBehaviour:
   isWhite: 0
   isGreen: 1
   art: {fileID: 0}
-  healthBoost: 1
+  healthBoost: 2

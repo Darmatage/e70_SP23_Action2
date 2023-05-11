@@ -59,7 +59,7 @@ public class NPC_PatrolRandomSpace : MonoBehaviour {
                      if (distance <= 5f){
                             if (gameHandler.playerOxygen > 5f){
                                    Debug.Log("Got Too Close: Reducing Oxygen By 5");
-                                   gameHandler.playerOxygen = gameHandler.playerOxygen - 5f;
+                                   gameHandler.playerOxygen = gameHandler.playerOxygen - 2f;
                             } else {
                                    Debug.Log("Very Weak: Oxygen 0");
                                    gameHandler.playerOxygen = 0f;

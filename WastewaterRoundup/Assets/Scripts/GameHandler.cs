@@ -23,6 +23,7 @@ public class GameHandler : MonoBehaviour {
 	  public float MaxPlayerHealth = 200f;
       // changing public static to just public
 	  public float playerOxygen = 100f;
+      public bool talkingToBanjo = false; 
       public float StartPlayerOxygen = 100f;
       public GameObject healthText;
 	  public GameObject oxygenText;

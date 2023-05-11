@@ -19,7 +19,7 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 	  private float nextPlatformTime = 0f;
 	  public float suckRadius = 10f;
 	  public int breathTime = 1;            // the time between each loss of oxygen
-	  public int breathCost = 2;			// how much O2 the player will lose each second
+	  public int breathCost = 1;			// how much O2 the player will lose each second
 	  public int platformOxygen = 17;		// how much O2 the player will gain each second while near O2 platforms
 	  public int oxygenDamage = 20;			//how much damage the player will take each second while out of O2
 	  public int platformRange = 6;		// how close the player must be to a platform to receive O2 from it
@@ -94,10 +94,12 @@ public class PlayerMove_Rotate :  MonoBehaviour {
 				}
 			}
 			
-				if (Time.time >= nextBreathTime) {					//  the game will only allow the player to lose O2 once per second.
-					GameHandler.playerOxygen = GameHandler.playerOxygen - breathCost;
-					GameHandler.updateStatsDisplay();
-					nextBreathTime = Time.time + breathTime;
+				if (Time.time >= nextBreathTime) {					//  the game will only allow the player to lose O2 once per second as long as the player is not talking to banjo.
+					if (!GameHandler.talkingToBanjo){
+						GameHandler.playerOxygen = GameHandler.playerOxygen - breathCost;
+						GameHandler.updateStatsDisplay();
+						nextBreathTime = Time.time + breathTime;
+					}
 				}
 			
 			
