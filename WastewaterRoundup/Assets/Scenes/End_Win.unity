@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f74a303df19a62c44aaa91a8f6e2d4ae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -504,7 +504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1470601964, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1480125253, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
       propertyPath: m_IsActive
@@ -520,6 +520,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1795863105, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 361693708217379915, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312169004161631662, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312169004161631662, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2915648353483603517, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2915648353483603517, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2915648353483603517, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3359882440274233050, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
@@ -540,7 +564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7707346006326118854, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7734741775869917973, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
       propertyPath: m_RootOrder
@@ -663,7 +687,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You cleansed the tank!
+  m_Text: 'You cleansed the tank!
+
+    Consider yourself a hero.'
 --- !u!222 &795481487
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -997,7 +1023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.745283, g: 0.16744848, b: 0.1511659, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1006,11 +1032,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 105
+    m_FontSize: 130
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 137
+    m_MinSize: 1
+    m_MaxSize: 175
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
