@@ -40,7 +40,7 @@ public class EnemyMoveHit : MonoBehaviour {
 
               if ((target != null) && (DistToPlayer <= attackRange)){
                      transform.position = Vector2.MoveTowards (transform.position, target.position, speed * Time.deltaTime);
-                    //anim.SetBool("Walk", true);
+                    anim.SetBool("chasing", true);
                     //flip enemy to face player direction. Wrong direction? Swap the * -1.
                     if (target.position.x > gameObject.transform.position.x){
                                    gameObject.transform.localScale = new Vector2(scaleX, gameObject.transform.localScale.y);
@@ -48,13 +48,14 @@ public class EnemyMoveHit : MonoBehaviour {
                                     gameObject.transform.localScale = new Vector2(scaleX * -1, gameObject.transform.localScale.y);
                     }
               }
-               //else { anim.SetBool("Walk", false);}
+               else { anim.SetBool("chasing", false);}
        }
 
        public void OnCollisionEnter2D(Collision2D other){
               if (other.gameObject.tag == "Player") {
                      isAttacking = true;
-                     //anim.SetBool("Attack", true);
+                     // anim.SetBool("attack", true);
+                     anim.SetTrigger("attack");
                     
                      //rend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
                      //StartCoroutine(HitEnemy());
@@ -75,7 +76,7 @@ public class EnemyMoveHit : MonoBehaviour {
        public void OnCollisionExit2D(Collision2D other){
               if (other.gameObject.tag == "Player") {
                      isAttacking = false;
-                     //anim.SetBool("Attack", false);
+                     // anim.SetBool("attack", false);
               }
        }
 	   
