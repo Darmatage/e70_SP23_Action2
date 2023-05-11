@@ -37,6 +37,7 @@ TagManager:
   - Reticle
   - OverlayBlack
   - OverlayRed
+  - PauseMenuEffectSlider
   layers:
   - Default
   - TransparentFX

@@ -7037,6 +7037,34 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 361693706716135186}
+    - target: {fileID: 2375697636608337620, guid: b6f8eb4a3ce236843b98569de951d3ab, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2375697636608337620, guid: b6f8eb4a3ce236843b98569de951d3ab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925127155680075079, guid: b6f8eb4a3ce236843b98569de951d3ab, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925127155680075079, guid: b6f8eb4a3ce236843b98569de951d3ab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925127155680075079, guid: b6f8eb4a3ce236843b98569de951d3ab, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429594582103552607, guid: b6f8eb4a3ce236843b98569de951d3ab, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 361693706716135186}
+    - target: {fileID: 6429594582103552607, guid: b6f8eb4a3ce236843b98569de951d3ab, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetEffectLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 6599525653055565708, guid: b6f8eb4a3ce236843b98569de951d3ab, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7263,6 +7291,7 @@ MonoBehaviour:
   GameisPaused: 0
   pauseMenuUI: {fileID: 8978610243153952630}
   mixer: {fileID: 24100000, guid: 4df9691430520554a89c8161db9d326f, type: 2}
+  effectmixer: {fileID: 24100000, guid: 12f7b608738ea964aa18ebc1fb5a8453, type: 2}
   healthBar: {fileID: 2531213508048805491}
   oxygenBar: {fileID: 3596660118632531807}
   StartPlayerHealth: 100

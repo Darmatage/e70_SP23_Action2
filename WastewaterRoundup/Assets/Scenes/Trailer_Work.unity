@@ -126326,6 +126326,10 @@ PrefabInstance:
       propertyPath: PM
       value: 
       objectReference: {fileID: 1173838647}
+    - target: {fileID: 361693706716135186, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: effectmixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 12f7b608738ea964aa18ebc1fb5a8453, type: 2}
     - target: {fileID: 1925465958380689836, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -126334,8 +126338,28 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2312169004161631662, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312169004161631662, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2805277695905032159, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2915648353483603517, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2915648353483603517, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2915648353483603517, guid: ae635065510b0da4498377c35bfb22c9, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3359882440274233050, guid: ae635065510b0da4498377c35bfb22c9, type: 3}

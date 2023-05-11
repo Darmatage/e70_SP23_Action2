@@ -11,8 +11,11 @@ public class GameHandler : MonoBehaviour {
 	  public bool GameisPaused = false;
       public GameObject pauseMenuUI;
       public AudioMixer mixer;
+	  public AudioMixer effectmixer;
       public static float volumeLevel = 1.0f;
+	  public static float effectVolumeLevel = 1.0f;
       private Slider sliderVolumeCtrl;
+	  private Slider sliderEffectVolumeCtrl;
 	  
 	  private GameObject O2Overlay;
 	  private GameObject HealthOverlay;
@@ -83,10 +86,16 @@ public class GameHandler : MonoBehaviour {
 
       void Awake (){
                 SetLevel (volumeLevel);
+				SetEffectLevel (effectVolumeLevel);
                 GameObject sliderTemp = GameObject.FindWithTag("PauseMenuSlider");
+				GameObject sliderEffectTemp = GameObject.FindWithTag("PauseMenuEffectSlider");
                 if (sliderTemp != null){
                         sliderVolumeCtrl = sliderTemp.GetComponent<Slider>();
                         sliderVolumeCtrl.value = volumeLevel;
+                }
+				if (sliderEffectTemp != null){
+                        sliderEffectVolumeCtrl = sliderEffectTemp.GetComponent<Slider>();
+                        sliderEffectVolumeCtrl.value = effectVolumeLevel;
                 }
         }
 	  
@@ -163,6 +172,11 @@ public class GameHandler : MonoBehaviour {
                 mixer.SetFloat("MusicVolume", Mathf.Log10 (sliderValue) * 20);
                 volumeLevel = sliderValue;
         } 
+		
+		public void SetEffectLevel (float sliderValue){
+                effectmixer.SetFloat("effectVolumeLevel", Mathf.Log10 (sliderValue) * 20);
+                volumeLevel = sliderValue;
+        }
 	  
 
       public void playerGetRedTokens(int newRedTokens){
