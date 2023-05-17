@@ -8,6 +8,9 @@ public class Hive_Strand : MonoBehaviour{
 	public int maxHits = 3;
 	public float hitDelay = 1.25f;
 	
+	private float chompDelay = 1.1f;
+	private float nextChompTime = 0f;
+	
 	public float knockBackForce = 10f;
 	private float nextStrandHitTime = 0f;
 
@@ -45,6 +48,16 @@ public class Hive_Strand : MonoBehaviour{
 		}
         
     }
+	
+	public void OnTriggerEnter2D (Collider2D other){
+		if (other.gameObject.tag == "Player"){
+			if (Time.time >= nextChompTime){
+				nextChompTime = Time.time + chompDelay;
+				other.GetComponentInChildren<Animator>().SetTrigger("Chomp");
+				GetComponent<AudioSource>().Play();
+			}
+		}
+	}
 	
 	public void HitStrand(){
 		numHits += 1;
