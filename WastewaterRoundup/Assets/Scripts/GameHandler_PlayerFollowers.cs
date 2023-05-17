@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameHandler_PlayerFollowers : MonoBehaviour{
 	
@@ -10,12 +11,16 @@ public class GameHandler_PlayerFollowers : MonoBehaviour{
 	public static int playerFollowers = 0;
 	public List<GameObject> playerFollowerList = new List<GameObject>();
 	private GameHandler GameHandler;
+	private string sceneName;
 	
 	void Start(){
 		if (GameObject.FindWithTag ("GameHandler") != null) {
                 GameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
         }
-		playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>();
+		sceneName = SceneManager.GetActiveScene().name;
+		if (sceneName != "MainMenu" && sceneName != "Credits" && sceneName != "End_Lose" && sceneName != "End_Win") {
+			playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>();
+		}
 		AddToFollowerList(playerFollowers);
 	}
 	
