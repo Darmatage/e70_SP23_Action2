@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class WarningFlash : MonoBehaviour{
 
 	public GameObject fadeHighlight;
-	private float pulseHold = 0.6f;
-	private float pulseDelay = .8f;
-	private float pulseSpeed = 0.02f;
+	private float pulseHold = 1f;
+	private float pulseDelay = .6f;
+	private float pulseSpeed = 0.025f;
 	private CanvasRenderer fadeHighlightRend;
 	private bool timeToFadeOut = false;
 	private bool timeToFadeIn = false;
@@ -17,7 +17,7 @@ public class WarningFlash : MonoBehaviour{
 	void Awake(){
 		fadeHighlightRend = fadeHighlight.GetComponent<CanvasRenderer>();
 		//fadeHighlightRend.material.color = new Color(2.5f, 2.2f, 0.3f, 0f);
-		fadeHighlightRend.SetAlpha(0.5f);
+		//fadeHighlightRend.SetAlpha(0.5f);
 	}
 
 	void Start(){
@@ -36,7 +36,7 @@ public class WarningFlash : MonoBehaviour{
 			}
 		}
 		else if (timeToFadeOut){
-			fadeAlpha -= pulseSpeed;
+			fadeAlpha -= (pulseSpeed / 2);
 			//fadeHighlightRend.material.color = new Color(2.5f, 2.2f, 0.3f, fadeAlpha);
 			fadeHighlightRend.SetAlpha(fadeAlpha);
 			if (fadeAlpha <= 0f){
