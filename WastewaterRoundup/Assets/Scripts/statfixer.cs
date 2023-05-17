@@ -13,6 +13,7 @@ public class statfixer : MonoBehaviour
 		if (GameHandler.gotAbility2 == 0) {
 			GameHandler.gotAbility2 = 20;
 		}
+		GameHandler.gotAbility3 = 10;
     }
 
     // Update is called once per frame
