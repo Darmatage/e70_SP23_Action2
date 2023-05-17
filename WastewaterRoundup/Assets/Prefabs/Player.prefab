@@ -285,6 +285,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5572962589383358820, guid: 5502962730fa72c4bbbb34a73519da36, type: 3}
+      propertyPath: platformRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572962589383358820, guid: 5502962730fa72c4bbbb34a73519da36, type: 3}
       propertyPath: playerSuckStrength
       value: 1.5
       objectReference: {fileID: 0}

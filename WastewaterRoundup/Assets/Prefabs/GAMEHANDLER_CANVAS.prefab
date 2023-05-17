@@ -6401,6 +6401,7 @@ GameObject:
   - component: {fileID: 6586406983472445674}
   - component: {fileID: 2663474748492860024}
   - component: {fileID: 7756399318777286920}
+  - component: {fileID: 4180412494067810648}
   m_Layer: 0
   m_Name: OuchOverlayRed
   m_TagString: OverlayRed
@@ -6466,6 +6467,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4180412494067810648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650662417748170389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b72793af473acd4e8ba0520b5e5c640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeHighlight: {fileID: 8650662417748170389}
 --- !u!1 &8674084371567075589
 GameObject:
   m_ObjectHideFlags: 0
@@ -6477,6 +6491,7 @@ GameObject:
   - component: {fileID: 5576606219958328767}
   - component: {fileID: 7457349347783142079}
   - component: {fileID: 4838473507348337998}
+  - component: {fileID: 2949283725773531300}
   m_Layer: 0
   m_Name: OuchOverlayBlack
   m_TagString: OverlayBlack
@@ -6542,6 +6557,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2949283725773531300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674084371567075589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b72793af473acd4e8ba0520b5e5c640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeHighlight: {fileID: 8674084371567075589}
 --- !u!1 &8687915424603855611
 GameObject:
   m_ObjectHideFlags: 0
