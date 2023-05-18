@@ -20,6 +20,9 @@ public class WaterShmutz : MonoBehaviour{
 	private Color shmutzColor;
 	private Rigidbody2D rb2D;
 
+	public bool lowOrderInLayer = false;
+
+
     void Start(){
 		upperLeft = GameObject.FindWithTag("waterShmutzUpLeft").GetComponent<Transform>();
 		lowerRight = GameObject.FindWithTag("waterShmutzDownRight").GetComponent<Transform>();
@@ -89,21 +92,28 @@ public class WaterShmutz : MonoBehaviour{
 			GameObject newShmutz = Instantiate(shmutzes[chooseShmutz], shmutzStartPos, Quaternion.identity);
 			newShmutz.transform.parent = waterShmutzFolder;
 			
-			//new object paramters
+			//new object parameters
 			float thisMoveSpeed = Random.Range(1f,3f);
-			int layerOrderRand = Random.Range(80,120);
-			float distColor = layerOrderRand * 0.006f;
-			shmutzColor = new Color(distColor,distColor,distColor,(layerOrderRand-20)*0.01f);
+			int layerOrderRand;
+			if (!lowOrderInLayer){
+				layerOrderRand = Random.Range(80,120);
+				float distColor = layerOrderRand * 0.006f;
+				shmutzColor = new Color(distColor,distColor,distColor,(layerOrderRand-20)*0.01f);
+			} 
+			else {
+				layerOrderRand = Random.Range(0,20);
+				float distColor = (layerOrderRand+80) * 0.006f;
+				shmutzColor = new Color(distColor,distColor,distColor,(layerOrderRand+80)*0.01f);
+			}
+			
 			float thisRotationSpeed = Random.Range(50,100);
 			
 			newShmutz.GetComponentInChildren<WaterShmutz>().isSystem = false;
 			newShmutz.GetComponentInChildren<WaterShmutz>().moveSpeed = thisMoveSpeed;//not yet used
 			newShmutz.GetComponentInChildren<WaterShmutz>().rotationSpeed = thisRotationSpeed;
 			newShmutz.GetComponentInChildren<SpriteRenderer>().color = shmutzColor;
-			newShmutz.GetComponentInChildren<SpriteRenderer>().sortingOrder = layerOrderRand;
-			
+			newShmutz.GetComponentInChildren<SpriteRenderer>().sortingOrder = layerOrderRand;	
 		}
-		
 	}
 	
 	

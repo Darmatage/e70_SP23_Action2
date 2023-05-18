@@ -326,31 +326,29 @@ public class GameHandler : MonoBehaviour {
 		}
 
       public void StartGame() {
-            SceneManager.LoadScene("Rishabh_Work");
+            SceneManager.LoadScene("Level1");
       }
 	  
 	  public void StartLate() {
-            SceneManager.LoadScene("Gratis_Work");
+            SceneManager.LoadScene("Level3");
       }
 
-      public void RestartGame() {
-            Time.timeScale = 1f;
-			SceneManager.LoadScene("MainMenu");
-			GameHandler_PlayerFollowers.playerFollowers = 0;
+	public void RestartGame() {
+		// Reset all static variables here, for new games:
+		Time.timeScale = 1f;
+		GameHandler_PlayerFollowers.playerFollowers = 0;
+		gotRedTokens = 0;		
+		gotBlueTokens = 0;		
+		gotGreenTokens = 0;
+		gotWhiteTokens = 0;
+		gotAbility1 = 0;		
+		gotAbility2 = 0;
+		gotAbility3 = 0;
+		gotAbility4 = 0;
+		playerHealth = StartPlayerHealth;
 			
-                // Please also reset all static variables here, for new games!
-			gotRedTokens = 0;		
-			gotBlueTokens = 0;		
-			gotGreenTokens = 0;
-			gotWhiteTokens = 0;
-			gotAbility1 = 0;		
-			gotAbility2 = 0;
-			gotAbility3 = 0;
-			gotAbility4 = 0;
-			
-			
-            playerHealth = StartPlayerHealth;
-		}
+		SceneManager.LoadScene("MainMenu");
+	}
 
       public void QuitGame() {
                 #if UNITY_EDITOR
