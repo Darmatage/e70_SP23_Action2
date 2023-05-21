@@ -356,9 +356,9 @@ RectTransform:
   m_Children:
   - {fileID: 1499303665}
   - {fileID: 227048667}
+  - {fileID: 1055287637}
   - {fileID: 968721411}
   - {fileID: 963755242}
-  - {fileID: 1055287637}
   m_Father: {fileID: 41235384}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -380,14 +380,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4528302, g: 0.37271366, b: 0.3050196, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 63bcb9a5901b74a4fbf43c4bfd6ed535, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 227048669}
   - component: {fileID: 227048668}
   m_Layer: 5
-  m_Name: TextCredits
+  m_Name: Text_creators
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,8 +440,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -386, y: 14}
-  m_SizeDelta: {x: 480, y: 300}
+  m_AnchoredPosition: {x: 0, y: 50}
+  m_SizeDelta: {x: 480, y: 280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &227048668
 MonoBehaviour:
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.86274517, g: 0.8588236, b: 0.7607844, a: 1}
+  m_Color: {r: 1, g: 0.99740565, b: 0.93773586, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -476,7 +476,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'MADE BY:
+  m_Text: 'CREATED BY:
 
     Gratis Maxwell
 
@@ -527,7 +527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5736822157463014333, guid: 9265185e92e07df4c9ee918db30bea25, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5736822157463014333, guid: 9265185e92e07df4c9ee918db30bea25, type: 3}
       propertyPath: m_AnchorMax.x
@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 968721413}
   - component: {fileID: 968721412}
   m_Layer: 5
-  m_Name: TextCredits (1)
+  m_Name: Text_Support
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -667,12 +667,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 69899767}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 249.5, y: 17.41}
-  m_SizeDelta: {x: 800.3, y: 300}
+  m_AnchoredPosition: {x: 341, y: -269}
+  m_SizeDelta: {x: 600, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &968721412
 MonoBehaviour:
@@ -709,13 +709,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'WITH SUPPORT FROM:
 
+    Jason Wiser and
 
-    Jason Wiser
-
-    &
-
-    The Harvard Extension
-    School'
+    The Harvard Extension School'
 --- !u!222 &968721413
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -741,7 +737,7 @@ GameObject:
   - component: {fileID: 1499303667}
   - component: {fileID: 1499303666}
   m_Layer: 5
-  m_Name: TextTitle
+  m_Name: TextCREDITS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1093,7 +1089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194053401014557864, guid: 039b7a116085afb47aca27f3561369ae, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1194053401014557864, guid: 039b7a116085afb47aca27f3561369ae, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1113,11 +1109,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194053401014557864, guid: 039b7a116085afb47aca27f3561369ae, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 1194053401014557864, guid: 039b7a116085afb47aca27f3561369ae, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 1194053401014557864, guid: 039b7a116085afb47aca27f3561369ae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1149,11 +1145,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194053401014557864, guid: 039b7a116085afb47aca27f3561369ae, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -409
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1194053401014557864, guid: 039b7a116085afb47aca27f3561369ae, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -190
+      value: -183
       objectReference: {fileID: 0}
     - target: {fileID: 1194053401014557864, guid: 039b7a116085afb47aca27f3561369ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
