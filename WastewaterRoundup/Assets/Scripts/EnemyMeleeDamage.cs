@@ -12,12 +12,15 @@ public class EnemyMeleeDamage : MonoBehaviour {
        public int maxHealth = 100;
        public int currentHealth;
 	   
+	   public bool isDying = false;
+	   
 	   private GameHandler gameHandler;
 
        void Start(){
               rend = GetComponentInChildren<Renderer>();
               anim = GetComponentInChildren<Animator>();
               currentHealth = maxHealth;
+			  isDying = false;
 			  
 			  if (GameObject.FindWithTag ("GameHandler") != null) {
                   gameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
@@ -30,7 +33,8 @@ public class EnemyMeleeDamage : MonoBehaviour {
               StartCoroutine(ResetColor());
               //anim.SetTrigger ("getHurt");
               if (currentHealth <= 0){
-                     Die();
+                     isDying = true;
+					 Die();
               }
        }
 
@@ -64,7 +68,7 @@ public class EnemyMeleeDamage : MonoBehaviour {
        }
 
        IEnumerator Death(){
-              yield return new WaitForSeconds(0.25f);
+              yield return new WaitForSeconds(0.4f);
               Debug.Log("You Killed a baddie. You deserve loot!");
               Destroy(gameObject);
 			  gameHandler.updateStatsDisplay();

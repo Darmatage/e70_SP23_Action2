@@ -19,12 +19,14 @@ public class EnemyMoveHit : MonoBehaviour {
 	   public float knockBackForce = 20f; 
 	   
 	   public PlayerMove_Rotate PM;
+	   public EnemyMeleeDamage EMD;
 
        void Start () {
               anim = GetComponentInChildren<Animator> ();
               rb2D = GetComponent<Rigidbody2D> ();
               scaleX = gameObject.transform.localScale.x;
-
+			
+			EMD = this.GetComponent<EnemyMeleeDamage> ();
               if (GameObject.FindGameObjectWithTag ("Player") != null) {
                      target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
 					 PM = GameObject.FindWithTag ("Player").GetComponent<PlayerMove_Rotate> ();
@@ -52,7 +54,8 @@ public class EnemyMoveHit : MonoBehaviour {
        }
 
        public void OnCollisionEnter2D(Collision2D other){
-              if (other.gameObject.tag == "Player") {
+            if (EMD.isDying == false) { 
+			  if (other.gameObject.tag == "Player") {
                      isAttacking = true;
                      // anim.SetBool("attack", true);
                      anim.SetTrigger("attack");
@@ -73,6 +76,7 @@ public class EnemyMoveHit : MonoBehaviour {
 						StartCoroutine(EndKnockBack(pushRB));
 					}
                 }
+			}
         } 
 
        public void OnCollisionExit2D(Collision2D other){

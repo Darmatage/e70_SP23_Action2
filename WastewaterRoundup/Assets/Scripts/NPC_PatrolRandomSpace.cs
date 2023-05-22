@@ -12,7 +12,7 @@ public class NPC_PatrolRandomSpace : MonoBehaviour {
        private float waitTime;
        public float startWaitTime = 0.5f;
 	   
-	   private GameObject radiusDisplay;
+	   public GameObject radiusDisplay;
 	   
 	   private Animator anim;
 
@@ -40,7 +40,7 @@ public class NPC_PatrolRandomSpace : MonoBehaviour {
               Debug.Log("Moving To: " + moveSpot);
               
               player = GameObject.FindGameObjectWithTag("Player");
-			  radiusDisplay = GameObject.FindGameObjectWithTag("SuckRadius");
+			  //radiusDisplay = GameObject.FindWithTag("SuckRadius");
             if (GameObject.FindWithTag("GameHandler") != null) {
                 gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler> ();
             }

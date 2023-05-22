@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 250
+  m_SortingOrder: 1300
   m_Sprite: {fileID: -718798886, guid: 1f7b88f22d85be741951ef089879d6b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -176,9 +176,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04328251, y: 0.43281198}
+  m_Offset: {x: -0.95961094, y: 0.43281317}
   serializedVersion: 2
-  m_Radius: 10.498014
+  m_Radius: 73.7246
 --- !u!114 &544373806215154431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   startWaitTime: 0.2
+  radiusDisplay: {fileID: 8160749680272438124}
   moveSpot: {x: 0, y: 0}
   minX: 1
   maxX: 2
@@ -218,6 +219,7 @@ MonoBehaviour:
   enemyLoot4: {fileID: 7112530383242181724, guid: 9e446eb069d4cf049a74abc72ea5b968, type: 3}
   maxHealth: 30
   currentHealth: 0
+  isDying: 0
 --- !u!1 &8160749680272438124
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +292,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 300
+  m_SortingOrder: 1200
   m_Sprite: {fileID: 21300000, guid: 03dc741880b4b3848a7cdac0c7ac43d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
